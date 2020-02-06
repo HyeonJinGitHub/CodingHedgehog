@@ -35,8 +35,8 @@
 ### 4. 객체 탐지
 1. 학습
     - [Darkflow](https://junyoung-jamong.github.io/deep/learning/2019/01/22/Darkflow%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%B4-YOLO%EB%AA%A8%EB%8D%B8-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%94%94%ED%85%8D%EC%85%98-%EA%B5%AC%ED%98%84-in-windows.html)
-    - predefined_classes.txt,labels.txt 내용 Pill로 변경
-    - tiny-yolo.cfg 내용 중 filters=30/classes=1로 변경
+    - predefined_classes.txt,labels.txt 내용 Pill, Not Pill로 변경
+    - tiny-yolo.cfg 내용 중 filters=(5+classes)*5=35/classes=2로 변경
     - data 디렉토리 아래에 annotations,dataset 디렉토리를 생성하고 라벨링된 데이터를 넣어줌
     - 명령어를 통해 학습시켜주고 TensorBoard를 통해 loss의 수렴정도를 확인함
 2. detection
