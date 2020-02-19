@@ -1,0 +1,94 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml:18:1-80:12
+MERGED from [org.tensorflow:tensorflow-android:1.13.1] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\tensorflow-android-1.13.1.aar\9831ccefeb2c7c2cdca62fb7dc001568\AndroidManifest.xml:2:1-8:12
+	package
+		ADDED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml:19:5-34
+	xmlns:android
+		ADDED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml:18:11-69
+uses-permission#android.permission.CAMERA
+ADDED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml:21:5-65
+	android:name
+		ADDED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml:21:22-62
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml:22:5-66
+	android:name
+		ADDED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml:22:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml:23:5-78
+	android:name
+		ADDED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml:23:22-76
+uses-feature#android.hardware.camera
+ADDED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml:25:5-60
+	android:name
+		ADDED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml:25:19-57
+uses-feature#android.hardware.camera.autofocus
+ADDED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml:26:5-70
+	android:name
+		ADDED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml:26:19-67
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml:27:5-80
+	android:name
+		ADDED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml:27:22-78
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml:28:5-79
+	android:name
+		ADDED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml:28:22-77
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml:29:5-71
+	android:name
+		ADDED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml:29:22-68
+application
+ADDED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml:31:5-78:19
+MERGED from [org.tensorflow:tensorflow-android:1.13.1] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\tensorflow-android-1.13.1.aar\9831ccefeb2c7c2cdca62fb7dc001568\AndroidManifest.xml:5:5-6:19
+MERGED from [org.tensorflow:tensorflow-android:1.13.1] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\tensorflow-android-1.13.1.aar\9831ccefeb2c7c2cdca62fb7dc001568\AndroidManifest.xml:5:5-6:19
+	android:label
+		ADDED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml:33:9-41
+	android:debuggable
+		ADDED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml:32:9-34
+	android:icon
+		ADDED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml:34:9-45
+	android:allowBackup
+		ADDED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml:31:18-44
+	android:theme
+		ADDED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml:35:9-45
+	android:usesCleartextTraffic
+		ADDED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml:36:9-44
+activity#org.tensorflow.demo.DetectorActivity
+ADDED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml:48:9-56:20
+	android:screenOrientation
+		ADDED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml:49:19-55
+	android:label
+		ADDED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml:50:19-66
+	android:name
+		ADDED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml:48:19-70
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER+category:name:android.intent.category.LEANBACK_LAUNCHER
+ADDED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml:51:13-55:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml:52:17-69
+	android:name
+		ADDED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml:52:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml:53:17-77
+	android:name
+		ADDED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml:53:27-74
+category#android.intent.category.LEANBACK_LAUNCHER
+ADDED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml:54:17-86
+	android:name
+		ADDED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml:54:27-83
+uses-sdk
+INJECTED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml
+INJECTED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml
+INJECTED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml
+INJECTED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml
+		ADDED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml
+		INJECTED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml
+		ADDED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml
+		INJECTED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml
+uses-permission#android.permission.READ_PHONE_STATE
+IMPLIED from C:\Users\zxd98\CodingHedgehog\android\android\AndroidManifest.xml:18:1-80:12 reason: tensorflow.contrib.android has a targetSdkVersion < 4
