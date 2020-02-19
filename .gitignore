@@ -1,0 +1,5 @@
+# .gitignore
+# 파일크기가 50MB이상이면 gitignore에 넣어주세요
+
+*.pb
+*.apk
