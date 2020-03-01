@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\zxd98\\Downloads\\tensorflow-master\\tensorflow-master\\tensorflow\\examples\\android\\gradleBuild\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ldltr-v21\\values-ldltr-v21.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\zxd98\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.1.0-alpha03.aar\\505005f7da307ddcf939ce5d897f83e3\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "112",
+                        "endOffsets": "163"
+                    }
+                }
+            ]
+        }
+    ]
+}
