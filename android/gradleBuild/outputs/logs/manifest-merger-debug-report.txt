@@ -1,0 +1,279 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:18:1-109:12
+MERGED from [com.google.android.material:material:1.1.0-alpha06] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\material-1.1.0-alpha06.aar\eac6d66b034f30c8ccaaa058995daa5c\AndroidManifest.xml:17:1-24:12
+MERGED from [org.tensorflow:tensorflow-android:1.13.1] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\tensorflow-android-1.13.1.aar\9831ccefeb2c7c2cdca62fb7dc001568\AndroidManifest.xml:2:1-8:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0-alpha02] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\viewpager2-1.0.0-alpha02.aar\d0c9e6d98cd513be978768087e67a4cb\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.appcompat:appcompat:1.1.0-alpha03] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\appcompat-1.1.0-alpha03.aar\505005f7da307ddcf939ce5d897f83e3\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\constraintlayout-1.1.3.aar\5eb4e20f36f9fe4e2bffd4077ef1ca1d\AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\legacy-support-v4-1.0.0.aar\006ac4325521830c3d574084e838b9f8\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0-alpha03] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\recyclerview-1.1.0-alpha03.aar\25e72d5e05ebcb42ee493f3ba7992cc5\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\cardview-1.0.0.aar\9c5bea6d2d6ac78aa5c786f2042ceb2e\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0-alpha03] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\appcompat-resources-1.1.0-alpha03.aar\612e0f87ba017cfb4b023a006b89337e\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\vectordrawable-animated-1.0.0.aar\67bd00b3f6099af99cd0de54c06b6490\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\legacy-support-core-ui-1.0.0.aar\b2cc6a5d6e6796fb0e6f174239b15595\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0-alpha01] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-1.1.0-alpha01.aar\1b3ddd7fbf2f959323a0c5ef604dbcb5\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\legacy-support-core-utils-1.0.0.aar\cc4ff62bc8d024f3cb0f258e6fa4088b\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.transition:transition:1.0.1] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\transition-1.0.1.aar\4b7f9fce6bd91d1de231820973539d2e\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0-alpha01] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\vectordrawable-1.1.0-alpha01.aar\75767bfcd3b88dcafcea5087aaedf361\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media:media:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\media-1.0.0.aar\1ceda6d81a3c4ef641a77d6ad2ea0f30\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\cursoradapter-1.0.0.aar\2b3a553620751746134be7e7db6adf9e\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\drawerlayout-1.0.0.aar\be4688a9e8aa00ce3e18059ec2e2671b\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.fragment:fragment:1.1.0-alpha05] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\fragment-1.1.0-alpha05.aar\8a8be2b6edde2067cf658e762c321436\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\viewpager-1.0.0.aar\1c7fc3fc20ac528b98d4cd2244e06906\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-1.0.0.aar\5fa8e01a7a5a8d2f8001ac3a45241881\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\customview-1.0.0.aar\666b622ec4c1fac3fece5c0941c03815\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-1.0.0.aar\131ff797ad2f7644338e34cff2f73b5e\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\interpolator-1.0.0.aar\a97c28c253af443d0cd61342771d08cb\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-1.0.0.aar\77492274997d696d52426937f7344707\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\documentfile-1.0.0.aar\a3519af32cadeedc497fb8507f89659d\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\loader-1.0.0.aar\07f3005ff4cba3e1f422deaa9ea28a16\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-1.0.0.aar\e74996f0aae01b72fcc799fd858133a2\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\print-1.0.0.aar\3403e6ce5e605a6d82ba1b543a82c418\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.0.0-alpha05] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\activity-1.0.0-alpha05.aar\32c1b702ac728ea3a602709012c29084\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.1.0-alpha05] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\core-1.1.0-alpha05.aar\6e23870a583b40df85ebd88adf24df0f\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0-alpha02] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.1.0-alpha02.aar\9000228125b0c059255851fccfbde8cb\AndroidManifest.xml:17:1-25:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-2.0.0.aar\947993c7cb10e6bdf26f98ec3feb1f05\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-core-2.0.0.aar\5209fc1fa872937c5bd9b2144f3fefff\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\core-runtime-2.0.0.aar\ae10cb4e4b4a881bed3e575fc356a832\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0-alpha03] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\lifecycle-runtime-2.1.0-alpha03.aar\6d8a3a0a0229bbae2035c38959766600\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.0.0-alpha02] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\savedstate-1.0.0-alpha02.aar\a1f27749f24f610d235f3dc6400c90ae\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0-alpha03] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\lifecycle-viewmodel-2.1.0-alpha03.aar\cf92a3a350be828c69863eb7300c682b\AndroidManifest.xml:17:1-22:12
+	package
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:19:5-34
+	xmlns:android
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:18:11-69
+uses-permission#android.permission.CAMERA
+ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:21:5-65
+	android:name
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:21:22-62
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:22:5-66
+	android:name
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:22:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:23:5-78
+	android:name
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:23:22-76
+uses-feature#android.hardware.camera
+ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:25:5-60
+	android:name
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:25:19-57
+uses-feature#android.hardware.camera.autofocus
+ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:26:5-70
+	android:name
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:26:19-67
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:27:5-80
+	android:name
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:27:22-78
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:28:5-79
+	android:name
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:28:22-77
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:29:5-71
+	android:name
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:29:22-68
+uses-permission#android.permission.VIBRATE
+ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:31:5-66
+	android:name
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:31:22-63
+uses-permission#android.permission.WAKE_LOCK
+ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:32:5-67
+	android:name
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:32:22-65
+uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
+ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:33:5-80
+	android:name
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:33:22-78
+uses-permission#android.permission.ACCESS_NOTIFICATION_POLICY
+ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:34:5-84
+	android:name
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:34:22-82
+uses-permission#android.permission.MODIFY_AUDIO_SETTINGS
+ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:35:5-79
+	android:name
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:35:22-77
+application
+ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:38:5-107:19
+MERGED from [com.google.android.material:material:1.1.0-alpha06] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\material-1.1.0-alpha06.aar\eac6d66b034f30c8ccaaa058995daa5c\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.1.0-alpha06] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\material-1.1.0-alpha06.aar\eac6d66b034f30c8ccaaa058995daa5c\AndroidManifest.xml:22:5-20
+MERGED from [org.tensorflow:tensorflow-android:1.13.1] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\tensorflow-android-1.13.1.aar\9831ccefeb2c7c2cdca62fb7dc001568\AndroidManifest.xml:5:5-6:19
+MERGED from [org.tensorflow:tensorflow-android:1.13.1] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\tensorflow-android-1.13.1.aar\9831ccefeb2c7c2cdca62fb7dc001568\AndroidManifest.xml:5:5-6:19
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\constraintlayout-1.1.3.aar\5eb4e20f36f9fe4e2bffd4077ef1ca1d\AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\constraintlayout-1.1.3.aar\5eb4e20f36f9fe4e2bffd4077ef1ca1d\AndroidManifest.xml:9:5-20
+MERGED from [androidx.core:core:1.1.0-alpha05] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\core-1.1.0-alpha05.aar\6e23870a583b40df85ebd88adf24df0f\AndroidManifest.xml:22:5-89
+MERGED from [androidx.core:core:1.1.0-alpha05] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\core-1.1.0-alpha05.aar\6e23870a583b40df85ebd88adf24df0f\AndroidManifest.xml:22:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0-alpha02] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.1.0-alpha02.aar\9000228125b0c059255851fccfbde8cb\AndroidManifest.xml:22:5-23:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0-alpha02] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.1.0-alpha02.aar\9000228125b0c059255851fccfbde8cb\AndroidManifest.xml:22:5-23:19
+	android:requestLegacyExternalStorage
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:47:9-52
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.1.0-alpha05] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\core-1.1.0-alpha05.aar\6e23870a583b40df85ebd88adf24df0f\AndroidManifest.xml:22:18-86
+	android:supportsRtl
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:43:9-35
+	android:label
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:41:9-41
+	android:debuggable
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:46:9-34
+	android:roundIcon
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:42:9-54
+	android:icon
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:40:9-48
+	android:allowBackup
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:39:9-35
+	android:theme
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:45:9-40
+	android:usesCleartextTraffic
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:44:9-44
+activity#org.tensorflow.demo.DetectorActivity
+ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:54:9-57:20
+	android:screenOrientation
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:55:13-49
+	android:label
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:56:13-60
+	android:name
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:54:19-70
+activity#org.tensorflow.demo.Search.MainActivity
+ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:59:9-64:20
+	android:name
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:59:19-54
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:60:13-63:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:61:17-69
+	android:name
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:61:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:62:17-77
+	android:name
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:62:27-74
+activity#org.tensorflow.demo.Alarm.ui.AddEditAlarmActivity
+ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:66:9-66
+	android:name
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:66:19-64
+activity#org.tensorflow.demo.Alarm.ui.AlarmLandingPageActivity
+ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:67:9-115
+	android:theme
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:67:69-113
+	android:name
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:67:19-68
+service#org.tensorflow.demo.Alarm.service.LoadAlarmsService
+ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:68:9-67
+	android:name
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:68:18-65
+receiver#org.tensorflow.demo.Alarm.service.LoadAlarmsReceiver
+ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:69:9-69
+	android:name
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:69:19-67
+receiver#org.tensorflow.demo.Alarm.service.AlarmReceiver
+ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:70:9-64
+	android:name
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:70:19-62
+receiver#org.tensorflow.demo.Alarm.service.BootReceiver
+ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:71:9-75:20
+	android:enabled
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:71:62-84
+	android:exported
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:71:85-108
+	android:name
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:71:19-61
+intent-filter#action:name:android.intent.action.BOOT_COMPLETED
+ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:72:13-74:29
+	android:priority
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:72:28-49
+action#android.intent.action.BOOT_COMPLETED
+ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:73:17-78
+	android:name
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:73:25-76
+uses-sdk
+INJECTED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml
+INJECTED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml
+MERGED from [com.google.android.material:material:1.1.0-alpha06] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\material-1.1.0-alpha06.aar\eac6d66b034f30c8ccaaa058995daa5c\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.1.0-alpha06] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\material-1.1.0-alpha06.aar\eac6d66b034f30c8ccaaa058995daa5c\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager2:viewpager2:1.0.0-alpha02] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\viewpager2-1.0.0-alpha02.aar\d0c9e6d98cd513be978768087e67a4cb\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager2:viewpager2:1.0.0-alpha02] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\viewpager2-1.0.0-alpha02.aar\d0c9e6d98cd513be978768087e67a4cb\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.1.0-alpha03] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\appcompat-1.1.0-alpha03.aar\505005f7da307ddcf939ce5d897f83e3\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.1.0-alpha03] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\appcompat-1.1.0-alpha03.aar\505005f7da307ddcf939ce5d897f83e3\AndroidManifest.xml:20:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\constraintlayout-1.1.3.aar\5eb4e20f36f9fe4e2bffd4077ef1ca1d\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\constraintlayout-1.1.3.aar\5eb4e20f36f9fe4e2bffd4077ef1ca1d\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\legacy-support-v4-1.0.0.aar\006ac4325521830c3d574084e838b9f8\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\legacy-support-v4-1.0.0.aar\006ac4325521830c3d574084e838b9f8\AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.1.0-alpha03] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\recyclerview-1.1.0-alpha03.aar\25e72d5e05ebcb42ee493f3ba7992cc5\AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.1.0-alpha03] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\recyclerview-1.1.0-alpha03.aar\25e72d5e05ebcb42ee493f3ba7992cc5\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\cardview-1.0.0.aar\9c5bea6d2d6ac78aa5c786f2042ceb2e\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\cardview-1.0.0.aar\9c5bea6d2d6ac78aa5c786f2042ceb2e\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0-alpha03] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\appcompat-resources-1.1.0-alpha03.aar\612e0f87ba017cfb4b023a006b89337e\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0-alpha03] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\appcompat-resources-1.1.0-alpha03.aar\612e0f87ba017cfb4b023a006b89337e\AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\vectordrawable-animated-1.0.0.aar\67bd00b3f6099af99cd0de54c06b6490\AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\vectordrawable-animated-1.0.0.aar\67bd00b3f6099af99cd0de54c06b6490\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\legacy-support-core-ui-1.0.0.aar\b2cc6a5d6e6796fb0e6f174239b15595\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\legacy-support-core-ui-1.0.0.aar\b2cc6a5d6e6796fb0e6f174239b15595\AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0-alpha01] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-1.1.0-alpha01.aar\1b3ddd7fbf2f959323a0c5ef604dbcb5\AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0-alpha01] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-1.1.0-alpha01.aar\1b3ddd7fbf2f959323a0c5ef604dbcb5\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\legacy-support-core-utils-1.0.0.aar\cc4ff62bc8d024f3cb0f258e6fa4088b\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\legacy-support-core-utils-1.0.0.aar\cc4ff62bc8d024f3cb0f258e6fa4088b\AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.0.1] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\transition-1.0.1.aar\4b7f9fce6bd91d1de231820973539d2e\AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.0.1] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\transition-1.0.1.aar\4b7f9fce6bd91d1de231820973539d2e\AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0-alpha01] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\vectordrawable-1.1.0-alpha01.aar\75767bfcd3b88dcafcea5087aaedf361\AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0-alpha01] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\vectordrawable-1.1.0-alpha01.aar\75767bfcd3b88dcafcea5087aaedf361\AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\media-1.0.0.aar\1ceda6d81a3c4ef641a77d6ad2ea0f30\AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\media-1.0.0.aar\1ceda6d81a3c4ef641a77d6ad2ea0f30\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\cursoradapter-1.0.0.aar\2b3a553620751746134be7e7db6adf9e\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\cursoradapter-1.0.0.aar\2b3a553620751746134be7e7db6adf9e\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\drawerlayout-1.0.0.aar\be4688a9e8aa00ce3e18059ec2e2671b\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\drawerlayout-1.0.0.aar\be4688a9e8aa00ce3e18059ec2e2671b\AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.1.0-alpha05] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\fragment-1.1.0-alpha05.aar\8a8be2b6edde2067cf658e762c321436\AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.1.0-alpha05] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\fragment-1.1.0-alpha05.aar\8a8be2b6edde2067cf658e762c321436\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\viewpager-1.0.0.aar\1c7fc3fc20ac528b98d4cd2244e06906\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\viewpager-1.0.0.aar\1c7fc3fc20ac528b98d4cd2244e06906\AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-1.0.0.aar\5fa8e01a7a5a8d2f8001ac3a45241881\AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-1.0.0.aar\5fa8e01a7a5a8d2f8001ac3a45241881\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\customview-1.0.0.aar\666b622ec4c1fac3fece5c0941c03815\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\customview-1.0.0.aar\666b622ec4c1fac3fece5c0941c03815\AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-1.0.0.aar\131ff797ad2f7644338e34cff2f73b5e\AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-1.0.0.aar\131ff797ad2f7644338e34cff2f73b5e\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\interpolator-1.0.0.aar\a97c28c253af443d0cd61342771d08cb\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\interpolator-1.0.0.aar\a97c28c253af443d0cd61342771d08cb\AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-1.0.0.aar\77492274997d696d52426937f7344707\AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-1.0.0.aar\77492274997d696d52426937f7344707\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\documentfile-1.0.0.aar\a3519af32cadeedc497fb8507f89659d\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\documentfile-1.0.0.aar\a3519af32cadeedc497fb8507f89659d\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\loader-1.0.0.aar\07f3005ff4cba3e1f422deaa9ea28a16\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\loader-1.0.0.aar\07f3005ff4cba3e1f422deaa9ea28a16\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-1.0.0.aar\e74996f0aae01b72fcc799fd858133a2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-1.0.0.aar\e74996f0aae01b72fcc799fd858133a2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\print-1.0.0.aar\3403e6ce5e605a6d82ba1b543a82c418\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\print-1.0.0.aar\3403e6ce5e605a6d82ba1b543a82c418\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.0.0-alpha05] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\activity-1.0.0-alpha05.aar\32c1b702ac728ea3a602709012c29084\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.0.0-alpha05] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\activity-1.0.0-alpha05.aar\32c1b702ac728ea3a602709012c29084\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.1.0-alpha05] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\core-1.1.0-alpha05.aar\6e23870a583b40df85ebd88adf24df0f\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.1.0-alpha05] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\core-1.1.0-alpha05.aar\6e23870a583b40df85ebd88adf24df0f\AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0-alpha02] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.1.0-alpha02.aar\9000228125b0c059255851fccfbde8cb\AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0-alpha02] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.1.0-alpha02.aar\9000228125b0c059255851fccfbde8cb\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-2.0.0.aar\947993c7cb10e6bdf26f98ec3feb1f05\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-2.0.0.aar\947993c7cb10e6bdf26f98ec3feb1f05\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-core-2.0.0.aar\5209fc1fa872937c5bd9b2144f3fefff\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-core-2.0.0.aar\5209fc1fa872937c5bd9b2144f3fefff\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\core-runtime-2.0.0.aar\ae10cb4e4b4a881bed3e575fc356a832\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\core-runtime-2.0.0.aar\ae10cb4e4b4a881bed3e575fc356a832\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0-alpha03] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\lifecycle-runtime-2.1.0-alpha03.aar\6d8a3a0a0229bbae2035c38959766600\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0-alpha03] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\lifecycle-runtime-2.1.0-alpha03.aar\6d8a3a0a0229bbae2035c38959766600\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.0.0-alpha02] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\savedstate-1.0.0-alpha02.aar\a1f27749f24f610d235f3dc6400c90ae\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.0.0-alpha02] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\savedstate-1.0.0-alpha02.aar\a1f27749f24f610d235f3dc6400c90ae\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0-alpha03] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\lifecycle-viewmodel-2.1.0-alpha03.aar\cf92a3a350be828c69863eb7300c682b\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0-alpha03] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\lifecycle-viewmodel-2.1.0-alpha03.aar\cf92a3a350be828c69863eb7300c682b\AndroidManifest.xml:20:5-44
+INJECTED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml
+INJECTED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml
+		INJECTED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml
+		ADDED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml
+		INJECTED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml
+uses-permission#android.permission.READ_PHONE_STATE
+IMPLIED from C:\Users\zxd98\Downloads\tensorflow-master\tensorflow-master\tensorflow\examples\android\AndroidManifest.xml:18:1-109:12 reason: tensorflow.contrib.android has a targetSdkVersion < 4

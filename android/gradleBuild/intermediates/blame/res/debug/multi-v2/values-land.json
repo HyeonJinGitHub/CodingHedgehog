@@ -1,0 +1,38 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\zxd98\\Downloads\\tensorflow-master\\tensorflow-master\\tensorflow\\examples\\android\\gradleBuild\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\zxd98\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.1.0-alpha03.aar\\505005f7da307ddcf939ce5d897f83e3\\res\\values-land\\values-land.xml",
+                    "from": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,125,196",
+                        "endColumns": "69,70,67",
+                        "endOffsets": "120,191,259"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\zxd98\\.gradle\\caches\\transforms-1\\files-1.1\\material-1.1.0-alpha06.aar\\eac6d66b034f30c8ccaaa058995daa5c\\res\\values-land\\values-land.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "55,128,198,270,340",
+                        "endLines": "2,3,4,5,9",
+                        "endColumns": "72,69,71,69,10",
+                        "endOffsets": "123,193,265,335,507"
+                    },
+                    "to": {
+                        "startLines": "5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "264,337,407,479,549",
+                        "endLines": "5,6,7,8,12",
+                        "endColumns": "72,69,71,69,10",
+                        "endOffsets": "332,402,474,544,716"
+                    }
+                }
+            ]
+        }
+    ]
+}
