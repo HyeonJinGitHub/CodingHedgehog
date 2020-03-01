@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/drug_name_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="20dp"
+            android:text="알약이름"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintLeft_toRightOf="@+id/drug_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <EditText
+            android:id="@+id/drug_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/border"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintRight_toLeftOf="@id/drug_name_text"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/drug_print_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="20dp"
+            android:text="식별표시"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintLeft_toRightOf="@+id/drug_print"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/drug_name_text" />
+
+        <EditText
+            android:id="@+id/drug_print"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/border"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintRight_toLeftOf="@id/drug_print_text"
+            app:layout_constraintTop_toBottomOf="@+id/drug_name" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="50dp"
+            android:text="색상"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/drug_print" />
+
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="60dp"
+            android:layout_height="29dp"
+            android:layout_marginStart="200dp"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="10dp"
+            android:text="포함"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/drug_print" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:text="일치"
+            app:layout_constraintStart_toEndOf="@+id/radioButton"
+            app:layout_constraintTop_toTopOf="@+id/radioButton" />
+
+        <TableLayout
+            android:id="@+id/tableLayout"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginRight="25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView7">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ToggleButton
+                    android:background="@drawable/c_btn1_selector"
+                    android:textSize="0dp"
+                    android:id="@+id/Cbtn1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textOn="하양"
+                    android:textOff="하양"/>
+
+                <ToggleButton
+                    android:background="@drawable/c_btn2_selector"
+                    android:textOn="노랑"
+                    android:textOff="노랑"
+                    android:id="@+id/Cbtn2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="노랑"
+                    android:textSize="0dp" />
+
+                <ToggleButton
+                    android:background="@drawable/c_btn3_selector"
+                    android:textOn="주황"
+                    android:textOff="주황"
+                    android:id="@+id/Cbtn3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="주황"
+                    android:textSize="0dp" />
+
+                <ToggleButton
+                    android:background="@drawable/c_btn4_selector"
+                    android:textOn="분홍"
+                    android:textOff="분홍"
+                    android:id="@+id/Cbtn4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="분홍"
+                    android:textSize="0dp" />
+
+                <ToggleButton
+                    android:background="@drawable/c_btn5_selector"
+                    android:textOn="빨강"
+                    android:textOff="빨강"
+                    android:id="@+id/Cbtn5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="빨강"
+                    android:textSize="0dp" />
+
+                <ToggleButton
+                    android:background="@drawable/c_btn6_selector"
+                    android:textOn="갈색"
+                    android:textOff="갈색"
+                    android:id="@+id/Cbtn6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="갈색"
+                    android:textSize="0dp" />
+
+                <ToggleButton
+                    android:background="@drawable/c_btn7_selector"
+                    android:textOn="연두"
+                    android:textOff="연두"
+                    android:id="@+id/Cbtn7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="연두"
+                    android:textSize="0dp" />
+
+                <ToggleButton
+                    android:background="@drawable/c_btn8_selector"
+                    android:textOn="초록"
+                    android:textOff="초록"
+                    android:id="@+id/Cbtn8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="초록"
+                    android:textSize="0dp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ToggleButton
+                    android:background="@drawable/c_btn9_selector"
+                    android:textOn="청록"
+                    android:textOff="청록"
+                    android:id="@+id/Cbtn9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="청록"
+                    android:textSize="0dp" />
+
+                <ToggleButton
+                    android:background="@drawable/c_btn10_selector"
+                    android:textOn="파랑"
+                    android:textOff="파랑"
+                    android:id="@+id/Cbtn10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="파랑"
+                    android:textSize="0dp" />
+
+                <ToggleButton
+                    android:background="@drawable/c_btn11_selector"
+                    android:textOn="남색"
+                    android:textOff="남색"
+                    android:id="@+id/Cbtn11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="남색"
+                    android:textSize="0dp" />
+
+                <ToggleButton
+                    android:background="@drawable/c_btn12_selector"
+                    android:textOn="자주"
+                    android:textOff="자주"
+                    android:id="@+id/Cbtn12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="자주"
+                    android:textSize="0dp" />
+
+                <ToggleButton
+                    android:background="@drawable/c_btn13_selector"
+                    android:textOn="보라"
+                    android:textOff="보라"
+                    android:id="@+id/Cbtn13"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="보라"
+                    android:textSize="0dp" />
+
+                <ToggleButton
+                    android:background="@drawable/c_btn14_selector"
+                    android:textOn="회색"
+                    android:textOff="회색"
+                    android:id="@+id/Cbtn14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="회색"
+                    android:textSize="0dp" />
+
+                <ToggleButton
+                    android:background="@drawable/c_btn15_selector"
+                    android:textOn="검정"
+                    android:textOff="검정"
+                    android:id="@+id/Cbtn15"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="검정"
+                    android:textSize="0dp" />
+
+                <ToggleButton
+                    android:background="@drawable/c_btn16_selector"
+                    android:textOn="투명"
+                    android:textOff="투명"
+                    android:id="@+id/Cbtn16"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="투명"
+                    android:textSize="0dp" />
+            </TableRow>
+        </TableLayout>
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="20dp"
+            android:text="모양"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+
+        <TableLayout
+            android:id="@+id/tableLayout2"
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3">
+
+            <TableRow
+                android:id="@+id/srow1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ToggleButton
+                    android:id="@+id/Sbtn1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/s_btn1_selector"
+                    android:text="원형"
+                    android:textOff="원형"
+                    android:textOn="원형"
+                    android:textSize="0dp" />
+
+                <ToggleButton
+                    android:id="@+id/Sbtn2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/s_btn2_selector"
+                    android:text="타원형"
+                    android:textOff="타원형"
+                    android:textOn="타원형"
+                    android:textSize="0dp" />
+
+                <ToggleButton
+                    android:id="@+id/Sbtn3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/s_btn3_selector"
+                    android:text="삼각형"
+                    android:textOff="삼각형"
+                    android:textOn="삼각형"
+                    android:textSize="0dp" />
+
+                <ToggleButton
+                    android:id="@+id/Sbtn4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/s_btn4_selector"
+                    android:text="사각형"
+                    android:textOff="사각형"
+                    android:textOn="사각형"
+                    android:textSize="0dp" />
+
+
+                <ToggleButton
+                    android:id="@+id/Sbtn5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/s_btn5_selector"
+                    android:text="마름모형"
+                    android:textOff="마름모형"
+                    android:textOn="마름모형"
+                    android:textSize="0dp" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/srow2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ToggleButton
+                    android:id="@+id/Sbtn6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/s_btn6_selector"
+                    android:text="장방형"
+                    android:textOff="장방형"
+                    android:textOn="장방형"
+                    android:textSize="0dp" />
+
+                <ToggleButton
+                    android:id="@+id/Sbtn7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/s_btn7_selector"
+                    android:text="오각형"
+                    android:textOff="오각형"
+                    android:textOn="오각형"
+                    android:textSize="0dp" />
+
+                <ToggleButton
+                    android:id="@+id/Sbtn8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/s_btn8_selector"
+                    android:text="육각형"
+                    android:textOff="육각형"
+                    android:textOn="육각형"
+                    android:textSize="0dp" />
+
+                <ToggleButton
+                    android:id="@+id/Sbtn9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/s_btn9_selector"
+                    android:text="팔각형"
+                    android:textOff="팔각형"
+                    android:textOn="팔각형"
+                    android:textSize="0dp" />
+
+                <ToggleButton
+                    android:id="@+id/Sbtn10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/s_btn10_selector"
+                    android:text="기타"
+                    android:textOff="기타"
+                    android:textOn="기타"
+                    android:textSize="0dp" />
+            </TableRow>
+        </TableLayout>
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="검색"
+            app:layout_constraintLeft_toRightOf="@id/button2"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tableLayout2" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="초기화"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/button1"
+            app:layout_constraintTop_toBottomOf="@+id/tableLayout2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
