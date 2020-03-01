@@ -1,43 +1,36 @@
 package org.tensorflow.demo.Alarm.ui;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import org.tensorflow.demo.Alarm.adapter.AlarmsAdapter;
 import org.tensorflow.demo.Alarm.model.Alarm;
 import org.tensorflow.demo.Alarm.service.LoadAlarmsReceiver;
 import org.tensorflow.demo.Alarm.service.LoadAlarmsService;
-import org.tensorflow.demo.Alarm.util.AlarmUtils;
 import org.tensorflow.demo.Alarm.view.DividerItemDecoration;
 import org.tensorflow.demo.Alarm.view.EmptyRecyclerView;
+import org.tensorflow.demo.Alarm.util.AlarmUtils;
 import org.tensorflow.demo.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
 import static org.tensorflow.demo.Alarm.ui.AddEditAlarmActivity.ADD_ALARM;
 import static org.tensorflow.demo.Alarm.ui.AddEditAlarmActivity.buildAddEditAlarmActivityIntent;
-
-/*
-import com.github.ppartisan.simplealarms.adapter.AlarmsAdapter;
-import com.github.ppartisan.simplealarms.model.Alarm;
-import com.github.ppartisan.simplealarms.service.LoadAlarmsReceiver;
-import com.github.ppartisan.simplealarms.service.LoadAlarmsService;
-import com.github.ppartisan.simplealarms.util.AlarmUtils;
-import com.github.ppartisan.simplealarms.view.DividerItemDecoration;
-import com.github.ppartisan.simplealarms.view.EmptyRecyclerView;
-*/
 
 
 public final class MainFragment extends Fragment
@@ -98,3 +91,4 @@ public final class MainFragment extends Fragment
     }
 
 }
+

@@ -50,6 +50,9 @@
         android:testOnly="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true" >
+        <activity
+            android:name="org.tensorflow.demo.Search.PillDetailActivity"
+            android:label="@string/title_activity_pill_detail" />
 
         <!-- <android:theme="@style/MaterialTheme"  android:debuggable="true"/> -->
 

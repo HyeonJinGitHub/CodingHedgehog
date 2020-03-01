@@ -58,5 +58,9 @@
 
     <!-- Notification -->
     <string name="channel_name">Simple Alarms</string>
+    <string name="title_activity_pill_detail">상세정보</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

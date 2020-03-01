@@ -45,6 +45,9 @@
         android:theme="@style/AppTheme"
         android:debuggable="true"
         android:requestLegacyExternalStorage="true">
+        <activity
+            android:name=".Search.PillDetailActivity"
+            android:label="@string/title_activity_pill_detail"></activity>
 
 
         <!-- <android:theme="@style/MaterialTheme"  android:debuggable="true"/> -->

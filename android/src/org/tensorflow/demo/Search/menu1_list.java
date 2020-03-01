@@ -1,15 +1,18 @@
 package org.tensorflow.demo.Search;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -18,6 +21,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.tensorflow.demo.R;
 
@@ -33,7 +38,11 @@ import java.util.List;
 import static java.lang.Integer.parseInt;
 import static java.lang.Integer.valueOf;
 import static java.lang.Thread.sleep;
+import static org.tensorflow.demo.Search.download.count;
 import static org.tensorflow.demo.Search.download.list;
+import static org.tensorflow.demo.Search.download.totCnt;
+import static org.tensorflow.demo.Search.menu1_list.listCnt;
+import static org.tensorflow.demo.Search.menu1_list.once;
 
 
 /**
@@ -97,12 +106,15 @@ public class menu1_list extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    public static int listCnt;
     private TextView selected_item_textview;
     //static List<String> list = new ArrayList<>();
 
     // TODO: Rename and change types of parameters
     public static String mParam1;
     public static String mParam2;
+
+    public static int once = 0;
 
     private OnFragmentInteractionListener mListener;
 
@@ -135,6 +147,7 @@ public class menu1_list extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -145,30 +158,70 @@ public class menu1_list extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        try {
-            //ConnectivityManager conManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
-            //NetworkInfo netInfo = conManager.getActiveNetworkInfo();
 
-            /// if (netInfo != null && netInfo.isConnected()) {
-            new download().execute();
-            sleep(1200);        //900이였음
-                    /*} else {
-                        Toast toast = Toast.makeText(getApplicationContext(), "Network isn't connected", Toast.LENGTH_LONG);
-                        toast.show();
-                    }*/
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         // Inflate the layout for this fragment
         final ConstraintLayout v = (ConstraintLayout)inflater.inflate(R.layout.fragment_menu1_list, container, false);
 
         final ListView listview = (ListView)v.findViewById(R.id.listView);
         //selected_item_textview = (TextView)v.findViewById(R.id.selected_item_textview);
-
-
+        View footer = getLayoutInflater().inflate(R.layout.listview_footer,null,false);
         //리스트뷰와 리스트를 연결하기 위해 사용되는 어댑터
         final CustomList adapter = new CustomList(getActivity());
 
+        final FloatingActionButton fab = v.findViewById(R.id.fab);
+        fab.setOnClickListener(view -> {
+            listview.smoothScrollToPosition(0);
+        });
+
+        if(once==0){
+            list.clear();
+            adapter.notifyDataSetChanged();
+        }
+        listCnt = 10;
+
+        try {
+            new download().execute();
+            sleep(2000);        //900이였음
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        //초기화
+        if(valueOf(totCnt)>10){
+            listCnt = 10;
+        }else{
+            listCnt = valueOf(totCnt);
+        }
+
+        Button moreBtn = (Button)footer.findViewById(R.id.add);
+        moreBtn.setOnClickListener(new Button.OnClickListener(){
+            public void onClick(View v) {
+                Log.i("pill","더보기 클릭"+Integer.parseInt(totCnt));
+                try {
+                    if(Integer.parseInt(totCnt)>10){
+                        totCnt= Integer.toString(Integer.parseInt(totCnt)-10);
+                        listCnt = listCnt+10;
+                        Log.i("pill","totCnt : "+ totCnt);
+                        //count = count-10;
+                    }else{
+                        listCnt = listCnt+valueOf(totCnt);
+                        //count=1;
+                    }
+                    new download().execute();
+                    sleep(1800);        //900이였음
+                    Log.i("pill", String.valueOf(listCnt));
+
+                    adapter.notifyDataSetChanged();
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Log.i("pill","exception 발생");
+                }
+            }
+        });
+
+        if(valueOf(totCnt)>10) {
+            listview.addFooterView(footer);
+        }
         //리스트뷰의 어댑터를 지정해준다.
         listview.setAdapter(adapter);
 
@@ -178,24 +231,23 @@ public class menu1_list extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView,
                                     View view, int position, long id) {
-                //클릭한 아이템의 문자열을 가져옴
-                //String selected_item = (String)adapterView.getItemAtPosition(position);
-                //((MainActivity)getActivity()).replaceFragment(DetailFragment.newInstance(list.get(position).getDrug_code(),list.get(position).getDrug_name()));
-                //((MainActivity)getActivity()).replaceFragment(DetailFragment.newInstance());
 
-                //adapter.notifyDataSetChanged();
+                /* fragment일때
                 FragmentManager fragmentManager = getFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                fragmentTransaction.replace(R.id.frame_layout,DetailFragment.newInstance(list.get(position).getDrug_code(),list.get(position).getDrug_name()));
-
-               // fragmentTransaction.replace(1,DetailFragment.newInstance(list.get(position).getDrug_code(),list.get(position).getDrug_name()));
                 fragmentTransaction.commit();
-                //((MainActivity)getActivity()).replaceFragment(DetailFragment.newInstance());
+                 */
 
+                Intent intent = new Intent(getActivity(),PillDetailActivity.class);
+                intent.putExtra("drug_code",list.get(position).getDrug_code());
+                intent.putExtra("drug_name",list.get(position).getDrug_name());
+                startActivity(intent);
             }
         });
         return v;
     }
+
 
     /**
      * This interface must be implemented by activities that contain this
@@ -216,13 +268,16 @@ public class menu1_list extends Fragment {
 class CustomList extends ArrayAdapter<String>{
     private final Activity context;
     public CustomList(Activity context ) {
-        super(context,R.layout.listiem);
+        super(context, R.layout.listiem);
         Log.i("pill","ok");
         //super(context, R.layout.listiem, download.getList());
         this.context = context;
     }
     public int getCount(){
-        return list.size();
+        Log.i("pill", "listcount"+String.valueOf(listCnt));
+
+        return listCnt;
+        //list.size();
     }
     @Override
     public View getView(int position, View view, ViewGroup parent) {
@@ -250,7 +305,8 @@ class CustomList extends ArrayAdapter<String>{
 class download extends AsyncTask<String,String,String> {
     //데이터를 저장하게 되는 리스트
     static public ArrayList<Pill> list = new ArrayList<>();
-    int count;
+    static public String totCnt;
+    static public int count;
     public static ArrayList<Pill> getList() {
         //Log.i("pill","데이터"+list.get(0).getRnum());
         return list;
@@ -297,41 +353,42 @@ class download extends AsyncTask<String,String,String> {
         Log.i("pill","url입력됨");
         String str="";
         String line="";
-
-        Log.i("pill",menu1_list.mParam1);
-        URL url = new URL(menu1_list.mParam1);
-        try {
-            HttpURLConnection con = (HttpURLConnection) url.openConnection();
-            con.setRequestMethod("GET");
-            BufferedReader rd = new BufferedReader(new InputStreamReader(con.getInputStream()));
-            Log.i("pill","http연결");
-            while((line = rd.readLine()) != null){
-                str += line;
-            }
-
-        } catch (IOException e) {
-            Log.i("pill","http연결실패");
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        str = unicodeConvert(str);
         int start;
-        int j=0;
-        str = str.replace("[","");
-        str = str.replace("]","");
-        str = str.replace("{","");
-        str = str.replace("}","");
-        if((start = str.indexOf("totCnt"))>-1){
-            str = str.substring(start+8,str.length());
-            Log.i("pill",str);
+        int j = 0;
+
+        if(once==0) {
+            Log.i("pill", menu1_list.mParam1);
+            URL url = new URL(menu1_list.mParam1);
+            try {
+                HttpURLConnection con = (HttpURLConnection) url.openConnection();
+                con.setRequestMethod("GET");
+                BufferedReader rd = new BufferedReader(new InputStreamReader(con.getInputStream()));
+                Log.i("pill", "http연결");
+                while ((line = rd.readLine()) != null) {
+                    str += line;
+                }
+
+            } catch (IOException e) {
+                Log.i("pill", "http연결실패");
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            str = unicodeConvert(str);
+            str = str.replace("[", "");
+            str = str.replace("]", "");
+            str = str.replace("{", "");
+            str = str.replace("}", "");
+            if ((start = str.indexOf("totCnt")) > -1) {
+                totCnt = str.substring(start + 8, str.length());
+                Log.i("pill", str);
+            }
+            once = 1;
         }
-        count=1;
-        if((valueOf(str)-10)>0){
-            count = valueOf(str)-10;
-        }
+        count = Integer.parseInt(totCnt)-10;
 
         //http://dikweb.health.kr/ajax/idfy_info/idfy_info_ajax.asp?drug_name=&drug_print=H&match=include&mark_code=&drug_color=&drug_linef=&drug_lineb=&drug_shape=&drug_form=&drug_shape_etc=&inner_search=print&inner_keyword=&strP=3586&endP=1&nsearch=nsearch
-        URL url2 = new URL(menu1_list.mParam2+"strP="+str+"&endP="+count +"&nsearch=nsearch");
+        URL url2 = new URL(menu1_list.mParam2+"strP="+totCnt+"&endP="+count+"&nsearch=nsearch");
+        Log.i("pill", menu1_list.mParam2+"strP="+totCnt+"&endP="+count +"&nsearch=nsearch");
         try {
             HttpURLConnection con = (HttpURLConnection) url2.openConnection();
             con.setRequestMethod("GET");
@@ -385,7 +442,16 @@ class download extends AsyncTask<String,String,String> {
             }
             //Log.i("pill","데이터 num "+pill.rnum);
             //list.set(i,pill);
-            list.add(i,pill);
+            Log.i("pill", "add num" + String.valueOf(listCnt - 10 + i));
+            //list.add(listCnt -10 + i, pill);
+
+            if(listCnt < 10) {
+                Log.i("pill", "add num" + String.valueOf(listCnt + i));
+                list.add(listCnt + i, pill);
+            }else{
+                Log.i("pill", "add num" + String.valueOf(listCnt - 10 + i));
+                list.add(listCnt -10 + i, pill);
+            }
 
         }
         Log.i("pill size", String.valueOf(list.size()));

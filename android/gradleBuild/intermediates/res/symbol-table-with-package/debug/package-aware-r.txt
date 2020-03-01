@@ -732,6 +732,7 @@ color bright_foreground_inverse_material_dark
 color bright_foreground_inverse_material_light
 color bright_foreground_material_dark
 color bright_foreground_material_light
+color button
 color button_material_dark
 color button_material_light
 color cardview_dark_background
@@ -1339,6 +1340,7 @@ drawable ic_access_alarm_black_24dp
 drawable ic_action_info
 drawable ic_add_a_photo_black_24dp
 drawable ic_alarm_white_24dp
+drawable ic_arrow_upward_black_24dp
 drawable ic_delete_forever_white_24dp
 drawable ic_keyboard_arrow_left_black_24dp
 drawable ic_keyboard_arrow_right_black_24dp
@@ -1520,6 +1522,9 @@ id bottom_navigation
 id button
 id button1
 id button2
+id button3
+id button4
+id button5
 id buttonPanel
 id calendar_days_header
 id calendar_frame
@@ -1632,6 +1637,7 @@ id listView
 id list_item
 id list_text_item
 id list_view
+id listview
 id load_main_activity_btn
 id masked
 id media_actions
@@ -1665,6 +1671,7 @@ id on
 id outline
 id overlay
 id packed
+id pager
 id parallax
 id parent
 id parentPanel
@@ -1850,11 +1857,13 @@ layout activity_alarm_landing_page
 layout activity_camera
 layout activity_edit_alarm
 layout activity_main
+layout activity_pill_detail
 layout activity_speech
 layout alarm_row
 layout camera_connection_fragment
 layout camera_connection_fragment_stylize
 layout camera_connection_fragment_tracking
+layout content_pill_detail
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -1874,6 +1883,11 @@ layout design_text_input_start_icon
 layout fragment_add_edit_alarm
 layout fragment_alarm_landing_page
 layout fragment_detail
+layout fragment_detail1
+layout fragment_detail2
+layout fragment_detail3
+layout fragment_detail4
+layout fragment_detail5
 layout fragment_main
 layout fragment_menu1
 layout fragment_menu1_list
@@ -1881,6 +1895,7 @@ layout fragment_menu2
 layout fragment_menu3
 layout list_text_item
 layout listiem
+layout listview_footer
 layout mtrl_alert_dialog
 layout mtrl_alert_dialog_actions
 layout mtrl_alert_dialog_title
@@ -1988,6 +2003,7 @@ string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string friday
+string hello_blank_fragment
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
 string label
@@ -2016,6 +2032,7 @@ string status_bar_notification_info_overflow
 string sunday
 string thursday
 string time
+string title_activity_pill_detail
 string tuesday
 string update_complete
 string update_failed
@@ -2031,6 +2048,9 @@ style Animation_Design_BottomSheetDialog
 style Animation_MaterialComponents_BottomSheetDialog
 style AppBaseTheme
 style AppTheme
+style AppTheme_AppBarOverlay
+style AppTheme_NoActionBar
+style AppTheme_PopupOverlay
 style AppTheme2
 style Base_AlertDialog_AppCompat
 style Base_AlertDialog_AppCompat_Light
@@ -2661,6 +2681,7 @@ style Widget_MaterialComponents_Toolbar_Surface
 style Widget_SampleMessage
 style Widget_SampleMessageTile
 style Widget_Support_CoordinatorLayout
+style titleBarColor
 styleable ActionBar background backgroundSplit backgroundStacked contentInsetEnd contentInsetEndWithActions contentInsetLeft contentInsetRight contentInsetStart contentInsetStartWithNavigation customNavigationLayout displayOptions divider elevation height hideOnContentScroll homeAsUpIndicator homeLayout icon indeterminateProgressStyle itemPadding logo navigationMode popupTheme progressBarPadding progressBarStyle subtitle subtitleTextStyle title titleTextStyle
 styleable ActionBarLayout android_layout_gravity
 styleable ActionMenuItemView android_minWidth

@@ -17,7 +17,7 @@ import org.tensorflow.demo.R;
 
 import java.net.MalformedURLException;
 
-public class MainActivity extends AppCompatActivity implements DetailFragment.OnFragmentInteractionListener{
+public class MainActivity extends AppCompatActivity{
 
     // FrameLayout에 각 메뉴의 Fragment를 바꿔 줌
     private FragmentManager fragmentManager = getSupportFragmentManager();
@@ -72,8 +72,5 @@ public class MainActivity extends AppCompatActivity implements DetailFragment.On
         });
     }
 
-    @Override
-    public void onFragmentInteraction(Uri uri) {
 
-    }
 }

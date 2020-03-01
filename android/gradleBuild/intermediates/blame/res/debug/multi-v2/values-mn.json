@@ -1,10 +1,20 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\zxd98\\Downloads\\tensorflow-master\\tensorflow-master\\tensorflow\\examples\\android\\gradleBuild\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-mn\\values-mn.xml",
+            "outputFile": "C:\\GitHub\\CodingHedgehog\\android\\gradleBuild\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-mn\\values-mn.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\zxd98\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.1.0-alpha05.aar\\6e23870a583b40df85ebd88adf24df0f\\res\\values-mn\\values-mn.xml",
+                    "source": "C:\\Users\\mayso\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.1.0-alpha03.aar\\02d3580afbece5904109d42a9eed6daf\\res\\values-mn\\values-mn.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,219,319,428,514,620,734,817,899,990,1082,1177,1273,1371,1464,1558,1650,1741,1831,1910,2017,2120,2217,2324,2426,2539,2698,2797",
+                        "endColumns": "113,99,108,85,105,113,82,81,90,91,94,95,97,92,93,91,90,89,78,106,102,96,106,101,112,158,98,79",
+                        "endOffsets": "214,314,423,509,615,729,812,894,985,1077,1172,1268,1366,1459,1553,1645,1736,1826,1905,2012,2115,2212,2319,2421,2534,2693,2792,2872"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\mayso\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.1.0-alpha05.aar\\b2658382fd8a38d513f6b32ff3a59730\\res\\values-mn\\values-mn.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -18,16 +28,6 @@
                         "startOffsets": "2877",
                         "endColumns": "100",
                         "endOffsets": "2973"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\zxd98\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.1.0-alpha03.aar\\505005f7da307ddcf939ce5d897f83e3\\res\\values-mn\\values-mn.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,219,319,428,514,620,734,817,899,990,1082,1177,1273,1371,1464,1558,1650,1741,1831,1910,2017,2120,2217,2324,2426,2539,2698,2797",
-                        "endColumns": "113,99,108,85,105,113,82,81,90,91,94,95,97,92,93,91,90,89,78,106,102,96,106,101,112,158,98,79",
-                        "endOffsets": "214,314,423,509,615,729,812,894,985,1077,1172,1268,1366,1459,1553,1645,1736,1826,1905,2012,2115,2212,2319,2421,2534,2693,2792,2872"
                     }
                 }
             ]
