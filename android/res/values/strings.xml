@@ -62,5 +62,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_start">StartActivity</string>
+    <string name="title_activity_pill_list">알약리스트</string>
+    <string name="title_activity_text_search">텍스트로 검색</string>
 
 </resources>

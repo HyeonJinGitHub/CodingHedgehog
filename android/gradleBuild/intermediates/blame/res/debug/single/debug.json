@@ -120,6 +120,10 @@
         "source": "C:\\Users\\mayso\\.gradle\\caches\\transforms-1\\files-1.1\\material-1.1.0-alpha06.aar\\ac537f95c5692d4bb6adf66bdbbf2e57\\res\\color-v23\\mtrl_dark_on_primary_emphasis_medium.xml"
     },
     {
+        "merged": "C:\\GitHub\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\layout_activity_pill_list.xml.flat",
+        "source": "C:\\GitHub\\CodingHedgehog\\android\\res\\layout\\activity_pill_list.xml"
+    },
+    {
         "merged": "C:\\GitHub\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\drawable-mdpi_cbtn2.png.flat",
         "source": "C:\\GitHub\\CodingHedgehog\\android\\res\\drawable-mdpi\\cbtn2.png"
     },
@@ -1040,6 +1044,10 @@
         "source": "C:\\Users\\mayso\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.1.0-alpha03.aar\\02d3580afbece5904109d42a9eed6daf\\res\\drawable-mdpi-v4\\abc_text_select_handle_middle_mtrl_dark.png"
     },
     {
+        "merged": "C:\\GitHub\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_text_search_btn.png.flat",
+        "source": "C:\\GitHub\\CodingHedgehog\\android\\res\\drawable-xxhdpi\\text_search_btn.png"
+    },
+    {
         "merged": "C:\\GitHub\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_action_info.png.flat",
         "source": "C:\\GitHub\\CodingHedgehog\\android\\res\\drawable-mdpi\\ic_action_info.png"
     },
@@ -1070,6 +1078,10 @@
     {
         "merged": "C:\\GitHub\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_scrubber_control_off_mtrl_alpha.png.flat",
         "source": "C:\\Users\\mayso\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.1.0-alpha03.aar\\02d3580afbece5904109d42a9eed6daf\\res\\drawable-hdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\GitHub\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\layout_fragment_text_search.xml.flat",
+        "source": "C:\\GitHub\\CodingHedgehog\\android\\res\\layout\\fragment_text_search.xml"
     },
     {
         "merged": "C:\\GitHub\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_star_half_black_16dp.png.flat",
@@ -2204,6 +2216,10 @@
         "source": "C:\\Users\\mayso\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.1.0-alpha03.aar\\02d3580afbece5904109d42a9eed6daf\\res\\drawable-xxhdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png"
     },
     {
+        "merged": "C:\\GitHub\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_camera_search_btn.png.flat",
+        "source": "C:\\GitHub\\CodingHedgehog\\android\\res\\drawable-xxhdpi\\camera_search_btn.png"
+    },
+    {
         "merged": "C:\\GitHub\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\layout_mtrl_alert_select_dialog_multichoice.xml.flat",
         "source": "C:\\Users\\mayso\\.gradle\\caches\\transforms-1\\files-1.1\\material-1.1.0-alpha06.aar\\ac537f95c5692d4bb6adf66bdbbf2e57\\res\\layout\\mtrl_alert_select_dialog_multichoice.xml"
     },
@@ -2484,10 +2500,6 @@
         "source": "C:\\GitHub\\CodingHedgehog\\android\\res\\drawable-mdpi\\ic_add_a_photo_black_24dp.xml"
     },
     {
-        "merged": "C:\\GitHub\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\layout_fragment_detail.xml.flat",
-        "source": "C:\\GitHub\\CodingHedgehog\\android\\res\\layout\\fragment_detail.xml"
-    },
-    {
         "merged": "C:\\GitHub\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_popup_background_mtrl_mult.9.png.flat",
         "source": "C:\\Users\\mayso\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.1.0-alpha03.aar\\02d3580afbece5904109d42a9eed6daf\\res\\drawable-hdpi-v4\\abc_popup_background_mtrl_mult.9.png"
     },
@@ -2518,6 +2530,10 @@
     {
         "merged": "C:\\GitHub\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_action_info.png.flat",
         "source": "C:\\GitHub\\CodingHedgehog\\android\\res\\drawable-hdpi\\ic_action_info.png"
+    },
+    {
+        "merged": "C:\\GitHub\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\layout_activity_text_search.xml.flat",
+        "source": "C:\\GitHub\\CodingHedgehog\\android\\res\\layout\\activity_text_search.xml"
     },
     {
         "merged": "C:\\GitHub\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\layout_content_pill_detail.xml.flat",
@@ -2728,6 +2744,10 @@
         "source": "C:\\Users\\mayso\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.1.0-alpha03.aar\\02d3580afbece5904109d42a9eed6daf\\res\\drawable-xxxhdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png"
     },
     {
+        "merged": "C:\\GitHub\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_splash.png.flat",
+        "source": "C:\\GitHub\\CodingHedgehog\\android\\res\\drawable-xxhdpi\\splash.png"
+    },
+    {
         "merged": "C:\\GitHub\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notification_bg_low_normal.9.png.flat",
         "source": "C:\\Users\\mayso\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.1.0-alpha05.aar\\b2658382fd8a38d513f6b32ff3a59730\\res\\drawable-hdpi-v4\\notification_bg_low_normal.9.png"
     },
@@ -2766,6 +2786,10 @@
     {
         "merged": "C:\\GitHub\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\drawable_design_snackbar_background.xml.flat",
         "source": "C:\\Users\\mayso\\.gradle\\caches\\transforms-1\\files-1.1\\material-1.1.0-alpha06.aar\\ac537f95c5692d4bb6adf66bdbbf2e57\\res\\drawable\\design_snackbar_background.xml"
+    },
+    {
+        "merged": "C:\\GitHub\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\layout_content_pill_list.xml.flat",
+        "source": "C:\\GitHub\\CodingHedgehog\\android\\res\\layout\\content_pill_list.xml"
     },
     {
         "merged": "C:\\GitHub\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
@@ -2858,6 +2882,10 @@
     {
         "merged": "C:\\GitHub\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_text_select_handle_left_mtrl_dark.png.flat",
         "source": "C:\\Users\\mayso\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.1.0-alpha03.aar\\02d3580afbece5904109d42a9eed6daf\\res\\drawable-xxxhdpi-v4\\abc_text_select_handle_left_mtrl_dark.png"
+    },
+    {
+        "merged": "C:\\GitHub\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\layout_content_text_search.xml.flat",
+        "source": "C:\\GitHub\\CodingHedgehog\\android\\res\\layout\\content_text_search.xml"
     },
     {
         "merged": "C:\\GitHub\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\xml_network_security_config.xml.flat",

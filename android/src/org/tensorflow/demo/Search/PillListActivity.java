@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -38,21 +39,12 @@ import java.util.List;
 import static java.lang.Integer.parseInt;
 import static java.lang.Integer.valueOf;
 import static java.lang.Thread.sleep;
-import static org.tensorflow.demo.Search.download.count;
-import static org.tensorflow.demo.Search.download.list;
-import static org.tensorflow.demo.Search.download.totCnt;
-import static org.tensorflow.demo.Search.menu1_list.listCnt;
-import static org.tensorflow.demo.Search.menu1_list.once;
+import static org.tensorflow.demo.Search.DownloadList.list;
+import static org.tensorflow.demo.Search.DownloadList.totCnt;
+import static org.tensorflow.demo.Search.PillListActivity.listCnt;
+import static org.tensorflow.demo.Search.PillListActivity.once;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link menu1_list.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link menu1_list#newInstance} factory method to
- * create an instance of this fragment.
- */
 class Pill{
     //String rnum;
     //String idx;
@@ -101,9 +93,7 @@ class Pill{
     }
 }
 
-public class menu1_list extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+public class PillListActivity extends AppCompatActivity {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     public static int listCnt;
@@ -116,59 +106,24 @@ public class menu1_list extends Fragment {
 
     public static int once = 0;
 
-    private OnFragmentInteractionListener mListener;
-
-    public menu1_list() throws MalformedURLException {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment menu1_list.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static menu1_list newInstance(String param1, String param2) throws MalformedURLException {
-        menu1_list fragment = new menu1_list();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-    public static menu1_list newInstance() throws MalformedURLException {
-        menu1_list fragment = new menu1_list();
-        return fragment;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.content_pill_list);
 
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-    }
+        Intent intent = getIntent();
+        mParam1 = intent.getExtras().getString("mparam1");
+        mParam2 = intent.getExtras().getString("mparam2");
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-
-        // Inflate the layout for this fragment
-        final ConstraintLayout v = (ConstraintLayout)inflater.inflate(R.layout.fragment_menu1_list, container, false);
-
-        final ListView listview = (ListView)v.findViewById(R.id.listView);
-        //selected_item_textview = (TextView)v.findViewById(R.id.selected_item_textview);
+        final ListView listview = (ListView)findViewById(R.id.listView);
         View footer = getLayoutInflater().inflate(R.layout.listview_footer,null,false);
         //리스트뷰와 리스트를 연결하기 위해 사용되는 어댑터
-        final CustomList adapter = new CustomList(getActivity());
+        final PillList adapter = new PillList(this);
 
-        final FloatingActionButton fab = v.findViewById(R.id.fab);
+        final FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(view -> {
             listview.smoothScrollToPosition(0);
         });
@@ -180,8 +135,8 @@ public class menu1_list extends Fragment {
         listCnt = 10;
 
         try {
-            new download().execute();
-            sleep(2000);        //900이였음
+            new DownloadList().execute();
+            sleep(900);        //900이였음
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -206,8 +161,8 @@ public class menu1_list extends Fragment {
                         listCnt = listCnt+valueOf(totCnt);
                         //count=1;
                     }
-                    new download().execute();
-                    sleep(1800);        //900이였음
+                    new DownloadList().execute();
+                    sleep(900);        //900이였음
                     Log.i("pill", String.valueOf(listCnt));
 
                     adapter.notifyDataSetChanged();
@@ -232,42 +187,30 @@ public class menu1_list extends Fragment {
             public void onItemClick(AdapterView<?> adapterView,
                                     View view, int position, long id) {
 
-                /* fragment일때
-                FragmentManager fragmentManager = getFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-               fragmentTransaction.replace(R.id.frame_layout,DetailFragment.newInstance(list.get(position).getDrug_code(),list.get(position).getDrug_name()));
-                fragmentTransaction.commit();
-                 */
 
-                Intent intent = new Intent(getActivity(),PillDetailActivity.class);
+                Intent intent = new Intent(getApplicationContext(),PillDetailActivity.class);
                 intent.putExtra("drug_code",list.get(position).getDrug_code());
                 intent.putExtra("drug_name",list.get(position).getDrug_name());
                 startActivity(intent);
             }
         });
-        return v;
+
     }
-
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
 
-class CustomList extends ArrayAdapter<String>{
+class PillList extends ArrayAdapter<String>{
     private final Activity context;
-    public CustomList(Activity context ) {
+    public PillList(Activity context ) {
         super(context, R.layout.listiem);
         Log.i("pill","ok");
         //super(context, R.layout.listiem, download.getList());
@@ -288,7 +231,7 @@ class CustomList extends ArrayAdapter<String>{
         TextView drug_name = rowView.findViewById(R.id.drug_name);
         TextView upso_name = rowView.findViewById(R.id.upso_name);
         TextView print = rowView.findViewById(R.id.print);
-        download download=new download();
+        DownloadList download=new DownloadList();
         List<Pill> list = download.getList();
         if(list.size() !=0) {
             drug_name.setText(list.get(position).getDrug_name());
@@ -302,7 +245,7 @@ class CustomList extends ArrayAdapter<String>{
     }
 }
 
-class download extends AsyncTask<String,String,String> {
+class DownloadList extends AsyncTask<String,String,String> {
     //데이터를 저장하게 되는 리스트
     static public ArrayList<Pill> list = new ArrayList<>();
     static public String totCnt;
@@ -357,8 +300,8 @@ class download extends AsyncTask<String,String,String> {
         int j = 0;
 
         if(once==0) {
-            Log.i("pill", menu1_list.mParam1);
-            URL url = new URL(menu1_list.mParam1);
+            //Intent로 변경
+            URL url = new URL(PillListActivity.mParam1);
             try {
                 HttpURLConnection con = (HttpURLConnection) url.openConnection();
                 con.setRequestMethod("GET");
@@ -387,8 +330,8 @@ class download extends AsyncTask<String,String,String> {
         count = Integer.parseInt(totCnt)-10;
 
         //http://dikweb.health.kr/ajax/idfy_info/idfy_info_ajax.asp?drug_name=&drug_print=H&match=include&mark_code=&drug_color=&drug_linef=&drug_lineb=&drug_shape=&drug_form=&drug_shape_etc=&inner_search=print&inner_keyword=&strP=3586&endP=1&nsearch=nsearch
-        URL url2 = new URL(menu1_list.mParam2+"strP="+totCnt+"&endP="+count+"&nsearch=nsearch");
-        Log.i("pill", menu1_list.mParam2+"strP="+totCnt+"&endP="+count +"&nsearch=nsearch");
+        URL url2 = new URL(PillListActivity.mParam2+"strP="+totCnt+"&endP="+count+"&nsearch=nsearch");
+        Log.i("pill", PillListActivity.mParam2+"strP="+totCnt+"&endP="+count +"&nsearch=nsearch");
         try {
             HttpURLConnection con = (HttpURLConnection) url2.openConnection();
             con.setRequestMethod("GET");
