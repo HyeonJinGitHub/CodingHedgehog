@@ -47,6 +47,8 @@ animator mtrl_fab_hide_motion_spec
 animator mtrl_fab_show_motion_spec
 animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
+array A_List
+array Q_List
 array days_abbreviated
 attr actionBarDivider
 attr actionBarItemBackground
@@ -1509,6 +1511,7 @@ id add_alarm_fragment
 id alertTitle
 id all
 id always
+id answer_text
 id ar_am_pm
 id ar_days
 id ar_icon
@@ -1636,6 +1639,7 @@ id list_item
 id list_text_item
 id list_view
 id listview
+id listview2
 id load_main_activity_btn
 id masked
 id media_actions
@@ -1680,6 +1684,7 @@ id pin
 id print
 id progress_circular
 id progress_horizontal
+id question_text
 id quit
 id radio
 id radioButton
@@ -1756,7 +1761,6 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textView
-id textView2
 id textView3
 id textView7
 id text_input_end_icon
@@ -1891,7 +1895,11 @@ layout fragment_menu1
 layout fragment_menu1_list
 layout fragment_menu2
 layout fragment_menu3
+<<<<<<< HEAD
 layout fragment_text_search
+=======
+layout list_fnq_item
+>>>>>>> 2f7f2d2185b115d8f8c3bff7ef43b741847079ad
 layout list_text_item
 layout listiem
 layout listview_footer
