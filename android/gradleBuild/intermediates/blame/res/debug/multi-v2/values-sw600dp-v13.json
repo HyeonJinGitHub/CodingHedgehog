@@ -1,27 +1,17 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\zxd98\\CodingHedgehog\\android\\gradleBuild\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+            "outputFile": "C:\\GitHub\\CodingHedgehog\\android\\gradleBuild\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw600dp-v13\\values-sw600dp-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\zxd98\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.1.0-alpha03.aar\\505005f7da307ddcf939ce5d897f83e3\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,124,193,263,337,413,472,543",
-                        "endColumns": "68,68,69,73,75,58,70,67",
-                        "endOffsets": "119,188,258,332,408,467,538,606"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\zxd98\\CodingHedgehog\\android\\res\\values-sw600dp\\template-styles.xml",
+                    "source": "C:\\GitHub\\CodingHedgehog\\android\\res\\values-sw600dp\\template-styles.xml",
                     "from": {
                         "startLines": "18",
                         "startColumns": "4",
-                        "startOffsets": "652",
+                        "startOffsets": "634",
                         "endLines": "22",
                         "endColumns": "12",
-                        "endOffsets": "896"
+                        "endOffsets": "874"
                     },
                     "to": {
                         "startLines": "28",
@@ -33,24 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\zxd98\\CodingHedgehog\\android\\res\\values-sw600dp\\template-dimens.xml",
-                    "from": {
-                        "startLines": "20,21",
-                        "startColumns": "4,4",
-                        "startOffsets": "689,758",
-                        "endColumns": "67,67",
-                        "endOffsets": "752,821"
-                    },
-                    "to": {
-                        "startLines": "19,22",
-                        "startColumns": "4,4",
-                        "startOffsets": "1173,1356",
-                        "endColumns": "67,67",
-                        "endOffsets": "1236,1419"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\zxd98\\.gradle\\caches\\transforms-1\\files-1.1\\material-1.1.0-alpha06.aar\\eac6d66b034f30c8ccaaa058995daa5c\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "source": "C:\\Users\\mayso\\.gradle\\caches\\transforms-1\\files-1.1\\material-1.1.0-alpha06.aar\\ac537f95c5692d4bb6adf66bdbbf2e57\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,10,11,12,13,14",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
@@ -66,6 +39,33 @@
                         "endLines": "10,11,12,13,14,15,17,18,20,21,23,27",
                         "endColumns": "59,69,70,71,57,57,10,63,55,58,62,10",
                         "endOffsets": "666,736,807,879,937,995,1104,1168,1292,1351,1482,1654"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\mayso\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.1.0-alpha03.aar\\02d3580afbece5904109d42a9eed6daf\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,124,193,263,337,413,472,543",
+                        "endColumns": "68,68,69,73,75,58,70,67",
+                        "endOffsets": "119,188,258,332,408,467,538,606"
+                    }
+                },
+                {
+                    "source": "C:\\GitHub\\CodingHedgehog\\android\\res\\values-sw600dp\\template-dimens.xml",
+                    "from": {
+                        "startLines": "20,21",
+                        "startColumns": "4,4",
+                        "startOffsets": "669,737",
+                        "endColumns": "67,67",
+                        "endOffsets": "732,800"
+                    },
+                    "to": {
+                        "startLines": "19,22",
+                        "startColumns": "4,4",
+                        "startOffsets": "1173,1356",
+                        "endColumns": "67,67",
+                        "endOffsets": "1236,1419"
                     }
                 }
             ]

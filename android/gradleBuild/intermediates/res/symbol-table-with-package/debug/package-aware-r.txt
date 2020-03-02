@@ -1895,11 +1895,8 @@ layout fragment_menu1
 layout fragment_menu1_list
 layout fragment_menu2
 layout fragment_menu3
-<<<<<<< HEAD
 layout fragment_text_search
-=======
 layout list_fnq_item
->>>>>>> 2f7f2d2185b115d8f8c3bff7ef43b741847079ad
 layout list_text_item
 layout listiem
 layout listview_footer
