@@ -1041,6 +1041,7 @@ dimen design_tab_text_size_2line
 dimen design_textinput_caption_translate_y
 dimen disabled_alpha_material_dark
 dimen disabled_alpha_material_light
+dimen fab_margin
 dimen fab_margin_default
 dimen fastscroll_default_thickness
 dimen fastscroll_margin
@@ -1299,6 +1300,7 @@ drawable c_btn6_selector
 drawable c_btn7_selector
 drawable c_btn8_selector
 drawable c_btn9_selector
+drawable camera_search_btn
 drawable cbtn1
 drawable cbtn10
 drawable cbtn10_pressed
@@ -1411,7 +1413,9 @@ drawable sbtn8
 drawable sbtn8_pressed
 drawable sbtn9
 drawable sbtn9_pressed
+drawable splash
 drawable test_custom_background
+drawable text_search_btn
 drawable tile
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -1534,12 +1538,10 @@ id calendar_frame
 id cancel_action
 id cancel_button
 id cap_button
-id caution
 id center
 id center_horizontal
 id center_vertical
 id chains
-id charact
 id checkbox
 id checked
 id chip
@@ -1548,7 +1550,6 @@ id chronometer
 id clear_text
 id clip_horizontal
 id clip_vertical
-id cls_name
 id collapseActionView
 id confirm_button
 id container
@@ -1574,7 +1575,6 @@ id dimensions
 id direct
 id disableHome
 id dismiss_btn
-id dosage
 id dropdown_menu
 id drug_name
 id drug_name_text
@@ -1591,7 +1591,6 @@ id edit_alarm_time_picker
 id edit_alarm_tues
 id edit_alarm_wed
 id edit_query
-id effect
 id empty_view
 id end
 id end_padder
@@ -1627,7 +1626,6 @@ id imageView
 id info
 id invisible
 id italic
-id item_ingr_type
 id item_touch_helper_previous_elevation
 id labeled
 id landing_page_fragment_container
@@ -1645,7 +1643,6 @@ id listview2
 id load_main_activity_btn
 id masked
 id media_actions
-id mediguide
 id message
 id middle
 id mini
@@ -1743,11 +1740,9 @@ id srow2
 id standard
 id start
 id status_bar_latest_event_content
-id stmt
 id stretch
 id submenuarrow
 id submit_area
-id sunb
 id tabMode
 id tableLayout
 id tableLayout2
@@ -1778,6 +1773,7 @@ id time
 id title
 id titleDividerNoCustom
 id title_template
+id toolbar
 id top
 id topPanel
 id touch_outside
@@ -1792,7 +1788,6 @@ id uniform
 id unlabeled
 id up
 id upso_name
-id upso_name_kfda
 id useLogo
 id view_offset_helper
 id visible
@@ -1862,12 +1857,16 @@ layout activity_camera
 layout activity_edit_alarm
 layout activity_main
 layout activity_pill_detail
+layout activity_pill_list
 layout activity_speech
+layout activity_text_search
 layout alarm_row
 layout camera_connection_fragment
 layout camera_connection_fragment_stylize
 layout camera_connection_fragment_tracking
 layout content_pill_detail
+layout content_pill_list
+layout content_text_search
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -1886,7 +1885,6 @@ layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout fragment_add_edit_alarm
 layout fragment_alarm_landing_page
-layout fragment_detail
 layout fragment_detail1
 layout fragment_detail2
 layout fragment_detail3
@@ -1897,6 +1895,7 @@ layout fragment_menu1
 layout fragment_menu1_list
 layout fragment_menu2
 layout fragment_menu3
+layout fragment_text_search
 layout list_fnq_item
 layout list_text_item
 layout listiem
@@ -2038,6 +2037,9 @@ string sunday
 string thursday
 string time
 string title_activity_pill_detail
+string title_activity_pill_list
+string title_activity_start
+string title_activity_text_search
 string tuesday
 string update_complete
 string update_failed
@@ -2334,6 +2336,7 @@ style ShapeAppearanceOverlay_MaterialComponents_FloatingActionButton
 style ShapeAppearanceOverlay_MaterialComponents_TextInputLayout_FilledBox
 style ShapeAppearanceOverlay_TopLeftCut
 style ShapeAppearanceOverlay_TopRightDifferentCornerSize
+style SplashTheme
 style TextAppearance_AppCompat
 style TextAppearance_AppCompat_Body1
 style TextAppearance_AppCompat_Body2
@@ -2525,6 +2528,7 @@ style ThemeOverlay_MaterialComponents_TextInputEditText_OutlinedBox
 style ThemeOverlay_MaterialComponents_TextInputEditText_OutlinedBox_Dense
 style ThemeOverlay_MaterialComponents_Toolbar_Primary
 style ThemeOverlay_MaterialComponents_Toolbar_Surface
+style TitleBarText
 style Widget
 style Widget_AppCompat_ActionBar
 style Widget_AppCompat_ActionBar_Solid

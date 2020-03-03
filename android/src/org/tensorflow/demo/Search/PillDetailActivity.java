@@ -9,6 +9,7 @@ import android.os.Bundle;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -166,6 +167,8 @@ public class PillDetailActivity extends AppCompatActivity implements DetailFragm
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_pill_detail);
 
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
             Intent intent = getIntent();
             drug_code = intent.getStringExtra("drug_code");
             drug_name = intent.getStringExtra("drug_name");
@@ -194,7 +197,7 @@ public class PillDetailActivity extends AppCompatActivity implements DetailFragm
 */
             new DownloadDetail().execute();
             try {
-                sleep(1000);    //600이였음
+                sleep(600);    //600이였음
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -269,6 +272,17 @@ public class PillDetailActivity extends AppCompatActivity implements DetailFragm
             stmt.setText("stmt : "+pillDetail.stmt);
 */
         }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
     View.OnClickListener movePageListener = new View.OnClickListener()
     {
         @Override
@@ -279,7 +293,41 @@ public class PillDetailActivity extends AppCompatActivity implements DetailFragm
             pager.setCurrentItem(tag);
             switch (v.getId()){
                 case R.id.button1:
-                    btn1.setTextColor(Color.WHITE);
+                    btn1.setTextColor(Color.parseColor("#0191D8"));
+                    btn2.setTextColor(Color.BLACK);
+                    btn3.setTextColor(Color.BLACK);
+                    btn4.setTextColor(Color.BLACK);
+                    btn5.setTextColor(Color.BLACK);
+                    break;
+                case R.id.button2:
+                    btn2.setTextColor(Color.parseColor("#0191D8"));
+                    btn1.setTextColor(Color.BLACK);
+                    btn3.setTextColor(Color.BLACK);
+                    btn4.setTextColor(Color.BLACK);
+                    btn5.setTextColor(Color.BLACK);
+                    break;
+                case R.id.button3:
+                    btn3.setTextColor(Color.parseColor("#0191D8"));
+                    btn2.setTextColor(Color.BLACK);
+                    btn1.setTextColor(Color.BLACK);
+                    btn4.setTextColor(Color.BLACK);
+                    btn5.setTextColor(Color.BLACK);
+                    break;
+                case R.id.button4:
+                    btn4.setTextColor(Color.parseColor("#0191D8"));
+                    btn2.setTextColor(Color.BLACK);
+                    btn3.setTextColor(Color.BLACK);
+                    btn1.setTextColor(Color.BLACK);
+                    btn5.setTextColor(Color.BLACK);
+                    break;
+                case R.id.button5:
+                    btn5.setTextColor(Color.parseColor("#0191D8"));
+                    btn2.setTextColor(Color.BLACK);
+                    btn3.setTextColor(Color.BLACK);
+                    btn4.setTextColor(Color.BLACK);
+                    btn1.setTextColor(Color.BLACK);
+                    break;
+
             }
         }
     };
@@ -311,46 +359,7 @@ public class PillDetailActivity extends AppCompatActivity implements DetailFragm
             return items.size();
         }
     }
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            // Inflate the layout for this fragment
-            View v= inflater.inflate(R.layout.activity_pill_detail, container, false);
 
-            //TextView text = (TextView)v.findViewById(R.id.textView);
-            TextView drug_name = (TextView)v.findViewById(R.id.drug_name);
-            TextView upso_name_kfda = (TextView)v.findViewById(R.id.upso_name_kfda);
-            TextView cls_name = (TextView)v.findViewById(R.id.cls_name);
-            TextView item_ingr_type = (TextView)v.findViewById(R.id.item_ingr_type);
-            TextView charact = (TextView)v.findViewById(R.id.charact);
-            TextView sunb = (TextView)v.findViewById(R.id.sunb);
-            TextView effect = (TextView)v.findViewById(R.id.effect);
-            TextView dosage = (TextView)v.findViewById(R.id.dosage);
-            TextView caution = (TextView)v.findViewById(R.id.caution);
-            TextView mediguide = (TextView)v.findViewById(R.id.mediguide);
-            TextView stmt = (TextView)v.findViewById(R.id.stmt);
-
-            new DownloadDetail().execute();
-            try {
-                sleep(2000);    //600이였음
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
-            PillDetail pillDetail =  DownloadDetail.getPillDetail();
-            drug_name.setText("약 이름 : " +pillDetail.getDrug_name());
-            upso_name_kfda.setText("제조사 : " + pillDetail.getUpso_name_kfda());
-            cls_name.setText("식약처 분류 : " +pillDetail.getCls_name());
-            item_ingr_type.setText("약 분류 : "+ pillDetail.getItem_ingr_type());
-            charact.setText("charact : "+pillDetail.getCharact());
-            sunb.setText("sunb : "+pillDetail.getSunb());
-            effect.setText("효능 : " +pillDetail.getEffect());
-            dosage.setText("용법 : "+pillDetail.getDosage());
-            caution.setText("주의 : "+pillDetail.getCaution());
-            mediguide.setText("복약 : " +pillDetail.getMediguide());
-            stmt.setText("stmt : "+pillDetail.stmt);
-
-            return v;
-        }
 
         /**
          * This interface must be implemented by activities that contain this
@@ -493,5 +502,6 @@ public class PillDetailActivity extends AppCompatActivity implements DetailFragm
 
 
         }
+
     }
 
