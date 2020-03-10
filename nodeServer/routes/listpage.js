@@ -37,14 +37,11 @@ router.post('/', upload.array('files'), function(req, res, next) {
 			scriptPath: '',
 			args: [locations[0], locations[1], locations[2], locations[3], locations[4], locations[5], locations[6], locations[7]]
 		};
-		
 		console.log(req.headers);
 		console.log(req.files);
-		console.log("js 테스트");
-		for(var i=0; i< locations.length; i++) {
-			console.log(locations[i]);
-		}
-		console.log("js테스트 끝");
+		//for(var i=0; i< locations.length; i++) {
+		//	console.log(locations[i]);
+		//}
 		if(Array.isArray(files)) {
 			originalName = files.originalname;
 			fileName = files.filename;
@@ -57,18 +54,11 @@ router.post('/', upload.array('files'), function(req, res, next) {
 			mimeType = files.mimetype;
 			size = files.size;
 		}
-		console.log("python test start");
-		var test = new PythonShell('test.py', options);
+		var test = new PythonShell('color.py', options);
 		test.on('message', function(message) {
 			console.log(message);
+			res.status(200).send(message);
 		});
-		//PythonShell.run('test.py', options, function(err, results) {
-		//	if(err) throw err;
-
-		//	console.log('results: %j', results);
-		//});
-		console.log("python test end");
-		res.status(200).send("File upload Success");
 	} catch(err) {
 		res.status(404).send("File is Not Found..");
 		console.dir(err.stack);
