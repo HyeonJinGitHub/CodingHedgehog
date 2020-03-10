@@ -252,7 +252,6 @@ public class PillDetailActivity extends AppCompatActivity implements DetailFragm
 
             Bundle bundle4 =new Bundle(1);
             bundle4.putString("caution",pillDetail.getCaution());
-            Log.i("pill",pillDetail.getCaution());
             fragment4.setArguments(bundle4);
 
             Bundle bundle5 =new Bundle(1);

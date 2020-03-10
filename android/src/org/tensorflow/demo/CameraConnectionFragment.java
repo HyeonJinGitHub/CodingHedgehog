@@ -23,6 +23,7 @@ import android.app.DialogFragment;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.ImageFormat;
 import android.graphics.Matrix;
@@ -74,8 +75,11 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
+
+import org.tensorflow.demo.Search.PillListActivity;
 import org.tensorflow.demo.env.Logger;
 import org.tensorflow.demo.R; // Explicit import needed for internal Google builds.
 
@@ -113,6 +117,7 @@ public class CameraConnectionFragment extends Fragment {
         public void onSurfaceTextureAvailable(
             final SurfaceTexture texture, final int width, final int height) {
           openCamera(width, height);
+          // 이부분에 setPreview
         }
 
         @Override
@@ -730,11 +735,32 @@ public class CameraConnectionFragment extends Fragment {
             buffer.get(bytes);
             save(bytes); // 이미지 저장
             closeCamera(); // 카메라 중지
-            new FileUpload().execute(bytes); // 이미지 전송
+
+            String get_data = "";
+            get_data = new FileUpload(getActivity()).execute(bytes).get(); // 서버에 이미지와 좌표 전송
+
+            if(!get_data.equals("")){ // 받아온 데이터가 있음
+              DataProcess dp = new DataProcess(); // 받아온 데이터 처리
+              String Dcolor = dp.getColor(get_data); // 색상
+
+              String url1 = "http://dikweb.health.kr/ajax/idfy_info/idfy_info_ajax.asp?drug_name=&drug_print=&match=include&mark_code=&drug_color="+Dcolor+"&drug_linef=&drug_lineb=&drug_shape=&drug_form=&drug_shape_etc=&inner_search=print&inner_keyword=&nsearch=npages";
+              String url2 = "http://dikweb.health.kr/ajax/idfy_info/idfy_info_ajax.asp?drug_name=&drug_print=&match=include&mark_code=&drug_color="+Dcolor+"&drug_linef=&drug_lineb=&drug_shape=&drug_form=&drug_shape_etc=&inner_search=print&inner_keyword=&";
+
+              Intent intent = new Intent(getActivity(), PillListActivity.class);
+
+              intent.putExtra("mparam1", url1);
+              intent.putExtra("mparam2", url2);
+
+              startActivity(intent); // 해당하는 알약 리스트 검색 (액티비티 이동)
+            }
 
           } catch (FileNotFoundException e) {
             e.printStackTrace();
           } catch (IOException e) {
+            e.printStackTrace();
+          } catch (InterruptedException e) {
+            e.printStackTrace();
+          } catch (ExecutionException e) {
             e.printStackTrace();
           } finally {
             if (image != null) {
@@ -782,3 +808,4 @@ public class CameraConnectionFragment extends Fragment {
     }
   }
 }
+
