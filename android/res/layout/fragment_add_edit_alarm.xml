@@ -22,6 +22,29 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_marginBottom="@dimen/list_padding_vertical_small"
+            android:text="@string/time"
+            tools:text="Time"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="@dimen/list_padding_vertical_small"
+            android:background="@drawable/divider" />
+
+        <TimePicker
+            android:id="@+id/edit_alarm_time_picker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:timePickerMode="spinner"
+            tools:targetApi="lollipop" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_marginBottom="@dimen/list_padding_vertical_small"
             android:text="@string/label"
             tools:text="약물 이름"/>
 
@@ -74,8 +97,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/list_padding_vertical_small"
-                android:layout_gravity="center_vertical"
-                android:buttonTint="@color/button"/>
+                android:layout_gravity="center_vertical" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -90,8 +112,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/list_padding_vertical_small"
-                android:layout_gravity="center_vertical"
-                android:buttonTint="@color/button"/>
+                android:layout_gravity="center_vertical" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -106,8 +127,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/list_padding_vertical_small"
-                android:layout_gravity="center_vertical"
-                android:buttonTint="@color/button"/>
+                android:layout_gravity="center_vertical" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -122,8 +142,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/list_padding_vertical_small"
-                android:layout_gravity="center_vertical"
-                android:buttonTint="@color/button"/>
+                android:layout_gravity="center_vertical" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -138,8 +157,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/list_padding_vertical_small"
-                android:layout_gravity="center_vertical"
-                android:buttonTint="@color/button"/>
+                android:layout_gravity="center_vertical" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -154,8 +172,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/list_padding_vertical_small"
-                android:layout_gravity="center_vertical"
-                android:buttonTint="@color/button"/>
+                android:layout_gravity="center_vertical" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -169,51 +186,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/list_padding_vertical_small"
-                android:layout_gravity="center_vertical"
-                android:buttonTint="@color/button"/>
+                android:layout_gravity="center_vertical" />
 
 
         </GridLayout>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_marginBottom="@dimen/list_padding_vertical_small"
-            android:text="@string/time" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginBottom="@dimen/list_padding_vertical_small"
-            android:background="@drawable/divider" />
-
-        <TimePicker
-            android:id="@+id/edit_alarm_time_picker"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="@dimen/activity_vertical_margin"
-            android:amPmTextColor="@color/primary_text"
-            android:timePickerMode="spinner"
-            tools:targetApi="lollipop" />
-
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/list_padding_vertical_small"
-            android:text="@string/count"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:prompt="@array/count_array" />
-
-        <ListView
-            android:id="@+id/listview"
-            android:layout_width="match_parent"
-            android:layout_height="300dp" />
     </LinearLayout>
 
 </ScrollView>

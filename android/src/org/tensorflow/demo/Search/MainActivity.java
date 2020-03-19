@@ -10,14 +10,22 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.pharm.Alarm.ui.MainFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+<<<<<<< HEAD:android/src/org/tensorflow/demo/Search/MainActivity.java
 import org.tensorflow.demo.Alarm.ui.MainFragment;
 import org.tensorflow.demo.R;
 
 import java.net.MalformedURLException;
 
 public class MainActivity extends AppCompatActivity{
+=======
+import java.net.MalformedURLException;
+import com.example.pharm.Alarm.ui.MainFragment;
+
+public class MainActivity extends AppCompatActivity implements DetailFragment.OnFragmentInteractionListener{
+>>>>>>> d7d3be416ede94da190a4a102122d060209c1a4d:android/Pharm/app/src/main/java/com/example/pharm/MainActivity.java
 
     // FrameLayout에 각 메뉴의 Fragment를 바꿔 줌
     private FragmentManager fragmentManager = getSupportFragmentManager();
@@ -25,7 +33,10 @@ public class MainActivity extends AppCompatActivity{
     private Menu1Fragment menu1Fragment = new Menu1Fragment();
     //private Menu2Fragment menu2Fragment = new Menu2Fragment();
     private Menu2Fragment menu2Fragment = new Menu2Fragment();
+<<<<<<< HEAD:android/src/org/tensorflow/demo/Search/MainActivity.java
 
+=======
+>>>>>>> d7d3be416ede94da190a4a102122d060209c1a4d:android/Pharm/app/src/main/java/com/example/pharm/MainActivity.java
     private MainFragment menu3Fragment = new MainFragment();
 
     public MainActivity() throws MalformedURLException {
@@ -72,5 +83,12 @@ public class MainActivity extends AppCompatActivity{
         });
     }
 
+<<<<<<< HEAD:android/src/org/tensorflow/demo/Search/MainActivity.java
 
+=======
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+>>>>>>> d7d3be416ede94da190a4a102122d060209c1a4d:android/Pharm/app/src/main/java/com/example/pharm/MainActivity.java
 }
