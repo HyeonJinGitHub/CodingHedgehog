@@ -1042,7 +1042,6 @@ dimen design_tab_text_size_2line
 dimen design_textinput_caption_translate_y
 dimen disabled_alpha_material_dark
 dimen disabled_alpha_material_light
-dimen fab_margin
 dimen fab_margin_default
 dimen fastscroll_default_thickness
 dimen fastscroll_margin
@@ -1536,10 +1535,12 @@ id calendar_frame
 id cancel_action
 id cancel_button
 id cap_button
+id caution
 id center
 id center_horizontal
 id center_vertical
 id chains
+id charact
 id checkbox
 id checked
 id chip
@@ -1548,6 +1549,7 @@ id chronometer
 id clear_text
 id clip_horizontal
 id clip_vertical
+id cls_name
 id collapseActionView
 id confirm_button
 id container
@@ -1574,6 +1576,7 @@ id dimensions
 id direct
 id disableHome
 id dismiss_btn
+id dosage
 id dropdown_menu
 id drug_name
 id drug_name_text
@@ -1586,10 +1589,10 @@ id edit_alarm_mon
 id edit_alarm_sat
 id edit_alarm_sun
 id edit_alarm_thurs
-id edit_alarm_time_picker
 id edit_alarm_tues
 id edit_alarm_wed
 id edit_query
+id effect
 id empty_view
 id end
 id end_padder
@@ -1625,6 +1628,7 @@ id imageView
 id info
 id invisible
 id italic
+id item_ingr_type
 id item_touch_helper_previous_elevation
 id labeled
 id landing_page_fragment_container
@@ -1642,6 +1646,7 @@ id listview2
 id load_main_activity_btn
 id masked
 id media_actions
+id mediguide
 id message
 id middle
 id mini
@@ -1741,9 +1746,11 @@ id srow2
 id standard
 id start
 id status_bar_latest_event_content
+id stmt
 id stretch
 id submenuarrow
 id submit_area
+id sunb
 id tabMode
 id tableLayout
 id tableLayout2
@@ -1794,6 +1801,7 @@ id uniform
 id unlabeled
 id up
 id upso_name
+id upso_name_kfda
 id useLogo
 id view_offset_helper
 id visible
@@ -1892,6 +1900,7 @@ layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout fragment_add_edit_alarm
 layout fragment_alarm_landing_page
+layout fragment_detail
 layout fragment_detail1
 layout fragment_detail2
 layout fragment_detail3
@@ -1899,6 +1908,7 @@ layout fragment_detail4
 layout fragment_detail5
 layout fragment_main
 layout fragment_menu1
+layout fragment_menu1_list
 layout fragment_menu2
 layout fragment_menu3
 layout list_fnq_item

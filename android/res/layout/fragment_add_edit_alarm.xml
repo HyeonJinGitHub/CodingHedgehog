@@ -22,31 +22,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_marginBottom="@dimen/list_padding_vertical_small"
-            android:text="@string/time"
-            tools:text="Time"/>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginBottom="@dimen/list_padding_vertical_small"
-            android:background="@drawable/divider" />
-
-        <TimePicker
-            android:id="@+id/edit_alarm_time_picker"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="@dimen/activity_vertical_margin"
-            android:timePickerMode="spinner"
-            tools:targetApi="lollipop" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_marginBottom="@dimen/list_padding_vertical_small"
-            android:text="@string/label"
-            tools:text="약물 이름"/>
+            android:text="@string/label"/>
 
         <View
             android:layout_width="match_parent"
@@ -70,8 +46,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_marginBottom="@dimen/list_padding_vertical_small"
-            android:text="@string/days"
-            tools:text="날짜"/>
+            android:text="@string/days"/>
 
         <View
             android:layout_width="match_parent"
@@ -89,108 +64,129 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|fill_horizontal"
                 android:layout_marginBottom="@dimen/list_padding_vertical_small"
-                android:text="@string/monday"
-                tools:text="월요일" />
+                android:text="@string/monday" />
 
             <CheckBox
                 android:id="@+id/edit_alarm_mon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/list_padding_vertical_small"
-                android:layout_gravity="center_vertical" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/list_padding_vertical_small"
+            android:layout_gravity="center_vertical"
+            android:buttonTint="@color/button"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|fill_horizontal"
                 android:layout_marginBottom="@dimen/list_padding_vertical_small"
-                android:text="@string/tuesday"
-                tools:text="화요일" />
+                android:text="@string/tuesday"/>
 
             <CheckBox
                 android:id="@+id/edit_alarm_tues"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/list_padding_vertical_small"
-                android:layout_gravity="center_vertical" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/list_padding_vertical_small"
+            android:layout_gravity="center_vertical"
+            android:buttonTint="@color/button"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|fill_horizontal"
                 android:layout_marginBottom="@dimen/list_padding_vertical_small"
-                android:text="@string/wednesday"
-                tools:text="수요일" />
+                android:text="@string/wednesday" />
 
             <CheckBox
                 android:id="@+id/edit_alarm_wed"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/list_padding_vertical_small"
-                android:layout_gravity="center_vertical" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/list_padding_vertical_small"
+            android:layout_gravity="center_vertical"
+            android:buttonTint="@color/button"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|fill_horizontal"
                 android:layout_marginBottom="@dimen/list_padding_vertical_small"
-                android:text="@string/thursday"
-                tools:text="목요일" />
+                android:text="@string/thursday"/>
 
             <CheckBox
                 android:id="@+id/edit_alarm_thurs"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/list_padding_vertical_small"
-                android:layout_gravity="center_vertical" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/list_padding_vertical_small"
+            android:layout_gravity="center_vertical"
+            android:buttonTint="@color/button"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|fill_horizontal"
                 android:layout_marginBottom="@dimen/list_padding_vertical_small"
-                android:text="@string/friday"
-                tools:text="금요일" />
+                android:text="@string/friday"/>
 
             <CheckBox
                 android:id="@+id/edit_alarm_fri"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/list_padding_vertical_small"
-                android:layout_gravity="center_vertical" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/list_padding_vertical_small"
+            android:layout_gravity="center_vertical"
+            android:buttonTint="@color/button"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|fill_horizontal"
                 android:layout_marginBottom="@dimen/list_padding_vertical_small"
-                android:text="@string/saturday"
-                tools:text="토요일" />
+                android:text="@string/saturday" />
 
             <CheckBox
                 android:id="@+id/edit_alarm_sat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/list_padding_vertical_small"
-                android:layout_gravity="center_vertical" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/list_padding_vertical_small"
+            android:layout_gravity="center_vertical"
+            android:buttonTint="@color/button"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|fill_horizontal"
                 android:layout_marginBottom="@dimen/list_padding_vertical_small"
-                android:text="@string/sunday"
-                tools:text="일요일" />
+                android:text="@string/sunday" />
 
             <CheckBox
                 android:id="@+id/edit_alarm_sun"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/list_padding_vertical_small"
-                android:layout_gravity="center_vertical" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/list_padding_vertical_small"
+            android:layout_gravity="center_vertical"
+            android:buttonTint="@color/button"/>
 
 
         </GridLayout>
 
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/list_padding_vertical_small"
+            android:text="@string/count"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="@dimen/list_padding_vertical_small"
+            android:background="@drawable/divider" />
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:prompt="@array/count_array" />
+
+        <ListView
+            android:id="@+id/listview"
+            android:layout_width="match_parent"
+            android:layout_height="300dp" />
     </LinearLayout>
 
 </ScrollView>

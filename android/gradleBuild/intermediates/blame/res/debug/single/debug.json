@@ -1620,6 +1620,10 @@
         "source": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\res\\drawable-mdpi\\c_btn1_selector.xml"
     },
     {
+        "merged": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\layout_fragment_menu1_list.xml.flat",
+        "source": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\res\\layout\\fragment_menu1_list.xml"
+    },
+    {
         "merged": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_logo_foreground.png.flat",
         "source": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\res\\mipmap-xxhdpi\\ic_launcher_logo_foreground.png"
     },
@@ -2506,6 +2510,10 @@
     {
         "merged": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_logo.png.flat",
         "source": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\res\\mipmap-mdpi\\ic_launcher_logo.png"
+    },
+    {
+        "merged": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\layout_fragment_detail.xml.flat",
+        "source": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\res\\layout\\fragment_detail.xml"
     },
     {
         "merged": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",

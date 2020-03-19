@@ -160,12 +160,7 @@ public final class AddEditAlarmFragment extends Fragment {
             }
         });
 
-        mTimePicker = (TimePicker) v.findViewById(R.id.edit_alarm_time_picker);
-        //ViewUtils.setTimePickerTime(mTimePicker, alarm.getTime());
 
-        //mLabel.setText(alarm.getLabel());
-
-        //setDayCheckboxes(alarm);
 
 
         return v;
