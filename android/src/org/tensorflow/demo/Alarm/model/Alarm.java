@@ -17,6 +17,7 @@ public final class Alarm implements Parcelable{
         label = in.readString();
         allDays = in.readSparseBooleanArray();
         isEnabled = in.readByte() != 0;
+        group_id = in.readLong();
     }
 
     public static final Creator<Alarm> CREATOR = new Creator<Alarm>() {
@@ -43,6 +44,7 @@ public final class Alarm implements Parcelable{
         parcel.writeString(label);
         parcel.writeSparseBooleanArray(allDays);
         parcel.writeByte((byte) (isEnabled ? 1 : 0));
+        parcel.writeLong(group_id);
     }
 
     @Retention(RetentionPolicy.SOURCE)
@@ -63,6 +65,7 @@ public final class Alarm implements Parcelable{
     private String label;
     private SparseBooleanArray allDays;
     private boolean isEnabled;
+    private long group_id;
 
     public Alarm() {
         this(NO_ID);
@@ -86,6 +89,10 @@ public final class Alarm implements Parcelable{
     public long getId() {
         return id;
     }
+
+    public void setGroup_id(long group_id){this.group_id = group_id;}
+
+    public long getGroup_id() { return group_id; }
 
     public void setTime(long time) {
         this.time = time;
@@ -136,6 +143,7 @@ public final class Alarm implements Parcelable{
                 ", label='" + label + '\'' +
                 ", allDays=" + allDays +
                 ", isEnabled=" + isEnabled +
+                ", group_id="+group_id+
                 '}';
     }
 

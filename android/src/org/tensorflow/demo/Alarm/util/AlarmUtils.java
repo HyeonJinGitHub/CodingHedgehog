@@ -6,11 +6,13 @@ import android.content.ContentValues;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.os.Build;
+import android.util.Log;
 import android.util.SparseBooleanArray;
 
 import androidx.core.app.ActivityCompat;
 
 import org.tensorflow.demo.Alarm.model.Alarm;
+import org.tensorflow.demo.Alarm.model.AlarmGroup;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -26,7 +28,10 @@ import static org.tensorflow.demo.Alarm.data.DatabaseHelper.COL_THURS;
 import static org.tensorflow.demo.Alarm.data.DatabaseHelper.COL_TIME;
 import static org.tensorflow.demo.Alarm.data.DatabaseHelper.COL_TUES;
 import static org.tensorflow.demo.Alarm.data.DatabaseHelper.COL_WED;
+import static org.tensorflow.demo.Alarm.data.DatabaseHelper.COUNT;
+import static org.tensorflow.demo.Alarm.data.DatabaseHelper.GROUP_ID;
 import static org.tensorflow.demo.Alarm.data.DatabaseHelper._ID;
+import static org.tensorflow.demo.Alarm.ui.AddEditAlarmFragment.alarm;
 
 
 /*
@@ -81,14 +86,21 @@ public final class AlarmUtils {
 
     }
 
+    //DB에 넣기 전에 내용을 바꿔주는 부분
     public static ContentValues toContentValues(Alarm alarm) {
 
-        final ContentValues cv = new ContentValues(10);
+        final ContentValues cv = new ContentValues(11);
 
         cv.put(COL_TIME, alarm.getTime());
         cv.put(COL_LABEL, alarm.getLabel());
 
         final SparseBooleanArray days = alarm.getDays();
+        if(days == null){
+            Log.i("pill"," null");
+        }else{
+            Log.i("pill","not null");
+
+        }
         cv.put(COL_MON, days.get(Alarm.MON) ? 1 : 0);
         cv.put(COL_TUES, days.get(Alarm.TUES) ? 1 : 0);
         cv.put(COL_WED, days.get(Alarm.WED) ? 1 : 0);
@@ -98,11 +110,24 @@ public final class AlarmUtils {
         cv.put(COL_SUN, days.get(Alarm.SUN) ? 1 : 0);
 
         cv.put(COL_IS_ENABLED, alarm.isEnabled());
+        cv.put(GROUP_ID,alarm.getGroup_id());
 
         return cv;
 
     }
 
+    public static ContentValues toContentValues(AlarmGroup alarmGroup) {
+
+        final ContentValues cv = new ContentValues(1);
+
+        cv.put(COUNT, alarmGroup.getCount());
+
+        return cv;
+
+    }
+
+    //커서로 DB읽어옴
+    //리스트에 추가하는 내용
     public static ArrayList<Alarm> buildAlarmList(Cursor c) {
 
         if (c == null) return new ArrayList<>();
@@ -125,6 +150,7 @@ public final class AlarmUtils {
                 final boolean sat = c.getInt(c.getColumnIndex(COL_SAT)) == 1;
                 final boolean sun = c.getInt(c.getColumnIndex(COL_SUN)) == 1;
                 final boolean isEnabled = c.getInt(c.getColumnIndex(COL_IS_ENABLED)) == 1;
+                final long group_id = c.getLong(c.getColumnIndex(GROUP_ID));
 
                 final Alarm alarm = new Alarm(id, time, label);
                 alarm.setDay(Alarm.MON, mon);
@@ -136,6 +162,7 @@ public final class AlarmUtils {
                 alarm.setDay(Alarm.SUN, sun);
 
                 alarm.setIsEnabled(isEnabled);
+                alarm.setGroup_id(group_id);
 
                 alarms.add(alarm);
 
@@ -146,6 +173,34 @@ public final class AlarmUtils {
 
     }
 
+    //커서로 DB읽어옴
+    //리스트에 추가하는 내용
+    public static ArrayList<AlarmGroup> buildAlarmGroupList(Cursor c) {
+
+        if (c == null) return new ArrayList<>();
+
+        final int size = c.getCount();
+
+        final ArrayList<AlarmGroup> alarmGroups = new ArrayList<>(size);
+
+        if (c.moveToFirst()){
+            do {
+
+                final long id = c.getLong(c.getColumnIndex(_ID));
+                final int count = c.getInt(c.getColumnIndex(COUNT));
+
+                final AlarmGroup alarmGroup = new AlarmGroup(id);
+                alarmGroup.setId(id);
+                alarmGroup.setCount(count);
+
+                alarmGroups.add(alarmGroup);
+
+            } while (c.moveToNext());
+        }
+
+        return alarmGroups;
+
+    }
     public static String getReadableTime(long time) {
         return TIME_FORMAT.format(time);
     }

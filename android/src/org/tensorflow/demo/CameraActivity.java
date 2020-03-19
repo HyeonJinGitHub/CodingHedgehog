@@ -21,12 +21,6 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.pm.PackageManager;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.ComposePathEffect;
-import android.graphics.CornerPathEffect;
-import android.graphics.DashPathEffect;
-import android.graphics.Paint;
 import android.hardware.Camera;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCharacteristics;
@@ -41,12 +35,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Trace;
-import android.util.DisplayMetrics;
-import android.util.Log;
 import android.util.Size;
 import android.view.KeyEvent;
 import android.view.Surface;
-import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
@@ -54,8 +45,6 @@ import java.nio.ByteBuffer;
 import org.tensorflow.demo.env.ImageUtils;
 import org.tensorflow.demo.env.Logger;
 import org.tensorflow.demo.R; // Explicit import needed for internal Google builds.
-
-import static android.content.ContentValues.TAG;
 
 public abstract class CameraActivity extends Activity
     implements OnImageAvailableListener, Camera.PreviewCallback {
@@ -83,7 +72,6 @@ public abstract class CameraActivity extends Activity
   private Runnable imageConverter;
   private Button button; // 캡쳐 버튼
 
-
   @Override
   protected void onCreate(final Bundle savedInstanceState) {
     LOGGER.d("onCreate " + this);
@@ -91,9 +79,6 @@ public abstract class CameraActivity extends Activity
     getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
     setContentView(R.layout.activity_camera);
-
-    DrawOnTop mDraw = new DrawOnTop(this);
-    addContentView(mDraw, new WindowManager.LayoutParams(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT));
 
     if (hasPermission()) {
       setFragment();
@@ -473,41 +458,4 @@ public abstract class CameraActivity extends Activity
   protected abstract void onPreviewSizeChosen(final Size size, final int rotation);
   protected abstract int getLayoutId();
   protected abstract Size getDesiredPreviewFrameSize();
-}
-
-// 화면 중앙에 가이드라인 그리는 용
-class DrawOnTop extends View {
-
-  int width;
-  int height;
-
-  public DrawOnTop(Context context){
-    super(context);
-      DisplayMetrics dm = getContext().getResources().getDisplayMetrics();
-      this.width = dm.widthPixels;
-      this.height = dm.heightPixels-500;
-      Log.i(TAG,"프리뷰 넓이 : " + width + " 프리뷰 높이 : " + height); // 프리뷰 넓이 : 1080,  프리뷰 높이 : 2042
-
-  }
-
-  @Override
-  protected void onDraw(Canvas canvas){
-
-    Paint paint = new Paint();
-    super.onDraw(canvas);
-    float radius = 50.0f;
-    CornerPathEffect cornerPathEffect = new CornerPathEffect(radius);
-
-    float[] intervals = new float[]{100.0f, 200.0f}; // 첫번째 인자는 Dash의 길이, 두번째 인자는 Dash의 간격
-    float phase = 50.0f; // 화면에서 첫번째 Dash가 얼만큼 잘려서 그려져도 되는지 시작값
-    DashPathEffect dashPathEffect = new DashPathEffect(intervals, phase);
-
-    ComposePathEffect composePathEffect = new ComposePathEffect(cornerPathEffect, dashPathEffect);
-    paint.setStyle(Paint.Style.STROKE);
-    paint.setColor(Color.WHITE);
-    paint.setPathEffect(composePathEffect);
-    paint.setStrokeWidth(10);
-    canvas.drawRect(width/2 - 150, height/2 - 150, width/2+150, height/2+150, paint);
-
-  }
 }

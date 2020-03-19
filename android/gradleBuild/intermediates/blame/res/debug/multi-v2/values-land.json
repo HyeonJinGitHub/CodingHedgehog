@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\zxd98\\CodingHedgehog\\android\\gradleBuild\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
+            "outputFile": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\gradleBuild\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\zxd98\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.1.0-alpha03.aar\\505005f7da307ddcf939ce5d897f83e3\\res\\values-land\\values-land.xml",
+                    "source": "C:\\Users\\mayso\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.1.0-alpha03.aar\\02d3580afbece5904109d42a9eed6daf\\res\\values-land\\values-land.xml",
                     "from": {
                         "startLines": "2,3,4",
                         "startColumns": "4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\zxd98\\.gradle\\caches\\transforms-1\\files-1.1\\material-1.1.0-alpha06.aar\\eac6d66b034f30c8ccaaa058995daa5c\\res\\values-land\\values-land.xml",
+                    "source": "C:\\Users\\mayso\\.gradle\\caches\\transforms-1\\files-1.1\\material-1.1.0-alpha06.aar\\ac537f95c5692d4bb6adf66bdbbf2e57\\res\\values-land\\values-land.xml",
                     "from": {
                         "startLines": "2,3,4,5,6",
                         "startColumns": "4,4,4,4,4",

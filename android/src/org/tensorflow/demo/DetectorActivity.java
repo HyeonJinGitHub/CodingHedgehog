@@ -23,7 +23,6 @@ import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
-import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Typeface;
 import android.media.ImageReader.OnImageAvailableListener;
@@ -96,7 +95,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
   // Minimum detection confidence to track a detection.
   private static final float MINIMUM_CONFIDENCE_TF_OD_API = 0.6f;
   private static final float MINIMUM_CONFIDENCE_MULTIBOX = 0.1f;
-  private static final float MINIMUM_CONFIDENCE_YOLO = 0.7f; // confidence 수정
+  private static final float MINIMUM_CONFIDENCE_YOLO = 0.6f;
 
   private static final boolean MAINTAIN_ASPECT = MODE == DetectorMode.YOLO;
 
@@ -319,8 +318,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
                 minimumConfidence = MINIMUM_CONFIDENCE_YOLO;
                 break;
             }
-            // TTS 부분
-            /*
+            // TTS 부분 
             tts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
               @Override
               public void onInit(int status) {
@@ -329,17 +327,15 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
               }
             });
             tts.speak("알약을 화면 중앙에 놓아주세요", TextToSpeech.QUEUE_FLUSH, null);
-            */
+
             final List<Classifier.Recognition> mappedRecognitions =
                 new LinkedList<Classifier.Recognition>();
 
             for (final Classifier.Recognition result : results) {
               final RectF location = result.getLocation(); // Rect 값 location
-              // final Rect rect = new Rect(100, 100, 200, 200); // 추가
-
               if (location != null && result.getConfidence() >= minimumConfidence) {
                 canvas.drawRect(location, paint);
-                // canvas.drawRect(rect, paint);
+
                 cropToFrameTransform.mapRect(location);
                 result.setLocation(location);
                 mappedRecognitions.add(result);

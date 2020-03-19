@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
@@ -74,17 +75,13 @@ public class DetailFragment2 extends Fragment {
         // Inflate the layout for this fragment
         View v= inflater.inflate(R.layout.fragment_detail2, container, false);
 
-        ListView listView = (ListView)v.findViewById(R.id.listview);
-        List<String> list =new ArrayList<>();
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(),android.R.layout.simple_list_item_1,list);
-        listView.setAdapter(adapter);
+        TextView textView = (TextView)v.findViewById(R.id.textView);
 
         Bundle bundle = getArguments();
         if(bundle!=null){
             //text1.setText(bundle1.getString("drug_name"));
             //Log.i("pill",bundle1.getString("drug_name"));
-            list.add(bundle.getString("effect"));
+            textView.setText(bundle.getString("effect"));
         }
 
         return v;

@@ -49,6 +49,7 @@ animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
 array A_List
 array Q_List
+array count_array
 array days_abbreviated
 attr actionBarDivider
 attr actionBarItemBackground
@@ -1333,6 +1334,7 @@ drawable cbtn8
 drawable cbtn8_pressed
 drawable cbtn9
 drawable cbtn9_pressed
+drawable custom_button
 drawable design_bottom_navigation_item_background
 drawable design_fab_background
 drawable design_ic_visibility
@@ -1512,12 +1514,9 @@ id alertTitle
 id all
 id always
 id answer_text
-id ar_am_pm
 id ar_days
 id ar_icon
 id ar_label
-id ar_repeat_icon
-id ar_time
 id async
 id auto
 id barrier
@@ -1526,7 +1525,6 @@ id black
 id blocking
 id bottom
 id bottom_navigation
-id button
 id button1
 id button2
 id button3
@@ -1556,6 +1554,7 @@ id container
 id content
 id contentPanel
 id coordinator
+id count
 id custom
 id customPanel
 id cut
@@ -1717,6 +1716,7 @@ id search_src_text
 id search_voice_btn
 id select_dialog_listview
 id selected
+id setcount
 id shortcut
 id showCustom
 id showHome
@@ -1729,6 +1729,7 @@ id snackbar_text
 id snap
 id snapMargins
 id spacer
+id spinner
 id split_action_bar
 id spread
 id spread_inside
@@ -1770,6 +1771,11 @@ id textinput_error
 id textinput_helper_text
 id texture
 id time
+id time1
+id time2
+id time3
+id time4
+id time5
 id title
 id titleDividerNoCustom
 id title_template
@@ -1867,6 +1873,7 @@ layout camera_connection_fragment_tracking
 layout content_pill_detail
 layout content_pill_list
 layout content_text_search
+layout count_list_custom
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -1892,10 +1899,8 @@ layout fragment_detail4
 layout fragment_detail5
 layout fragment_main
 layout fragment_menu1
-layout fragment_menu1_list
 layout fragment_menu2
 layout fragment_menu3
-layout fragment_text_search
 layout list_fnq_item
 layout list_text_item
 layout listiem
@@ -1994,6 +1999,7 @@ string character_counter_overflowed_content_description
 string character_counter_pattern
 string chip_text
 string clear_text_end_icon_content_description
+string count
 string days
 string delete_complete
 string delete_dialog_content
