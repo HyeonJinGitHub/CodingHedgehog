@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/iconText">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
 
         <TextView
             android:id="@+id/drug_name_text"
@@ -455,7 +455,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:background="@color/button"
+            android:background="@drawable/custom_button"
             android:text="검색"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@id/button2"
@@ -469,7 +469,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="5dp"
             android:layout_marginBottom="20dp"
-            android:background="@color/button"
+            android:background="@drawable/custom_button"
             android:text="초기화"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_chainStyle="packed"

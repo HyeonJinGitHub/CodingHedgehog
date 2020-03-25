@@ -49,6 +49,7 @@ animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
 array A_List
 array Q_List
+array count_array
 array days_abbreviated
 attr actionBarDivider
 attr actionBarItemBackground
@@ -1041,7 +1042,6 @@ dimen design_tab_text_size_2line
 dimen design_textinput_caption_translate_y
 dimen disabled_alpha_material_dark
 dimen disabled_alpha_material_light
-dimen fab_margin
 dimen fab_margin_default
 dimen fastscroll_default_thickness
 dimen fastscroll_margin
@@ -1333,6 +1333,7 @@ drawable cbtn8
 drawable cbtn8_pressed
 drawable cbtn9
 drawable cbtn9_pressed
+drawable custom_button
 drawable design_bottom_navigation_item_background
 drawable design_fab_background
 drawable design_ic_visibility
@@ -1512,12 +1513,9 @@ id alertTitle
 id all
 id always
 id answer_text
-id ar_am_pm
 id ar_days
 id ar_icon
 id ar_label
-id ar_repeat_icon
-id ar_time
 id async
 id auto
 id barrier
@@ -1526,7 +1524,6 @@ id black
 id blocking
 id bottom
 id bottom_navigation
-id button
 id button1
 id button2
 id button3
@@ -1538,10 +1535,12 @@ id calendar_frame
 id cancel_action
 id cancel_button
 id cap_button
+id caution
 id center
 id center_horizontal
 id center_vertical
 id chains
+id charact
 id checkbox
 id checked
 id chip
@@ -1550,12 +1549,14 @@ id chronometer
 id clear_text
 id clip_horizontal
 id clip_vertical
+id cls_name
 id collapseActionView
 id confirm_button
 id container
 id content
 id contentPanel
 id coordinator
+id count
 id custom
 id customPanel
 id cut
@@ -1575,6 +1576,7 @@ id dimensions
 id direct
 id disableHome
 id dismiss_btn
+id dosage
 id dropdown_menu
 id drug_name
 id drug_name_text
@@ -1587,10 +1589,10 @@ id edit_alarm_mon
 id edit_alarm_sat
 id edit_alarm_sun
 id edit_alarm_thurs
-id edit_alarm_time_picker
 id edit_alarm_tues
 id edit_alarm_wed
 id edit_query
+id effect
 id empty_view
 id end
 id end_padder
@@ -1626,6 +1628,7 @@ id imageView
 id info
 id invisible
 id italic
+id item_ingr_type
 id item_touch_helper_previous_elevation
 id labeled
 id landing_page_fragment_container
@@ -1643,6 +1646,7 @@ id listview2
 id load_main_activity_btn
 id masked
 id media_actions
+id mediguide
 id message
 id middle
 id mini
@@ -1717,6 +1721,7 @@ id search_src_text
 id search_voice_btn
 id select_dialog_listview
 id selected
+id setcount
 id shortcut
 id showCustom
 id showHome
@@ -1729,6 +1734,7 @@ id snackbar_text
 id snap
 id snapMargins
 id spacer
+id spinner
 id split_action_bar
 id spread
 id spread_inside
@@ -1740,9 +1746,11 @@ id srow2
 id standard
 id start
 id status_bar_latest_event_content
+id stmt
 id stretch
 id submenuarrow
 id submit_area
+id sunb
 id tabMode
 id tableLayout
 id tableLayout2
@@ -1770,6 +1778,11 @@ id textinput_error
 id textinput_helper_text
 id texture
 id time
+id time1
+id time2
+id time3
+id time4
+id time5
 id title
 id titleDividerNoCustom
 id title_template
@@ -1788,6 +1801,7 @@ id uniform
 id unlabeled
 id up
 id upso_name
+id upso_name_kfda
 id useLogo
 id view_offset_helper
 id visible
@@ -1867,6 +1881,7 @@ layout camera_connection_fragment_tracking
 layout content_pill_detail
 layout content_pill_list
 layout content_text_search
+layout count_list_custom
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -1885,6 +1900,7 @@ layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout fragment_add_edit_alarm
 layout fragment_alarm_landing_page
+layout fragment_detail
 layout fragment_detail1
 layout fragment_detail2
 layout fragment_detail3
@@ -1895,7 +1911,6 @@ layout fragment_menu1
 layout fragment_menu1_list
 layout fragment_menu2
 layout fragment_menu3
-layout fragment_text_search
 layout list_fnq_item
 layout list_text_item
 layout listiem
@@ -1994,6 +2009,7 @@ string character_counter_overflowed_content_description
 string character_counter_pattern
 string chip_text
 string clear_text_end_icon_content_description
+string count
 string days
 string delete_complete
 string delete_dialog_content

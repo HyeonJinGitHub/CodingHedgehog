@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.util.Base64;
@@ -20,7 +19,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLEncoder;
 import java.util.Arrays;
 import org.tensorflow.demo.DetectorActivity;
 
@@ -35,6 +33,7 @@ public class FileUpload extends AsyncTask <byte[], Void, String> {
     String lineEnd = "\r\n";
     String twoHyphens = "--";
     String boundary = "*****";
+
 
     final File file = new File(Environment.getExternalStorageDirectory() + "/DCIM", "test1.jpg");
     String drug_color = "";
@@ -177,9 +176,8 @@ public class FileUpload extends AsyncTask <byte[], Void, String> {
             }
             // 서버로 부터 받아온 알약 데이터값
             drug_color2 = response2.toString();
-
         } catch (Exception e) {
-            Log.i(TAG, "Upload_Exception : " + e.getMessage());
+            Log.i(TAG, "Upload_Exception" + e.getMessage());
         } finally {
             Log.i(TAG, "Upload...finish!");
             if (con != null)

@@ -6,9 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".Search.DetailFragment1">
 
-    <ListView
-        android:id="@+id/listview"
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

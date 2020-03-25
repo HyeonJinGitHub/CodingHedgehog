@@ -10,9 +10,6 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="0ade5aa1-0d09-4bfe-b924-243df188e826" name="Default Changelist" comment="" />
-=======
     <list default="true" id="0ade5aa1-0d09-4bfe-b924-243df188e826" name="Default Changelist" comment="">
 <<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/res/drawable-xxhdpi/camera_search_btn.png" afterDir="false" />
@@ -389,7 +386,6 @@
       <change beforePath="$PROJECT_DIR$/src/org/tensorflow/demo/Search/Menu2Fragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/tensorflow/demo/Search/Menu2Fragment.java" afterDir="false" />
 >>>>>>> 2f7f2d2185b115d8f8c3bff7ef43b741847079ad
     </list>
->>>>>>> e94f1f9d56f4b2119fcc5ba28a3812c3f93afd43
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -502,19 +498,12 @@
           <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="322">
-<<<<<<< HEAD
-              <caret line="470" column="46" selection-start-line="470" selection-start-column="46" selection-end-line="470" selection-end-column="46" />
-=======
               <caret line="470" column="46" lean-forward="true" selection-start-line="470" selection-start-column="46" selection-end-line="470" selection-end-column="46" />
 >>>>>>> 2f7f2d2185b115d8f8c3bff7ef43b741847079ad
->>>>>>> e94f1f9d56f4b2119fcc5ba28a3812c3f93afd43
             </state>
           </provider>
         </entry>
       </file>
-<<<<<<< HEAD
-      <file pinned="false" current-in-tab="false">
-=======
 <<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/layout/fragment_text_search.xml">
@@ -526,23 +515,10 @@
           <provider editor-type-id="android-designer2" />
 =======
       <file pinned="false" current-in-tab="true">
->>>>>>> e94f1f9d56f4b2119fcc5ba28a3812c3f93afd43
         <entry file="file://$PROJECT_DIR$/src/org/tensorflow/demo/Search/Menu1Fragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="37" column="65" selection-start-line="37" selection-start-column="65" selection-end-line="37" selection-end-column="65" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="203" column="5" selection-start-line="203" selection-start-column="5" selection-end-line="203" selection-end-column="5" />
-              <folding>
-                <element signature="e#0#68#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="128">
+              <caret line="35" column="78" selection-start-line="35" selection-start-column="78" selection-end-line="35" selection-end-column="78" />
             </state>
           </provider>
         </entry>
@@ -575,8 +551,6 @@
           </provider>
         </entry>
       </file>
-<<<<<<< HEAD
-=======
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/layout/list_text_item.xml">
           <provider editor-type-id="android-designer2" />
@@ -584,7 +558,6 @@
 >>>>>>> 2f7f2d2185b115d8f8c3bff7ef43b741847079ad
         </entry>
       </file>
->>>>>>> e94f1f9d56f4b2119fcc5ba28a3812c3f93afd43
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -744,8 +717,6 @@
               <item name="android" type="1abcf292:AndroidViewProjectNode" />
               <item name="android" type="feadf853:AndroidModuleNode" />
             </path>
-<<<<<<< HEAD
-=======
             <path>
               <item name="android" type="1abcf292:AndroidViewProjectNode" />
               <item name="android" type="feadf853:AndroidModuleNode" />
@@ -806,7 +777,6 @@
               <item name="android" type="1abcf292:AndroidViewProjectNode" />
               <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
             </path>
->>>>>>> e94f1f9d56f4b2119fcc5ba28a3812c3f93afd43
           </expand>
           <select />
         </subPane>
@@ -948,17 +918,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-<<<<<<< HEAD
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49762282" visible="true" weight="0.1671141" />
-=======
 <<<<<<< HEAD
       <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49762282" visible="true" weight="0.17181209" />
 =======
       <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49762282" visible="true" weight="0.020134227" />
 >>>>>>> 2f7f2d2185b115d8f8c3bff7ef43b741847079ad
->>>>>>> e94f1f9d56f4b2119fcc5ba28a3812c3f93afd43
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" sideWeight="0.50237715" side_tool="true" weight="0.2637584" />
       <window_info id="Build Variants" order="4" side_tool="true" />
@@ -1021,82 +988,6 @@
   </component>
   <component name="editorHistoryManager">
 <<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/org/tensorflow/demo/Alarm/ui/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tensorflow/demo/Alarm/view/DividerItemDecoration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="30" column="36" selection-start-line="30" selection-start-column="36" selection-end-line="30" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tensorflow/demo/AlarmReceiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="29" column="76" selection-start-line="29" selection-start-column="76" selection-end-line="29" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tensorflow/demo/Search/DetailFragment.java" />
-    <entry file="file://$PROJECT_DIR$/src/org/tensorflow/demo/Search/Menu3Fragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="133" column="74" selection-start-line="133" selection-start-column="74" selection-end-line="133" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tensorflow/demo/Classifier.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-865">
-          <caret line="31" column="18" lean-forward="true" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tensorflow/demo/Alarm/service/BootReceiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="24" column="31" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tensorflow/demo/LegacyCameraConnectionFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2916">
-          <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tensorflow/demo/TensorFlowObjectDetectionAPIModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="193" column="40" selection-start-line="193" selection-start-column="40" selection-end-line="193" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/tensorflow/demo/TensorFlowMultiBoxDetector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="203" column="37" selection-start-line="203" selection-start-column="37" selection-end-line="203" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-=======
-<<<<<<< HEAD
->>>>>>> e94f1f9d56f4b2119fcc5ba28a3812c3f93afd43
     <entry file="file://$PROJECT_DIR$/res/layout/camera_connection_fragment.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-206" />
@@ -1612,7 +1503,7 @@
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
-          <caret line="470" column="46" selection-start-line="470" selection-start-column="46" selection-end-line="470" selection-end-column="46" />
+          <caret line="470" column="46" lean-forward="true" selection-start-line="470" selection-start-column="46" selection-end-line="470" selection-end-column="46" />
         </state>
       </provider>
     </entry>
@@ -1630,24 +1521,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/tensorflow/demo/Search/Menu1Fragment.java">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state relative-caret-position="166">
-          <caret line="37" column="65" selection-start-line="37" selection-start-column="65" selection-end-line="37" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="203" column="5" selection-start-line="203" selection-start-column="5" selection-end-line="203" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#68#0" expanded="true" />
-          </folding>
-=======
         <state relative-caret-position="128">
           <caret line="35" column="78" selection-start-line="35" selection-start-column="78" selection-end-line="35" selection-end-column="78" />
 >>>>>>> 2f7f2d2185b115d8f8c3bff7ef43b741847079ad
->>>>>>> e94f1f9d56f4b2119fcc5ba28a3812c3f93afd43
         </state>
       </provider>
     </entry>

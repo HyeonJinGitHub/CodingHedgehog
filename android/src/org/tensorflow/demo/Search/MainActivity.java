@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.tensorflow.demo.Alarm.ui.MainFragment;
@@ -18,6 +17,7 @@ import org.tensorflow.demo.R;
 import java.net.MalformedURLException;
 
 public class MainActivity extends AppCompatActivity{
+
 
     // FrameLayout에 각 메뉴의 Fragment를 바꿔 줌
     private FragmentManager fragmentManager = getSupportFragmentManager();
@@ -73,4 +73,7 @@ public class MainActivity extends AppCompatActivity{
     }
 
 
+    public void onFragmentInteraction(Uri uri) {
+
+    }
 }

@@ -1,10 +1,5 @@
 package org.tensorflow.demo;
 
-import android.content.Context;
-import android.content.Intent;
-
-import org.tensorflow.demo.Search.PillListActivity;
-
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 

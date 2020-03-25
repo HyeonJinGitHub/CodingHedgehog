@@ -117,7 +117,6 @@ public class CameraConnectionFragment extends Fragment {
         public void onSurfaceTextureAvailable(
             final SurfaceTexture texture, final int width, final int height) {
           openCamera(width, height);
-          // 이부분에 setPreview
         }
 
         @Override
@@ -795,7 +794,6 @@ public class CameraConnectionFragment extends Fragment {
 
               startActivity(intent); // 해당하는 알약 리스트 검색 (액티비티 이동)
             }
-
           } catch (FileNotFoundException e) {
             e.printStackTrace();
           } catch (IOException e) {
@@ -852,4 +850,3 @@ public class CameraConnectionFragment extends Fragment {
     }
   }
 }
-

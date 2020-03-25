@@ -688,10 +688,6 @@
         "source": "C:\\Users\\zxd98\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.1.0-alpha03.aar\\505005f7da307ddcf939ce5d897f83e3\\res\\drawable-hdpi-v4\\abc_list_pressed_holo_light.9.png"
     },
     {
-        "merged": "C:\\Users\\zxd98\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\layout_fragment_text_search.xml.flat",
-        "source": "C:\\Users\\zxd98\\CodingHedgehog\\android\\res\\layout\\fragment_text_search.xml"
-    },
-    {
         "merged": "C:\\Users\\zxd98\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\zxd98\\CodingHedgehog\\android\\res\\drawable-xxhdpi\\ic_launcher.png"
     },
@@ -1956,6 +1952,10 @@
         "source": "C:\\Users\\zxd98\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.1.0-alpha03.aar\\505005f7da307ddcf939ce5d897f83e3\\res\\drawable-mdpi-v4\\abc_ic_star_half_black_36dp.png"
     },
     {
+        "merged": "C:\\Users\\zxd98\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\layout_count_list_custom.xml.flat",
+        "source": "C:\\Users\\zxd98\\CodingHedgehog\\android\\res\\layout\\count_list_custom.xml"
+    },
+    {
         "merged": "C:\\Users\\zxd98\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\layout_mtrl_calendar_month_bar.xml.flat",
         "source": "C:\\Users\\zxd98\\.gradle\\caches\\transforms-1\\files-1.1\\material-1.1.0-alpha06.aar\\eac6d66b034f30c8ccaaa058995daa5c\\res\\layout\\mtrl_calendar_month_bar.xml"
     },
@@ -2500,6 +2500,10 @@
         "source": "C:\\Users\\zxd98\\.gradle\\caches\\transforms-1\\files-1.1\\material-1.1.0-alpha06.aar\\eac6d66b034f30c8ccaaa058995daa5c\\res\\interpolator-v21\\mtrl_fast_out_linear_in.xml"
     },
     {
+        "merged": "C:\\Users\\zxd98\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\layout_fragment_detail.xml.flat",
+        "source": "C:\\Users\\zxd98\\CodingHedgehog\\android\\res\\layout\\fragment_detail.xml"
+    },
+    {
         "merged": "C:\\Users\\zxd98\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\color-v23_abc_tint_btn_checkable.xml.flat",
         "source": "C:\\Users\\zxd98\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.1.0-alpha03.aar\\505005f7da307ddcf939ce5d897f83e3\\res\\color-v23\\abc_tint_btn_checkable.xml"
     },
@@ -2818,6 +2822,10 @@
     {
         "merged": "C:\\Users\\zxd98\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_cab_background_top_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\zxd98\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.1.0-alpha03.aar\\505005f7da307ddcf939ce5d897f83e3\\res\\drawable-mdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\zxd98\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\drawable_custom_button.xml.flat",
+        "source": "C:\\Users\\zxd98\\CodingHedgehog\\android\\res\\drawable\\custom_button.xml"
     },
     {
         "merged": "C:\\Users\\zxd98\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\drawable-mdpi_cbtn2_pressed.png.flat",

@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import org.tensorflow.demo.Alarm.data.DatabaseHelper;
 import org.tensorflow.demo.Alarm.model.Alarm;
+import org.tensorflow.demo.Alarm.model.AlarmGroup;
 import org.tensorflow.demo.Alarm.service.LoadAlarmsService;
 import org.tensorflow.demo.R;
 
@@ -45,17 +46,18 @@ public final class AddEditAlarmActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(getToolbarTitle());
 
-        final Alarm alarm = getAlarm();
+        //final Alarm alarm = getAlarm();
+        final AlarmGroup alarmGroup = getAlarmGroup();
 
         if(getSupportFragmentManager().findFragmentById(R.id.edit_alarm_frag_container) == null) {
             getSupportFragmentManager()
                     .beginTransaction()
-                    .add(R.id.edit_alarm_frag_container, AddEditAlarmFragment.newInstance(alarm))
+                    .add(R.id.edit_alarm_frag_container, AddEditAlarmFragment.newInstance(alarmGroup,getMode()))
                     .commit();
         }
 
     }
-
+    /*
     private Alarm getAlarm() {
         switch (getMode()) {
             case EDIT_ALARM:
@@ -64,6 +66,24 @@ public final class AddEditAlarmActivity extends AppCompatActivity {
                 final long id = DatabaseHelper.getInstance(this).addAlarm();
                 LoadAlarmsService.launchLoadAlarmsService(this);
                 return new Alarm(id);
+            case UNKNOWN:
+            default:
+                throw new IllegalStateException("Mode supplied as intent extra for " +
+                        AddEditAlarmActivity.class.getSimpleName() + " must match value in " +
+                        Mode.class.getSimpleName());
+        }
+    }
+
+
+     */
+    public AlarmGroup getAlarmGroup() {
+        switch (getMode()) {
+            case EDIT_ALARM:    //수정
+                return getIntent().getParcelableExtra(ALARM_EXTRA);
+            case ADD_ALARM:
+                final long id = DatabaseHelper.getInstance(this).addAlarmGroup();
+                LoadAlarmsService.launchLoadAlarmsService(this);
+                return new AlarmGroup(id);
             case UNKNOWN:
             default:
                 throw new IllegalStateException("Mode supplied as intent extra for " +

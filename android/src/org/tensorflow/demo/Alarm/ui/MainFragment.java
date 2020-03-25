@@ -1,17 +1,13 @@
 package org.tensorflow.demo.Alarm.ui;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -19,6 +15,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import org.tensorflow.demo.Alarm.adapter.AlarmsAdapter;
 import org.tensorflow.demo.Alarm.model.Alarm;
+import org.tensorflow.demo.Alarm.model.AlarmGroup;
+import org.tensorflow.demo.Alarm.service.LoadAlarmGroupReceiver;
 import org.tensorflow.demo.Alarm.service.LoadAlarmsReceiver;
 import org.tensorflow.demo.Alarm.service.LoadAlarmsService;
 import org.tensorflow.demo.Alarm.view.DividerItemDecoration;
@@ -34,15 +32,18 @@ import static org.tensorflow.demo.Alarm.ui.AddEditAlarmActivity.buildAddEditAlar
 
 
 public final class MainFragment extends Fragment
-        implements LoadAlarmsReceiver.OnAlarmsLoadedListener {
+        implements LoadAlarmsReceiver.OnAlarmsLoadedListener, LoadAlarmGroupReceiver.OnAlarmGroupLoadedListener {
 
     private LoadAlarmsReceiver mReceiver;
+    private LoadAlarmGroupReceiver gReceiver;
+
     private AlarmsAdapter mAdapter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mReceiver = new LoadAlarmsReceiver(this);
+        gReceiver = new LoadAlarmGroupReceiver(this);
     }
 
     @Nullable
@@ -52,7 +53,7 @@ public final class MainFragment extends Fragment
         final View v = inflater.inflate(R.layout.fragment_menu3, container, false);
 
         final EmptyRecyclerView rv = v.findViewById(R.id.recycler);
-        mAdapter = new AlarmsAdapter();
+        mAdapter = new AlarmsAdapter(getContext());
         rv.setEmptyView(v.findViewById(R.id.empty_view));
         rv.setAdapter(mAdapter);
         rv.addItemDecoration(new DividerItemDecoration(getContext()));
@@ -75,6 +76,7 @@ public final class MainFragment extends Fragment
         super.onStart();
         final IntentFilter filter = new IntentFilter(LoadAlarmsService.ACTION_COMPLETE);
         LocalBroadcastManager.getInstance(getContext()).registerReceiver(mReceiver, filter);
+        LocalBroadcastManager.getInstance(getContext()).registerReceiver(gReceiver, filter);
         LoadAlarmsService.launchLoadAlarmsService(getContext());
     }
 
@@ -82,12 +84,19 @@ public final class MainFragment extends Fragment
     public void onStop() {
         super.onStop();
         LocalBroadcastManager.getInstance(getContext()).unregisterReceiver(mReceiver);
+        LocalBroadcastManager.getInstance(getContext()).unregisterReceiver(gReceiver);
     }
 
 
     @Override
     public void onAlarmsLoaded(ArrayList<Alarm> alarms) {
         mAdapter.setAlarms(alarms);
+    }
+
+    public void onAlarmGroupLoaded(ArrayList<AlarmGroup> alarmGroups) {
+        mAdapter.setAlarmGroup(alarmGroups);
+        mAdapter.notifyDataSetChanged();
+
     }
 
 }

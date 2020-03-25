@@ -83,7 +83,6 @@ public abstract class CameraActivity extends Activity
   private Runnable imageConverter;
   private Button button; // 캡쳐 버튼
 
-
   @Override
   protected void onCreate(final Bundle savedInstanceState) {
     LOGGER.d("onCreate " + this);
@@ -481,17 +480,17 @@ class DrawOnTop extends View {
   int width;
   int height;
 
-  public DrawOnTop(Context context){
+  public DrawOnTop(Context context) {
     super(context);
-      DisplayMetrics dm = getContext().getResources().getDisplayMetrics();
-      this.width = dm.widthPixels;
-      this.height = dm.heightPixels-500;
-      Log.i(TAG,"프리뷰 넓이 : " + width + " 프리뷰 높이 : " + height); // 프리뷰 넓이 : 1080,  프리뷰 높이 : 2042
+    DisplayMetrics dm = getContext().getResources().getDisplayMetrics();
+    this.width = dm.widthPixels;
+    this.height = dm.heightPixels - 500;
+    Log.i(TAG, "프리뷰 넓이 : " + width + " 프리뷰 높이 : " + height); // 프리뷰 넓이 : 1080,  프리뷰 높이 : 2042
 
   }
 
   @Override
-  protected void onDraw(Canvas canvas){
+  protected void onDraw(Canvas canvas) {
 
     Paint paint = new Paint();
     super.onDraw(canvas);
@@ -507,7 +506,7 @@ class DrawOnTop extends View {
     paint.setColor(Color.WHITE);
     paint.setPathEffect(composePathEffect);
     paint.setStrokeWidth(10);
-    canvas.drawRect(width/2 - 150, height/2 - 150, width/2+150, height/2+150, paint);
+    canvas.drawRect(width / 2 - 150, height / 2 - 150, width / 2 + 150, height / 2 + 150, paint);
 
   }
 }
