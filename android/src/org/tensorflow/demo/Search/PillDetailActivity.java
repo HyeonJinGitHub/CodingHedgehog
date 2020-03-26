@@ -4,18 +4,23 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
@@ -34,6 +39,8 @@ import static org.tensorflow.demo.Search.PillDetailActivity.drug_code;
 
 
 import org.tensorflow.demo.R;
+import org.tensorflow.demo.bookmark.Bookmark;
+import org.tensorflow.demo.bookmark.Database;
 
 class PillDetail{
     String drug_name;
@@ -189,13 +196,15 @@ public class PillDetailActivity extends AppCompatActivity implements DetailFragm
             TextView item_ingr_type = (TextView)findViewById(R.id.item_ingr_type);
             TextView charact = (TextView)findViewById(R.id.charact);
             TextView sunb = (TextView)findViewById(R.id.sunb);
-            TextView effect = (TextView)findViewById(R.id.effect);
+            TextView effect = (TextView)findViewById(R.id.effecttㅑ);
             TextView dosage = (TextView)findViewById(R.id.dosage);
             TextView caution = (TextView)findViewById(R.id.caution);
             TextView mediguide = (TextView)findViewById(R.id.mediguide);
             TextView stmt = (TextView)findViewById(R.id.stmt);
 */
-            new DownloadDetail().execute();
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.CUPCAKE) {
+                new DownloadDetail().execute();
+            }
             try {
                 sleep(600);    //600이였음
             } catch (InterruptedException e) {
@@ -271,14 +280,26 @@ public class PillDetailActivity extends AppCompatActivity implements DetailFragm
             stmt.setText("stmt : "+pillDetail.stmt);
 */
         }
+    @Override public boolean onCreateOptionsMenu(Menu menu) {
+            MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.detail_alarm_menu , menu);
 
-    @Override
+            return true;
+        }
+
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
+            case android.R.id.home: //toolbar의 back키 눌렀을 때 동작
                 finish();
                 return true;
-            }
+            case R.id.action_add_star:
+                long id = Database.getInstance(this).addBookmark();
+                Bookmark bookmark = new Bookmark();
+                bookmark.setId(id);
+                bookmark.setName(drug_name);
+                bookmark.setCode(drug_code);
+                Database.getInstance(this).updateBookmark(bookmark);
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }

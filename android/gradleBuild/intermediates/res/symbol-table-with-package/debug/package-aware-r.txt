@@ -1346,6 +1346,7 @@ drawable ic_action_info
 drawable ic_add_a_photo_black_24dp
 drawable ic_alarm_white_24dp
 drawable ic_arrow_upward_black_24dp
+drawable ic_close_black_24dp
 drawable ic_delete_forever_white_24dp
 drawable ic_keyboard_arrow_left_black_24dp
 drawable ic_keyboard_arrow_right_black_24dp
@@ -1362,6 +1363,7 @@ drawable ic_mtrl_chip_close_circle
 drawable ic_repeat_black_24dp
 drawable ic_save_white_24dp
 drawable ic_search_black_24dp
+drawable ic_star_border_black_24dp
 drawable logo
 drawable mtrl_dialog_background
 drawable mtrl_dropdown_arrow
@@ -1486,6 +1488,8 @@ id accessibility_custom_action_7
 id accessibility_custom_action_8
 id accessibility_custom_action_9
 id action0
+id action_add_alarm
+id action_add_star
 id action_bar
 id action_bar_activity_content
 id action_bar_container
@@ -1566,6 +1570,7 @@ id date_picker_header_title
 id debug_overlay
 id decor_content_parent
 id default_activity_button
+id delete_btn
 id design_bottom_sheet
 id design_menu_item_action_area
 id design_menu_item_action_area_stub
@@ -1664,6 +1669,7 @@ id navigation_header_container
 id navigation_menu1
 id navigation_menu2
 id navigation_menu3
+id navigation_menu4
 id never
 id noScroll
 id none
@@ -1875,6 +1881,7 @@ layout activity_pill_list
 layout activity_speech
 layout activity_text_search
 layout alarm_row
+layout bookmark_row
 layout camera_connection_fragment
 layout camera_connection_fragment_stylize
 layout camera_connection_fragment_tracking
@@ -1906,11 +1913,11 @@ layout fragment_detail2
 layout fragment_detail3
 layout fragment_detail4
 layout fragment_detail5
-layout fragment_main
 layout fragment_menu1
 layout fragment_menu1_list
 layout fragment_menu2
 layout fragment_menu3
+layout fragment_menu4
 layout list_fnq_item
 layout list_text_item
 layout listiem
@@ -1956,6 +1963,7 @@ layout test_toolbar
 layout test_toolbar_custom_background
 layout test_toolbar_elevation
 layout test_toolbar_surface
+menu detail_alarm_menu
 menu edit_alarm_menu
 menu menu
 mipmap ic_launcher

@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity{
 
     private MainFragment menu3Fragment = new MainFragment();
 
+    private Menu4Fragment menu4Fragment = new Menu4Fragment();
+
     public MainActivity() throws MalformedURLException {
     }
 
@@ -63,6 +65,10 @@ public class MainActivity extends AppCompatActivity{
                     }
                     case R.id.navigation_menu3: {
                         transaction.replace(R.id.frame_layout, menu3Fragment).commitAllowingStateLoss();
+                        break;
+                    }
+                    case R.id.navigation_menu4: {
+                        transaction.replace(R.id.frame_layout, menu4Fragment).commitAllowingStateLoss();
                         break;
                     }
                 }

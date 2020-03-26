@@ -256,6 +256,10 @@
         "source": "C:\\Users\\mayso\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.1.0-alpha03.aar\\02d3580afbece5904109d42a9eed6daf\\res\\drawable\\btn_checkbox_checked_mtrl.xml"
     },
     {
+        "merged": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\drawable_ic_access_alarm_black_24dp.xml.flat",
+        "source": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\res\\drawable\\ic_access_alarm_black_24dp.xml"
+    },
+    {
         "merged": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\layout_mtrl_date_picker_header.xml.flat",
         "source": "C:\\Users\\mayso\\.gradle\\caches\\transforms-1\\files-1.1\\material-1.1.0-alpha06.aar\\ac537f95c5692d4bb6adf66bdbbf2e57\\res\\layout\\mtrl_date_picker_header.xml"
     },
@@ -330,6 +334,10 @@
     {
         "merged": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\drawable_abc_cab_background_internal_bg.xml.flat",
         "source": "C:\\Users\\mayso\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.1.0-alpha03.aar\\02d3580afbece5904109d42a9eed6daf\\res\\drawable\\abc_cab_background_internal_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\layout_bookmark_row.xml.flat",
+        "source": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\res\\layout\\bookmark_row.xml"
     },
     {
         "merged": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\drawable_abc_ic_clear_material.xml.flat",
@@ -912,6 +920,10 @@
         "source": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\res\\drawable-mdpi\\c_btn8_selector.xml"
     },
     {
+        "merged": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\layout_fragment_menu4.xml.flat",
+        "source": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\res\\layout\\fragment_menu4.xml"
+    },
+    {
         "merged": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_list_pressed_holo_light.9.png.flat",
         "source": "C:\\Users\\mayso\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.1.0-alpha03.aar\\02d3580afbece5904109d42a9eed6daf\\res\\drawable-xhdpi-v4\\abc_list_pressed_holo_light.9.png"
     },
@@ -1268,6 +1280,10 @@
         "source": "C:\\Users\\mayso\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.1.0-alpha03.aar\\02d3580afbece5904109d42a9eed6daf\\res\\color\\abc_tint_edittext.xml"
     },
     {
+        "merged": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\drawable_ic_close_black_24dp.xml.flat",
+        "source": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\res\\drawable\\ic_close_black_24dp.xml"
+    },
+    {
         "merged": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat",
         "source": "C:\\Users\\mayso\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.1.0-alpha03.aar\\02d3580afbece5904109d42a9eed6daf\\res\\drawable-xxxhdpi-v4\\abc_btn_radio_to_on_mtrl_015.png"
     },
@@ -1398,6 +1414,10 @@
     {
         "merged": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\interpolator_btn_checkbox_unchecked_mtrl_animation_interpolator_0.xml.flat",
         "source": "C:\\Users\\mayso\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.1.0-alpha03.aar\\02d3580afbece5904109d42a9eed6daf\\res\\interpolator\\btn_checkbox_unchecked_mtrl_animation_interpolator_0.xml"
+    },
+    {
+        "merged": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\menu_detail_alarm_menu.xml.flat",
+        "source": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\res\\menu\\detail_alarm_menu.xml"
     },
     {
         "merged": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
@@ -2632,6 +2652,10 @@
         "source": "C:\\Users\\mayso\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.1.0-alpha03.aar\\02d3580afbece5904109d42a9eed6daf\\res\\layout-watch-v20\\abc_alert_dialog_title_material.xml"
     },
     {
+        "merged": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\drawable_ic_star_border_black_24dp.xml.flat",
+        "source": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\res\\drawable\\ic_star_border_black_24dp.xml"
+    },
+    {
         "merged": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\layout_select_dialog_singlechoice_material.xml.flat",
         "source": "C:\\Users\\mayso\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.1.0-alpha03.aar\\02d3580afbece5904109d42a9eed6daf\\res\\layout\\select_dialog_singlechoice_material.xml"
     },
@@ -2854,10 +2878,6 @@
     {
         "merged": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_spinner_mtrl_am_alpha.9.png.flat",
         "source": "C:\\Users\\mayso\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.1.0-alpha03.aar\\02d3580afbece5904109d42a9eed6daf\\res\\drawable-xxxhdpi-v4\\abc_spinner_mtrl_am_alpha.9.png"
-    },
-    {
-        "merged": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\layout_fragment_main.xml.flat",
-        "source": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\res\\layout\\fragment_main.xml"
     },
     {
         "merged": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\gradleBuild\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_commit_search_api_mtrl_alpha.png.flat",
