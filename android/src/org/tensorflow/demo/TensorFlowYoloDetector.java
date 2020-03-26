@@ -36,7 +36,7 @@ public class TensorFlowYoloDetector implements Classifier {
   // Only return this many results with at least this confidence.
   private static final int MAX_RESULTS = 5;
 
-  private static final int NUM_CLASSES = 2;
+  private static final int NUM_CLASSES = 1;
 
   private static final int NUM_BOXES_PER_BLOCK = 5;
 
@@ -52,7 +52,6 @@ public class TensorFlowYoloDetector implements Classifier {
 
   private static final String[] LABELS = {
     "pill",
-    "not pill"
   };
 
   // Config values.

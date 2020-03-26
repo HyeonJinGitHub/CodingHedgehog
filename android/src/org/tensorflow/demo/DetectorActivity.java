@@ -318,6 +318,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
                 minimumConfidence = MINIMUM_CONFIDENCE_YOLO;
                 break;
             }
+            /*
             // TTS 부분 
             tts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
               @Override
@@ -327,7 +328,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
               }
             });
             tts.speak("알약을 화면 중앙에 놓아주세요", TextToSpeech.QUEUE_FLUSH, null);
-
+             */
             final List<Classifier.Recognition> mappedRecognitions =
                 new LinkedList<Classifier.Recognition>();
 

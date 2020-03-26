@@ -23,6 +23,7 @@ import android.app.DialogFragment;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.ImageFormat;
 import android.graphics.Matrix;
@@ -74,8 +75,11 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
+
+import org.tensorflow.demo.Search.PillListActivity;
 import org.tensorflow.demo.env.Logger;
 import org.tensorflow.demo.R; // Explicit import needed for internal Google builds.
 
@@ -244,6 +248,9 @@ public class CameraConnectionFragment extends Fragment {
    */
   private final int layout;
   private final Button button;
+  private int cap_count = 0; // 캡쳐한 횟수
+  private byte[][] img_bytes = new byte[2][]; // 캡쳐한 이미지를 담을 이차원배열
+  public String[] locations = new String[2];
 
   private final ConnectionCallback cameraConnectionCallback;
 
@@ -264,7 +271,6 @@ public class CameraConnectionFragment extends Fragment {
       public void onClick(View v){
         Log.i("Capture", "Click capture Button");
         takePicture();
-        Log.i("Capture", "Finish Capture and Send");
       }
     });
   }
@@ -721,6 +727,8 @@ public class CameraConnectionFragment extends Fragment {
         public void onImageAvailable(ImageReader reader) {
           Image image = null;
           try {
+            String get_data = "";
+
             image = reader.acquireLatestImage();
             ByteBuffer buffer = image.getPlanes()[0].getBuffer();
             byte[] bytes = new byte[buffer.capacity()];
@@ -729,12 +737,70 @@ public class CameraConnectionFragment extends Fragment {
 
             buffer.get(bytes);
             save(bytes); // 이미지 저장
-            closeCamera(); // 카메라 중지
-            new FileUpload().execute(bytes); // 이미지 전송
 
+            // 인식된 좌표가 있을때만
+            if(DetectorActivity.rect_location != null){
+              img_bytes[cap_count] = bytes;
+
+              Log.i("TAG", "캡쳐한 횟수 : " + cap_count);
+
+              // 좌표값 처리
+              String str = DetectorActivity.rect_location.toString(); // 확률 0.6 이상의 좌표값
+              str = str.substring(6, str.length()-1);
+
+              String[] xy = str.split(",");
+
+              for(int i = 0; i < xy.length; i++){
+                xy[i] = xy[i].substring(0, xy[i].indexOf("."));
+              }
+              String location = xy[0] + "," + xy[1] + "," + xy[2] + "," + xy[1] + ","
+                      + xy[2] + "," + xy[3] + ", " + xy[0] + "," + xy[3];
+
+              locations[cap_count] = location; // 최근에 찍은 좌표값을 저장
+              cap_count++;
+            }
+            // 오류 다이어로그
+            else {
+              AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+              builder.setCancelable(false);
+              builder.setMessage("인식된 알약이 없습니다. 다시 촬영해주세요");
+
+              builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                }
+              });
+              builder.show();
+            }
+
+            if(cap_count == 2){ // 두번 캡쳐 했을때 (앞, 뒤)
+              get_data = new FileUpload(getActivity(), locations).execute(img_bytes).get(); // 서버에 이미지와 좌표 전송
+              cap_count = 0;
+              Log.i("TAG", "받아온 데이터 : " + get_data);
+              closeCamera(); // 카메라 중지
+            }
+
+            if(!get_data.equals("")){ // 받아온 데이터가 있음
+              DataProcess dp = new DataProcess(); // 받아온 데이터 처리
+              String Dcolor = dp.getColor(get_data); // 색상
+
+              String url1 = "http://dikweb.health.kr/ajax/idfy_info/idfy_info_ajax.asp?drug_name=&drug_print=&match=include&mark_code=&drug_color="+Dcolor+"&drug_linef=&drug_lineb=&drug_shape=&drug_form=&drug_shape_etc=&inner_search=print&inner_keyword=&nsearch=npages";
+              String url2 = "http://dikweb.health.kr/ajax/idfy_info/idfy_info_ajax.asp?drug_name=&drug_print=&match=include&mark_code=&drug_color="+Dcolor+"&drug_linef=&drug_lineb=&drug_shape=&drug_form=&drug_shape_etc=&inner_search=print&inner_keyword=&";
+
+              Intent intent = new Intent(getActivity(), PillListActivity.class);
+
+              intent.putExtra("mparam1", url1);
+              intent.putExtra("mparam2", url2);
+
+              startActivity(intent); // 해당하는 알약 리스트 검색 (액티비티 이동)
+            }
           } catch (FileNotFoundException e) {
             e.printStackTrace();
           } catch (IOException e) {
+            e.printStackTrace();
+          } catch (InterruptedException e) {
+            e.printStackTrace();
+          } catch (ExecutionException e) {
             e.printStackTrace();
           } finally {
             if (image != null) {
@@ -771,11 +837,13 @@ public class CameraConnectionFragment extends Fragment {
             e.printStackTrace();
           }
         }
-
         @Override
         public void onConfigureFailed(CameraCaptureSession session) {
         }
       }, backgroudHandler);
+
+      // 카메라 다시 동작
+      onResume();
 
     } catch (CameraAccessException e) {
       e.printStackTrace();
