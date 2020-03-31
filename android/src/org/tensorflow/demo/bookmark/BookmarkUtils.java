@@ -35,6 +35,7 @@ import static org.tensorflow.demo.Alarm.data.DatabaseHelper._ID;
 import static org.tensorflow.demo.Alarm.ui.AddEditAlarmFragment.alarm;
 import static org.tensorflow.demo.bookmark.Database.DRUG_CODE;
 import static org.tensorflow.demo.bookmark.Database.DRUG_NAME;
+import static org.tensorflow.demo.bookmark.Database.STATE;
 
 
 public final class BookmarkUtils {
@@ -44,10 +45,11 @@ public final class BookmarkUtils {
     //DB에 넣기 전에 내용을 바꿔주는 부분
     public static ContentValues toContentValues(Bookmark bookmark) {
 
-        final ContentValues cv = new ContentValues(2);
+        final ContentValues cv = new ContentValues(3);
 
         cv.put(DRUG_CODE, bookmark.getCode());
         cv.put(DRUG_NAME, bookmark.getName());
+        cv.put(STATE, bookmark.getState());
 
         return cv;
 

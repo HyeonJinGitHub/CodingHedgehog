@@ -88,7 +88,7 @@ public final class BookmarksAdapter extends RecyclerView.Adapter<BookmarksAdapte
         holder.delete_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Database.getInstance(v.getContext()).deleteBookmark(bookmark.getId());
+                Database.getInstance(v.getContext()).deleteBookmark(bookmark.getCode());
                 notifyDataSetChanged();
             }
         });

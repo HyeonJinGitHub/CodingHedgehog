@@ -49,10 +49,12 @@ public final class AddEditAlarmActivity extends AppCompatActivity {
         //final Alarm alarm = getAlarm();
         final AlarmGroup alarmGroup = getAlarmGroup();
 
+        String drug_name = getIntent().getStringExtra("label");
+
         if(getSupportFragmentManager().findFragmentById(R.id.edit_alarm_frag_container) == null) {
             getSupportFragmentManager()
                     .beginTransaction()
-                    .add(R.id.edit_alarm_frag_container, AddEditAlarmFragment.newInstance(alarmGroup,getMode()))
+                    .add(R.id.edit_alarm_frag_container, AddEditAlarmFragment.newInstance(alarmGroup,getMode(),drug_name))
                     .commit();
         }
 
@@ -130,6 +132,7 @@ public final class AddEditAlarmActivity extends AppCompatActivity {
     public static Intent buildAddEditAlarmActivityIntent(Context context, @Mode int mode) {
         final Intent i = new Intent(context, AddEditAlarmActivity.class);
         i.putExtra(MODE_EXTRA, mode);
+        i.putExtra("label", "");
         return i;
     }
 

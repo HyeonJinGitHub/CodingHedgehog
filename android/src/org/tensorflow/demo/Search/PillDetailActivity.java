@@ -38,6 +38,11 @@ import static java.lang.Thread.sleep;
 import static org.tensorflow.demo.Search.PillDetailActivity.drug_code;
 
 
+import org.tensorflow.demo.Alarm.data.DatabaseHelper;
+import org.tensorflow.demo.Alarm.model.AlarmGroup;
+import org.tensorflow.demo.Alarm.service.LoadAlarmsService;
+import org.tensorflow.demo.Alarm.ui.AddEditAlarmActivity;
+import org.tensorflow.demo.Alarm.ui.AddEditAlarmFragment;
 import org.tensorflow.demo.R;
 import org.tensorflow.demo.bookmark.Bookmark;
 import org.tensorflow.demo.bookmark.Database;
@@ -283,7 +288,10 @@ public class PillDetailActivity extends AppCompatActivity implements DetailFragm
     @Override public boolean onCreateOptionsMenu(Menu menu) {
             MenuInflater inflater = getMenuInflater();
             inflater.inflate(R.menu.detail_alarm_menu , menu);
-
+            int result = Database.getInstance(this).readBookmark(drug_code);
+            if(result==1){
+                menu.findItem(R.id.action_add_star).setIcon(R.drawable.ic_yellow_star_24dp);
+            }
             return true;
         }
 
@@ -293,12 +301,29 @@ public class PillDetailActivity extends AppCompatActivity implements DetailFragm
                 finish();
                 return true;
             case R.id.action_add_star:
-                long id = Database.getInstance(this).addBookmark();
-                Bookmark bookmark = new Bookmark();
-                bookmark.setId(id);
-                bookmark.setName(drug_name);
-                bookmark.setCode(drug_code);
-                Database.getInstance(this).updateBookmark(bookmark);
+                int result = Database.getInstance(this).readBookmark(drug_code);
+                Log.i("pill", String.valueOf(result));
+                if(result == 0) {
+                    long id = Database.getInstance(this).addBookmark();
+                    Bookmark bookmark = new Bookmark();
+                    bookmark.setId(id);
+                    bookmark.setName(drug_name);
+                    bookmark.setCode(drug_code);
+                    bookmark.setState(1);
+                    Database.getInstance(this).updateBookmark(bookmark);
+                    item.setIcon(R.drawable.ic_yellow_star_24dp);
+                }if(result == 1){
+                    Database.getInstance(this).deleteBookmark(drug_code);
+                    item.setIcon(R.drawable.ic_star_border_black_24dp);
+                    Log.i("pill","delete");
+
+            }
+                break;
+            case R.id.action_add_alarm:
+                Intent intent = new Intent(this, AddEditAlarmActivity.class);
+                intent.putExtra("mode_extra", 2);
+                intent.putExtra("label",drug_name);
+                startActivity(intent);
                 return true;
         }
         return super.onOptionsItemSelected(item);

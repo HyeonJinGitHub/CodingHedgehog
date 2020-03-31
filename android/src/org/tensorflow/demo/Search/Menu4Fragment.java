@@ -60,6 +60,7 @@ public final class Menu4Fragment extends Fragment{
         rv.addItemDecoration(new DividerItemDecoration(getContext()));
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
         rv.setItemAnimator(new DefaultItemAnimator());
+        mAdapter.notifyDataSetChanged();
 
         return v;
 
@@ -77,6 +78,7 @@ public final class Menu4Fragment extends Fragment{
 
     public void onBookmarksLoaded(ArrayList<Bookmark> bookmarks) {
         mAdapter.setBookmarks(bookmarks);
+        mAdapter.notifyDataSetChanged();
     }
 
 }

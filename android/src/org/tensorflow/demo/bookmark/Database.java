@@ -21,6 +21,8 @@ public final class Database extends SQLiteOpenHelper {
     public static final String _ID = "_id";
     public static final String DRUG_CODE = "code";
     public static final String DRUG_NAME = "name";
+    public static final String STATE = "state";
+
 
     private static Database sInstance = null;
 
@@ -43,7 +45,8 @@ public final class Database extends SQLiteOpenHelper {
         final String CREATE_BOOKMARK_TABLE = "CREATE TABLE " + TABLE_NAME + " (" +
                 _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 DRUG_CODE + " TEXT, "+
-                DRUG_NAME + " TEXT "+
+                DRUG_NAME + " TEXT, "+
+                STATE + " INTEGER "+
                 ");";
 
         sqLiteDatabase.execSQL(CREATE_BOOKMARK_TABLE);
@@ -76,10 +79,9 @@ public final class Database extends SQLiteOpenHelper {
                 .update(TABLE_NAME, AlarmUtils.toContentValues(alarm), where, whereArgs);
     }*/
 
-    public int deleteBookmark(Bookmark bookmark) {
+    /*public int deleteBookmark(Bookmark bookmark) {
         return deleteBookmark(bookmark.getId());
     }
-
 
     int deleteBookmark(long id) {
         final String where = _ID + "=?";
@@ -87,8 +89,15 @@ public final class Database extends SQLiteOpenHelper {
         return getWritableDatabase().delete(TABLE_NAME, where, whereArgs);
     }
 
-    public List<Bookmark> getBookmarks() {
+     */
 
+    public int deleteBookmark(String code) {
+        final String where = DRUG_CODE + "=?";
+        final String[] whereArgs = new String[] { code };
+        return getWritableDatabase().delete(TABLE_NAME, where, whereArgs);
+    }
+
+    public List<Bookmark> getBookmarks() {
         Cursor c = null;
 
         try{
@@ -97,6 +106,16 @@ public final class Database extends SQLiteOpenHelper {
         } finally {
             if (c != null && !c.isClosed()) c.close();
         }
+    }
+    public int readBookmark(String code) {
+        final String where = DRUG_CODE+ "=";
+        String read = "SELECT * FROM "+TABLE_NAME+" WHERE "+where+"\""+code+"\"";
+        Cursor c = getReadableDatabase().rawQuery(read,null);
+        int state = 0;
+        while(c.moveToNext()){
+            state =  c.getInt(3);
+        }
+        return state;
     }
 
 

@@ -74,6 +74,7 @@ public final class AddEditAlarmFragment extends Fragment {
     public static Alarm alarm;
     public static AlarmGroup alarmGroup;
     public static int state;
+    public static String drug_name;
     public static Calendar time;
     public static List<Alarm> alarms;
 
@@ -87,11 +88,12 @@ public final class AddEditAlarmFragment extends Fragment {
         return fragment;
     }
 
-    public static AddEditAlarmFragment newInstance(AlarmGroup alarmGroup,int mode) {
+    public static AddEditAlarmFragment newInstance(AlarmGroup alarmGroup,int mode,String drugname) {
 
         Bundle args = new Bundle();
         args.putParcelable(AddEditAlarmActivity.ALARM_EXTRA, alarmGroup);
         state = mode;
+        drug_name = drugname;
         AddEditAlarmFragment fragment = new AddEditAlarmFragment();
         fragment.setArguments(args);
         return fragment;
@@ -123,6 +125,7 @@ public final class AddEditAlarmFragment extends Fragment {
 
         alarms = DatabaseHelper.getInstance(getContext()).getAlarms(alarmGroup.getId());
         mLabel = (EditText) v.findViewById(R.id.edit_alarm_label);
+        mLabel.setText(drug_name);
         mMon = (CheckBox) v.findViewById(R.id.edit_alarm_mon);
         mTues = (CheckBox) v.findViewById(R.id.edit_alarm_tues);
         mWed = (CheckBox) v.findViewById(R.id.edit_alarm_wed);

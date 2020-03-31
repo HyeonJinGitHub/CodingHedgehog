@@ -237,6 +237,7 @@ class PillList extends ArrayAdapter<String>{
             drug_name.setText(list.get(position).getDrug_name());
             upso_name.setText(list.get(position).getUpso_name_kfda());
             print.setText(list.get(position).getPrint_front()+"/"+list.get(position).getPrint_back());
+            //Glide.with(view).load(list.get(position).getImgidfy_code()).into(imageView);
         }else{
             Log.i("No pill","none");
         }

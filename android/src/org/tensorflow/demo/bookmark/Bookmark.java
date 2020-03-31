@@ -4,6 +4,7 @@ public class Bookmark {
     long id;
     String code;
     String name;
+    int state;
 
     public long getId() {
         return id;
@@ -27,5 +28,13 @@ public class Bookmark {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
     }
 }

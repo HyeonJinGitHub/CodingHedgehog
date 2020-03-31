@@ -1,17 +1,17 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\zxd98\\CodingHedgehog\\android\\gradleBuild\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
+            "outputFile": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\gradleBuild\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\zxd98\\CodingHedgehog\\android\\res\\values-v14\\styles.xml",
+                    "source": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\res\\values-v14\\styles.xml",
                     "from": {
                         "startLines": "7",
                         "startColumns": "2",
-                        "startOffsets": "221",
+                        "startOffsets": "214",
                         "endLines": "9",
                         "endColumns": "10",
-                        "endOffsets": "363"
+                        "endOffsets": "354"
                     },
                     "to": {
                         "startLines": "2",

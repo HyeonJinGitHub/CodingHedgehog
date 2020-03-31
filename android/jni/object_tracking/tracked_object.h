@@ -74,7 +74,9 @@ class TrackedObject {
     return last_detection_position_;
   }
 
-  inline const ObjectModelBase* GetModel() const {
+  inline const ObjectModelBase*
+
+  GetModel() const {
     return object_model_;
   }
 

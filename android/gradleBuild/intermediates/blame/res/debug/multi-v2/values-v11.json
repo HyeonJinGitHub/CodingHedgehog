@@ -1,17 +1,17 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\zxd98\\CodingHedgehog\\android\\gradleBuild\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v11\\values-v11.xml",
+            "outputFile": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\gradleBuild\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v11\\values-v11.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\zxd98\\CodingHedgehog\\android\\res\\values-v11\\arrays.xml",
+                    "source": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\res\\values-v11\\arrays.xml",
                     "from": {
                         "startLines": "36,13,3",
                         "startColumns": "4,4,4",
-                        "startOffsets": "1287,294,59",
+                        "startOffsets": "1251,281,56",
                         "endLines": "107,34,11",
                         "endColumns": "19,19,19",
-                        "endOffsets": "5767,1279,286"
+                        "endOffsets": "5660,1245,275"
                     },
                     "to": {
                         "startLines": "2,74,96",
@@ -23,32 +23,30 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\zxd98\\CodingHedgehog\\android\\res\\values-v11\\styles.xml",
+                    "source": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\res\\values-v11\\ic_launcher_logo_background.xml",
                     "from": {
-                        "startLines": "7,19,11",
-                        "startColumns": "2,2,2",
-                        "startOffsets": "217,782,351",
-                        "endLines": "9,21,17",
-                        "endColumns": "10,10,10",
-                        "endOffsets": "345,948,776"
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "61",
+                        "endOffsets": "112"
                     },
                     "to": {
-                        "startLines": "110,113,116",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "5946,6077,6246",
-                        "endLines": "112,115,122",
-                        "endColumns": "10,10,10",
-                        "endOffsets": "6072,6241,6665"
+                        "startLines": "105",
+                        "startColumns": "4",
+                        "startOffsets": "5662",
+                        "endColumns": "61",
+                        "endOffsets": "5719"
                     }
                 },
                 {
-                    "source": "C:\\Users\\zxd98\\CodingHedgehog\\android\\res\\values-v11\\dimens.xml",
+                    "source": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\res\\values-v11\\dimens.xml",
                     "from": {
                         "startLines": "2,3,7,5",
                         "startColumns": "4,4,4,4",
-                        "startOffsets": "90,149,269,208",
+                        "startOffsets": "88,146,262,203",
                         "endColumns": "57,55,49,57",
-                        "endOffsets": "143,200,314,261"
+                        "endOffsets": "141,197,307,256"
                     },
                     "to": {
                         "startLines": "106,107,108,109",
@@ -59,13 +57,13 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\zxd98\\CodingHedgehog\\android\\res\\values-v11\\template-styles.xml",
+                    "source": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\res\\values-v11\\template-styles.xml",
                     "from": {
                         "startLines": "19",
                         "startColumns": "4",
-                        "startOffsets": "682",
+                        "startOffsets": "663",
                         "endColumns": "65",
-                        "endOffsets": "743"
+                        "endOffsets": "724"
                     },
                     "to": {
                         "startLines": "123",
@@ -76,20 +74,22 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\zxd98\\CodingHedgehog\\android\\res\\values-v11\\ic_launcher_logo_background.xml",
+                    "source": "C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\res\\values-v11\\styles.xml",
                     "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "57",
-                        "endColumns": "61",
-                        "endOffsets": "114"
+                        "startLines": "7,19,11",
+                        "startColumns": "2,2,2",
+                        "startOffsets": "210,763,340",
+                        "endLines": "9,21,17",
+                        "endColumns": "10,10,10",
+                        "endOffsets": "336,927,759"
                     },
                     "to": {
-                        "startLines": "105",
-                        "startColumns": "4",
-                        "startOffsets": "5662",
-                        "endColumns": "61",
-                        "endOffsets": "5719"
+                        "startLines": "110,113,116",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "5946,6077,6246",
+                        "endLines": "112,115,122",
+                        "endColumns": "10,10,10",
+                        "endOffsets": "6072,6241,6665"
                     }
                 }
             ]
