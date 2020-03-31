@@ -102,20 +102,20 @@ public final class R {
         public static final int parent_matrix = 0x7f090120;
         public static final int right_icon = 0x7f090130;
         public static final int right_side = 0x7f090131;
-        public static final int save_non_transition_alpha = 0x7f090134;
-        public static final int save_overlay_view = 0x7f090135;
-        public static final int tag_transition_group = 0x7f09016f;
-        public static final int tag_unhandled_key_event_manager = 0x7f090170;
-        public static final int tag_unhandled_key_listeners = 0x7f090171;
-        public static final int text = 0x7f090174;
-        public static final int text2 = 0x7f090175;
-        public static final int time = 0x7f090187;
-        public static final int title = 0x7f09018d;
-        public static final int transition_current_scene = 0x7f090195;
-        public static final int transition_layout_save = 0x7f090196;
-        public static final int transition_position = 0x7f090197;
-        public static final int transition_scene_layoutid_cache = 0x7f090198;
-        public static final int transition_transform = 0x7f090199;
+        public static final int save_non_transition_alpha = 0x7f090135;
+        public static final int save_overlay_view = 0x7f090136;
+        public static final int tag_transition_group = 0x7f090170;
+        public static final int tag_unhandled_key_event_manager = 0x7f090171;
+        public static final int tag_unhandled_key_listeners = 0x7f090172;
+        public static final int text = 0x7f090175;
+        public static final int text2 = 0x7f090176;
+        public static final int time = 0x7f090188;
+        public static final int title = 0x7f09018e;
+        public static final int transition_current_scene = 0x7f090196;
+        public static final int transition_layout_save = 0x7f090197;
+        public static final int transition_position = 0x7f090198;
+        public static final int transition_scene_layoutid_cache = 0x7f090199;
+        public static final int transition_transform = 0x7f09019a;
     }
     public static final class integer {
         private integer() {}
@@ -135,7 +135,7 @@ public final class R {
     public static final class string {
         private string() {}
 
-        public static final int status_bar_notification_info_overflow = 0x7f10006e;
+        public static final int status_bar_notification_info_overflow = 0x7f10006f;
     }
     public static final class style {
         private style() {}

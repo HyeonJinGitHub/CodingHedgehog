@@ -60,17 +60,22 @@ public final class Menu4Fragment extends Fragment{
         rv.addItemDecoration(new DividerItemDecoration(getContext()));
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
         rv.setItemAnimator(new DefaultItemAnimator());
-        mAdapter.notifyDataSetChanged();
+        Thread.currentThread();
 
         return v;
 
     }
+
 
     @Override
     public void onStart() {
         super.onStart();
     }
 
+    @Override public void onResume(){
+        super.onResume();
+        mAdapter.notifyDataSetChanged();
+    }
     @Override
     public void onStop() {
         super.onStop();

@@ -11,7 +11,8 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:layout_marginTop="16dp"
     android:foreground="?selectableItemBackground"
-    android:clickable="true">
+    android:clickable="true"
+    android:id="@+id/row">
 
     <TextView
         android:id="@+id/drug_name"
