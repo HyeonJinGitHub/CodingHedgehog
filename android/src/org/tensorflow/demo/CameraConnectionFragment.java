@@ -774,7 +774,8 @@ public class CameraConnectionFragment extends Fragment {
             }
 
             if(cap_count == 2){ // 두번 캡쳐 했을때 (앞, 뒤)
-              get_data = new FileUpload(getActivity(), locations).execute(img_bytes).get(); // 서버에 이미지와 좌표 전송
+              // get_data = new FileUpload(getActivity(), locations).execute(img_bytes).get(); // 서버에 이미지와 좌표 전송
+              get_data = "Light green";
               cap_count = 0;
               Log.i("TAG", "받아온 데이터 : " + get_data);
               closeCamera(); // 카메라 중지
@@ -798,11 +799,14 @@ public class CameraConnectionFragment extends Fragment {
             e.printStackTrace();
           } catch (IOException e) {
             e.printStackTrace();
-          } catch (InterruptedException e) {
+          }
+          /*
+          catch (InterruptedException e) {
             e.printStackTrace();
           } catch (ExecutionException e) {
             e.printStackTrace();
-          } finally {
+          }
+          */finally {
             if (image != null) {
               image.close();
               reader.close();

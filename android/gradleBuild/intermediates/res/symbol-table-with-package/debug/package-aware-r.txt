@@ -1434,6 +1434,19 @@ drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
 drawable button_selector
+drawable c1_1
+drawable c1_10
+drawable c1_2
+drawable c1_3
+drawable c1_4
+drawable c1_5
+drawable c1_6
+drawable c1_7
+drawable c1_8
+drawable c1_9
+drawable c2_1
+drawable c3_1
+drawable c4_1
 drawable c_btn10_selector
 drawable c_btn11_selector
 drawable c_btn12_selector
@@ -1490,6 +1503,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable dialog
 drawable divider
 drawable ic_access_alarm_black_24dp
 drawable ic_action_info
@@ -1696,6 +1710,10 @@ id buttonPanel
 id cancel_action
 id cancel_button
 id cap_button
+id cardnews1
+id cardnews2
+id cardnews3
+id cardnews4
 id caution
 id center
 id center_horizontal
@@ -1734,7 +1752,6 @@ id design_menu_item_action_area
 id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
-id dialog_button
 id dimensions
 id direct
 id disableHome
@@ -1789,6 +1806,7 @@ id icon_group
 id ifRoom
 id image
 id imageView
+id imageview
 id info
 id invisible
 id italic
@@ -1806,7 +1824,6 @@ id list_item
 id list_text_item
 id list_view
 id listview
-id listview2
 id load_main_activity_btn
 id masked
 id media_actions
@@ -1964,6 +1981,7 @@ id textinput_placeholder
 id textinput_prefix_text
 id textinput_suffix_text
 id texture
+id textview
 id time
 id time1
 id time2
@@ -1991,6 +2009,7 @@ id upso_name
 id upso_name_kfda
 id useLogo
 id view_offset_helper
+id viewpager
 id visible
 id withText
 id withinBounds
@@ -2059,6 +2078,7 @@ layout abc_tooltip
 layout activity_add_alarm
 layout activity_alarm_landing_page
 layout activity_camera
+layout activity_cardnews1
 layout activity_edit_alarm
 layout activity_main
 layout activity_pill_detail
@@ -2153,6 +2173,7 @@ layout notification_template_part_time
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
+layout slider
 layout support_simple_spinner_dropdown_item
 layout test_action_chip
 layout test_design_checkbox

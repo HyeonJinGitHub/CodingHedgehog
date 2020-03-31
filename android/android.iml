@@ -18,7 +18,7 @@
         </afterSyncTasks>
         <option name="ALLOW_USER_CONFIGURATION" value="false" />
         <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/res;file://$MODULE_DIR$/gradleBuild/generated/res/rs/debug;file://$MODULE_DIR$/gradleBuild/generated/res/resValues/debug" />
-        <option name="TEST_RES_FOLDERS_RELATIVE_PATH" value="" />
+        <option name="TEST_RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/gradleBuild/generated/res/rs/androidTest/debug" />
       </configuration>
     </facet>
   </component>

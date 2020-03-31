@@ -1,7 +1,7 @@
-#Tue Mar 31 16:24:55 KST 2020
-base.0=C\:\\Users\\mayso\\Github\\CodingHedgehog\\android\\gradleBuild\\intermediates\\transforms\\dexMerger\\debug\\1
+#Tue Mar 31 19:16:15 KST 2020
+base.0=C\:\\Users\\zxd98\\CodingHedgehog\\android\\gradleBuild\\intermediates\\transforms\\dexMerger\\debug\\1
 path.1=classes.dex
 renamed.1=classes2.dex
 path.0=classes.dex
 renamed.0=classes.dex
-base.1=C\:\\Users\\mayso\\Github\\CodingHedgehog\\android\\gradleBuild\\intermediates\\transforms\\dexMerger\\debug\\0
+base.1=C\:\\Users\\zxd98\\CodingHedgehog\\android\\gradleBuild\\intermediates\\transforms\\dexMerger\\debug\\0

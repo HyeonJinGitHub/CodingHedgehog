@@ -60,7 +60,7 @@
         <activity
             android:name=".Alarm.ui.AlarmLandingPageActivity"
             android:theme="@style/AlertLandingPageTheme" />
-
+        <activity android:name=".Cardnew1Activity" />
         <service android:name=".Alarm.service.LoadAlarmsService" />
 
         <receiver android:name=".Alarm.service.LoadAlarmsReceiver" />

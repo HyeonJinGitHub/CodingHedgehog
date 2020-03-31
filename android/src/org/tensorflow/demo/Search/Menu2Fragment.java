@@ -2,6 +2,7 @@ package org.tensorflow.demo.Search;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +20,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import org.tensorflow.demo.Cardnew1Activity;
 import org.tensorflow.demo.DetectorActivity;
 import org.tensorflow.demo.R;
 
@@ -34,6 +37,16 @@ public class Menu2Fragment extends Fragment {
 
         View v= inflater.inflate(R.layout.fragment_menu2, container, false);
 
+        ImageButton c1 = (ImageButton)v.findViewById(R.id.cardnews1);
+        c1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Cardnew1Activity.class);
+                startActivity(intent);
+            }
+        });
+
+        /*
         Q_list = v.getResources().getStringArray(R.array.Q_List); // 텍스트 array 가져오기
         A_list = v.getResources().getStringArray(R.array.A_List);
 
@@ -63,7 +76,7 @@ public class Menu2Fragment extends Fragment {
                }
             }
         });
-
+        */
         return v;
     }
 }
