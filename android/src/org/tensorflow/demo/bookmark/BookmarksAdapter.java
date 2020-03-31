@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
@@ -79,9 +80,8 @@ public final class BookmarksAdapter extends RecyclerView.Adapter<BookmarksAdapte
                 Intent intent = new Intent(view.getContext(), PillDetailActivity.class);
                 intent.putExtra("drug_code",bookmark.getCode());
                 intent.putExtra("drug_name",bookmark.getName());
+
                 c.startActivity(intent);
-
-
             }
         });
 
@@ -89,10 +89,17 @@ public final class BookmarksAdapter extends RecyclerView.Adapter<BookmarksAdapte
             @Override
             public void onClick(View v) {
                 Database.getInstance(v.getContext()).deleteBookmark(bookmark.getCode());
+                final List<Bookmark> bookmark = Database.getInstance(v.getContext()).getBookmarks();
+                updateBookmarks(bookmark);
                 notifyDataSetChanged();
             }
         });
 
+    }
+    public void updateBookmarks(List<Bookmark> bookmarks) {
+        mBookmarks.clear();
+        mBookmarks = bookmarks;
+        notifyDataSetChanged();
     }
 
     @Override
@@ -110,11 +117,13 @@ public final class BookmarksAdapter extends RecyclerView.Adapter<BookmarksAdapte
 
         final TextView drug_name;
         final ImageView delete_btn;
+        final RelativeLayout row;
         ViewHolder(View itemView) {
             super(itemView);
 
             drug_name= itemView.findViewById(R.id.drug_name);
             delete_btn = itemView.findViewById(R.id.delete_btn);
+            row = itemView.findViewById(R.id.row);
         }
     }
 

@@ -22,6 +22,7 @@
 
     <!-- Main Activity/Fragment -->
     <string name="empty_view_text">버튼을 눌러서 알람을 추가하세요!</string>
+    <string name="empty_view_text2">즐겨찾는 알약을 추가해두세요!</string>
 
     <!-- Edit Alarm Activity/Fragment -->
     <string name="time">복용시간</string>

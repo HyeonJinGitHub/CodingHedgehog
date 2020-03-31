@@ -5724,7 +5724,7 @@
         <item>3회</item>
         <item>4회</item>
         <item>5회</item>
-    </string-array></file><file path="C:\Users\mayso\Github\CodingHedgehog\android\res\values\styles.xml" qualifiers=""><style name="MaterialTheme" parent="android:Theme.Material.Light.NoActionBar.Fullscreen"/><style name="AppTheme2" parent="Theme.AppCompat.Light.DarkActionBar">
+    </string-array><string name="empty_view_text2">즐겨찾는 알약을 추가해두세요!</string></file><file path="C:\Users\mayso\Github\CodingHedgehog\android\res\values\styles.xml" qualifiers=""><style name="MaterialTheme" parent="android:Theme.Material.Light.NoActionBar.Fullscreen"/><style name="AppTheme2" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primary_dark</item>
         <item name="colorAccent">@color/accent</item>
