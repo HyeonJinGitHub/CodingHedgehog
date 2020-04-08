@@ -1,5 +1,6 @@
 package org.tensorflow.demo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.widget.Adapter;
@@ -17,9 +18,11 @@ public class Cardnew1Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cardnews1);
 
-        viewPager = (ViewPager)findViewById(R.id.viewpager);
-        adapter = new SliderAdapter(getApplicationContext());
-        viewPager.setAdapter(adapter);
+        Intent intent = getIntent();
+        int num = intent.getIntExtra("number", 1);
 
+        viewPager = (ViewPager)findViewById(R.id.viewpager);
+        adapter = new SliderAdapter(getApplicationContext(), num);
+        viewPager.setAdapter(adapter);
     }
 }

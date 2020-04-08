@@ -117,6 +117,7 @@ public class PillListActivity extends AppCompatActivity {
         Intent intent = getIntent();
         mParam1 = intent.getExtras().getString("mparam1");
         mParam2 = intent.getExtras().getString("mparam2");
+        once = 0;
 
         final ListView listview = (ListView)findViewById(R.id.listView);
         View footer = getLayoutInflater().inflate(R.layout.listview_footer,null,false);
@@ -386,12 +387,12 @@ class DownloadList extends AsyncTask<String,String,String> {
             }
             //Log.i("pill","데이터 num "+pill.rnum);
             //list.set(i,pill);
-            Log.i("pill", "add num" + String.valueOf(listCnt - 10 + i));
+            //Log.i("pill", "add num" + String.valueOf(listCnt - 10 + i));
             //list.add(listCnt -10 + i, pill);
 
             if(listCnt < 10) {
-                Log.i("pill", "add num" + String.valueOf(listCnt + i));
-                list.add(listCnt + i, pill);
+                Log.i("pill", "add num" + String.valueOf(i));
+                list.add(i, pill);
             }else{
                 Log.i("pill", "add num" + String.valueOf(listCnt - 10 + i));
                 list.add(listCnt -10 + i, pill);
@@ -400,7 +401,5 @@ class DownloadList extends AsyncTask<String,String,String> {
         }
         Log.i("pill size", String.valueOf(list.size()));
 
-
     }
 }
-
