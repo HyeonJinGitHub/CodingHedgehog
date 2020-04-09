@@ -401,7 +401,5 @@ class DownloadList extends AsyncTask<String,String,String> {
         }
         Log.i("pill size", String.valueOf(list.size()));
 
-
     }
 }
-

@@ -785,6 +785,7 @@ public class CameraConnectionFragment extends Fragment {
               DataProcess dp = new DataProcess(); // 받아온 데이터 처리
               String Dcolor = dp.getColor(get_data); // 색상
 
+              Log.i("TAG", "받아온 데이터 : " + Dcolor);
               String url1 = "http://dikweb.health.kr/ajax/idfy_info/idfy_info_ajax.asp?drug_name=&drug_print=&match=include&mark_code=&drug_color="+Dcolor+"&drug_linef=&drug_lineb=&drug_shape=&drug_form=&drug_shape_etc=&inner_search=print&inner_keyword=&nsearch=npages";
               String url2 = "http://dikweb.health.kr/ajax/idfy_info/idfy_info_ajax.asp?drug_name=&drug_print=&match=include&mark_code=&drug_color="+Dcolor+"&drug_linef=&drug_lineb=&drug_shape=&drug_form=&drug_shape_etc=&inner_search=print&inner_keyword=&";
 
