@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -130,14 +131,20 @@ public class DetailFragment2 extends Fragment{
     @Override
     public void onDetach() {
         super.onDetach();
+        mListener = null;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
         if(tts!=null){
             tts.stop();
             tts.shutdown();
             tts = null;
+            Toast.makeText(getContext(),"tts 종료",Toast.LENGTH_LONG);
         }
         mListener = null;
     }
-
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
