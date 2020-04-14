@@ -1551,6 +1551,7 @@ drawable ic_repeat_black_24dp
 drawable ic_save_white_24dp
 drawable ic_search_black_24dp
 drawable ic_star_border_black_24dp
+drawable ic_volume_up_black_24dp
 drawable ic_yellow_star_24dp
 drawable logo
 drawable mtrl_dialog_background
@@ -2024,6 +2025,7 @@ id transition_layout_save
 id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
+id ttsBtn
 id unchecked
 id uniform
 id unlabeled

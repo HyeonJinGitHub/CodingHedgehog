@@ -4,58 +4,80 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffff"
     android:orientation="vertical">
 
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
             <ImageButton
                 android:id="@+id/cardnews1"
                 android:layout_margin="7dp"
-                android:layout_width="200dp"
+                android:layout_width="match_parent"
                 android:layout_height="200dp"
+                android:layout_weight="1"
                 android:scaleType="fitStart"
+                android:background="#ffff"
                 android:src="@drawable/c1_1"/>
             <ImageButton
-                android:layout_margin="7dp"
                 android:id="@+id/cardnews2"
-                android:layout_width="200dp"
+                android:layout_margin="7dp"
+                android:layout_width="match_parent"
                 android:layout_height="200dp"
+                android:layout_weight="1"
                 android:scaleType="fitStart"
+                android:background="#ffff"
                 android:src="@drawable/c2_1"/>
         </TableRow>
-        <TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
             <ImageButton
-                android:layout_margin="7dp"
                 android:id="@+id/cardnews3"
-                android:layout_width="200dp"
+                android:layout_margin="7dp"
+                android:layout_width="match_parent"
                 android:layout_height="200dp"
+                android:layout_weight="1"
                 android:scaleType="fitStart"
+                android:background="#ffff"
                 android:src="@drawable/c3_1"/>
             <ImageButton
-                android:layout_margin="7dp"
                 android:id="@+id/cardnews4"
-                android:layout_width="200dp"
+                android:layout_margin="7dp"
+                android:layout_width="match_parent"
                 android:layout_height="200dp"
+                android:layout_weight="1"
                 android:scaleType="fitStart"
+                android:background="#ffff"
                 android:src="@drawable/c4_1"/>
         </TableRow>
-        <TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
             <ImageButton
-                android:layout_margin="7dp"
                 android:id="@+id/cardnews5"
-                android:layout_width="200dp"
+                android:layout_margin="7dp"
+                android:layout_width="match_parent"
                 android:layout_height="200dp"
+                android:layout_weight="1"
                 android:scaleType="fitStart"
+                android:background="#ffff"
                 android:src="@drawable/c5_1"/>
             <ImageButton
-                android:layout_margin="7dp"
                 android:id="@+id/cardnews6"
-                android:layout_width="200dp"
+                android:layout_margin="7dp"
+                android:layout_width="match_parent"
                 android:layout_height="200dp"
+                android:layout_weight="1"
                 android:scaleType="fitStart"
+                android:background="#ffff"
                 android:src="@drawable/c6_1"/>
         </TableRow>
     </TableLayout>
