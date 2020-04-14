@@ -83,11 +83,6 @@ public class FileUpload extends AsyncTask <byte[], Void, String> {
 
             con.connect();
 
-            // StringBuffer buffer = new StringBuffer();
-            // buffer.append(twoHyphens + boundary + lineEnd);
-            // buffer.append("Content-Disposition: form-data; name=\"file\";filename=\"test.jpg\""
-            //               +lineEnd);
-
             DataOutputStream dos = new DataOutputStream(con.getOutputStream());
 
             // 좌표값 전송

@@ -507,6 +507,5 @@ class DrawOnTop extends View {
     paint.setPathEffect(composePathEffect);
     paint.setStrokeWidth(10);
     canvas.drawRect(width / 2 - 150, height / 2 - 150, width / 2 + 150, height / 2 + 150, paint);
-
   }
 }
