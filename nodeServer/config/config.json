@@ -1,6 +1,6 @@
 {
   "development": {
-    "username": "codinghedgehog",
+    "username": "root",
     "password": "hogwarts",
     "database": "medicine_db",
     "host": "127.0.0.1",

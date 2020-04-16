@@ -1,8 +1,8 @@
 const express  = require('express');
 const router = express.Router();
 const multer = require('multer');
-const fs = require('fs');
-const ejs = require('ejs');
+//const fs = require('fs');
+//const ejs = require('ejs');
 var {PythonShell} = require('python-shell');
 
 const storage = multer.diskStorage({
