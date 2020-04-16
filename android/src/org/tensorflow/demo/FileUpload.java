@@ -71,7 +71,7 @@ public class FileUpload extends AsyncTask <byte[], Void, String> {
             Log.i("TAG", "byte1 : " + bytes + "  /  bytes2 : " + bytes2);
             Log.i("TAG", "location1 : " + location + "  /  location2 : " + location2);
 
-            URL url = new URL("http://39.123.153.90:3000/listpage");
+            URL url = new URL("http://59.14.252.86:3000/listpage");
             con = (HttpURLConnection) url.openConnection();
             con.setDoInput(true);
             con.setDoOutput(true);
@@ -122,7 +122,7 @@ public class FileUpload extends AsyncTask <byte[], Void, String> {
             drug_color = response.toString();
 
             // 뒷면 이미지
-            URL url2 = new URL("http://39.123.153.90:3000/imgback");
+            URL url2 = new URL("http://59.14.252.86:3000/imgback");
             con2 = (HttpURLConnection) url2.openConnection();
             con2.setDoInput(true);
             con2.setDoOutput(true);

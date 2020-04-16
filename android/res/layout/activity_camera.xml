@@ -21,11 +21,15 @@
     android:background="#000"
     tools:context="org.tensorflow.demo.CameraActivity">
 
-    <Button
+    <ImageButton
         android:id="@+id/cap_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:text="capture"/>
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:scaleType="fitXY"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="40dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/camera_button"/>
+
 
 </FrameLayout>

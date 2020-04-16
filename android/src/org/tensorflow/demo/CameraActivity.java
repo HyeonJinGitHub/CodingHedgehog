@@ -49,6 +49,7 @@ import android.view.Surface;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 import java.nio.ByteBuffer;
 import org.tensorflow.demo.env.ImageUtils;
@@ -81,7 +82,7 @@ public abstract class CameraActivity extends Activity
 
   private Runnable postInferenceCallback;
   private Runnable imageConverter;
-  private Button button; // 캡쳐 버튼
+  private ImageButton button; // 캡쳐 버튼
 
   @Override
   protected void onCreate(final Bundle savedInstanceState) {
@@ -373,7 +374,7 @@ public abstract class CameraActivity extends Activity
     }
 
     Fragment fragment;
-    button = (Button)findViewById(R.id.cap_button);
+    button = (ImageButton)findViewById(R.id.cap_button);
     if (useCamera2API) {
       CameraConnectionFragment camera2Fragment =
           CameraConnectionFragment.newInstance(

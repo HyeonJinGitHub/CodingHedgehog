@@ -57,6 +57,7 @@ import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import java.io.DataOutputStream;
@@ -247,7 +248,7 @@ public class CameraConnectionFragment extends Fragment {
    * The layout identifier to inflate for this Fragment.
    */
   private final int layout;
-  private final Button button;
+  private final ImageButton button;
   private int cap_count = 0; // 캡쳐한 횟수
   private byte[][] img_bytes = new byte[2][]; // 캡쳐한 이미지를 담을 이차원배열
   public String[] locations = new String[2];
@@ -259,14 +260,14 @@ public class CameraConnectionFragment extends Fragment {
       final OnImageAvailableListener imageListener,
       final int layout,
       final Size inputSize,
-      final Button button) {
+      final ImageButton button) {
     this.cameraConnectionCallback = connectionCallback;
     this.imageListener = imageListener;
     this.layout = layout;
     this.inputSize = inputSize;
     this.button = button;
 
-    button.setOnClickListener(new Button.OnClickListener(){
+    button.setOnClickListener(new ImageButton.OnClickListener(){
       @Override
       public void onClick(View v){
         Log.i("Capture", "Click capture Button");
@@ -348,7 +349,7 @@ public class CameraConnectionFragment extends Fragment {
       final OnImageAvailableListener imageListener,
       final int layout,
       final Size inputSize,
-      final Button button) {
+      final ImageButton button) {
     return new CameraConnectionFragment(callback, imageListener, layout, inputSize, button);
   }
 
@@ -774,8 +775,7 @@ public class CameraConnectionFragment extends Fragment {
             }
 
             if(cap_count == 2){ // 두번 캡쳐 했을때 (앞, 뒤)
-              // get_data = new FileUpload(getActivity(), locations).execute(img_bytes).get(); // 서버에 이미지와 좌표 전송
-              get_data = "Light green";
+              get_data = new FileUpload(getActivity(), locations).execute(img_bytes).get(); // 서버에 이미지와 좌표 전
               cap_count = 0;
               Log.i("TAG", "받아온 데이터 : " + get_data);
               closeCamera(); // 카메라 중지
@@ -801,13 +801,13 @@ public class CameraConnectionFragment extends Fragment {
           } catch (IOException e) {
             e.printStackTrace();
           }
-          /*
+
           catch (InterruptedException e) {
             e.printStackTrace();
           } catch (ExecutionException e) {
             e.printStackTrace();
           }
-          */finally {
+          finally {
             if (image != null) {
               image.close();
               reader.close();

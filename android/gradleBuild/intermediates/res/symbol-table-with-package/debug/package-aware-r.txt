@@ -1483,6 +1483,7 @@ drawable c_btn6_selector
 drawable c_btn7_selector
 drawable c_btn8_selector
 drawable c_btn9_selector
+drawable camera_button
 drawable camera_search_btn
 drawable cbtn1
 drawable cbtn10

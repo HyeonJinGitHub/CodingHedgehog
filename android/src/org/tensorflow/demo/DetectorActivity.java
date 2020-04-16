@@ -23,6 +23,7 @@ import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
+import android.graphics.PorterDuff;
 import android.graphics.RectF;
 import android.graphics.Typeface;
 import android.media.ImageReader.OnImageAvailableListener;
@@ -49,6 +50,8 @@ import org.w3c.dom.Text;
 
 import static android.content.ContentValues.TAG;
 import static android.speech.tts.TextToSpeech.ERROR;
+import static android.speech.tts.TextToSpeech.QUEUE_ADD;
+import static android.speech.tts.TextToSpeech.QUEUE_FLUSH;
 
 /**
  * An activity that uses a TensorFlowMultiBoxDetector and ObjectTracker to detect and then track
@@ -175,6 +178,14 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
         finish();
       }
     }
+    // TTS 초기화
+    tts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+      @Override
+      public void onInit(int status) {
+        if(status != ERROR)
+          tts.setLanguage(Locale.KOREAN);
+      }
+    });
 
     previewWidth = size.getWidth();
     previewHeight = size.getHeight();
@@ -295,6 +306,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
           @Override
           public void run() {
             LOGGER.i("Running detection on image " + currTimestamp);
+
             final long startTime = SystemClock.uptimeMillis();
             final List<Classifier.Recognition> results = detector.recognizeImage(croppedBitmap);
             lastProcessingTimeMs = SystemClock.uptimeMillis() - startTime;
@@ -318,31 +330,30 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
                 minimumConfidence = MINIMUM_CONFIDENCE_YOLO;
                 break;
             }
-            /*
-            // TTS 부분 
-            tts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
-              @Override
-              public void onInit(int status) {
-                if(status != ERROR)
-                  tts.setLanguage(Locale.KOREAN);
-              }
-            });
-            tts.speak("알약을 화면 중앙에 놓아주세요", TextToSpeech.QUEUE_FLUSH, null);
-             */
+
             final List<Classifier.Recognition> mappedRecognitions =
                 new LinkedList<Classifier.Recognition>();
 
             for (final Classifier.Recognition result : results) {
               final RectF location = result.getLocation(); // Rect 값 location
               if (location != null && result.getConfidence() >= minimumConfidence) {
+                if (!tts.isSpeaking()) {
+                  tts.speak("알약이 인식되었습니다.", QUEUE_FLUSH, null);
+                  tts.playSilentUtterance(2000, QUEUE_ADD, null);
+                }
                 canvas.drawRect(location, paint);
-
                 cropToFrameTransform.mapRect(location);
                 result.setLocation(location);
                 mappedRecognitions.add(result);
 
                 rect_location = location; // 참조용 location 받기
                 Log.i(TAG, "로케이션1 : " + rect_location + " 확률 : " + result.getConfidence());
+              }
+              if (location == null || result.getConfidence() < minimumConfidence){
+                if(!tts.isSpeaking()) {
+                  tts.speak("화면에 인식된 알약이 없습니다.", QUEUE_FLUSH, null);
+                  tts.playSilentUtterance(2000, QUEUE_ADD, null);
+                }
               }
             }
             LOGGER.i("Canvas 가로 : %d / 세로 : %d", canvas.getWidth(), canvas.getHeight());
