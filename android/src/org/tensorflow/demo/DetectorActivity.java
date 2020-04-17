@@ -129,7 +129,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
   private BorderedText borderedText;
   public static RectF rect_location; // 참조용
-  private TextToSpeech tts;
+  public static TextToSpeech tts;
 
   @Override
   public void onPreviewSizeChosen(final Size size, final int rotation) {

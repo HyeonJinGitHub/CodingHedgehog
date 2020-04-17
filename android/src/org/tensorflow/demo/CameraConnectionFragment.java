@@ -779,6 +779,7 @@ public class CameraConnectionFragment extends Fragment {
               cap_count = 0;
               Log.i("TAG", "받아온 데이터 : " + get_data);
               closeCamera(); // 카메라 중지
+              DetectorActivity.tts.shutdown(); // tts 중지
             }
 
             if(!get_data.equals("")){ // 받아온 데이터가 있음
