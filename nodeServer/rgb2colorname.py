@@ -1278,7 +1278,8 @@ def color_detect(red, green, blue):
       #  +' '+ str(NearestRGB) \
       #  +', '+ ColorDiff \
       #  +'.')
-    print(ColorName)
+   # print(ColorName)
+    return ColorName
     #return ColorName
     # print 'Is the above correct?'
 
