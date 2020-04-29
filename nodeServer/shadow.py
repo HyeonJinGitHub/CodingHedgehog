@@ -18,6 +18,7 @@ def grabcut(ix, iy, x, y):
     global img, img2, drawing, value, mask, rectangle
     global rect, rect_or_mask, rect_over
 
+
     img = cv2.imread("images/result.jpg")
     img2 = img.copy()
 
@@ -37,6 +38,7 @@ def grabcut(ix, iy, x, y):
 
         if count > 20: # 20번 수행
             k = 27
+
             mask_inv = cv2.bitwise_not(mask2)
             empty_img = 255 * np.ones(shape=(width, height, 3), dtype=np.uint8) # 빈 이미지 생성
             empty_img = cv2.bitwise_and(empty_img, empty_img, mask=mask_inv)
@@ -67,6 +69,7 @@ def grabcut(ix, iy, x, y):
         mask2 = np.where((mask==1) + (mask==3), 255, 0).astype('uint8')
         output = cv2.bitwise_and(img2, img2, mask=mask2)
 
+
 # main 함수
 # grabcut(20, 25, 190, 190) # 받아온 좌표값 설정 - ix, iy, x, y
 
@@ -82,5 +85,6 @@ def shadow_api():
             out.write(response.content)
     else:
         print("Error:", response.status_code, response.text)
+
 
 

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/navigation_menu1"
+        android:enabled="true"
+        android:icon="@drawable/ic_search_black_24dp"
+        android:title="검색"/>
+
+    <item
+        android:id="@+id/navigation_menu2"
+        android:enabled="true"
+        android:icon="@drawable/ic_local_pharmacy_black_24dp"
+        android:title="약정보"/>
+
+    <item
+        android:id="@+id/navigation_menu3"
+        android:enabled="true"
+        android:icon="@drawable/ic_access_alarm_black_24dp"
+        android:title="복약알림"/>
+    <item
+        android:id="@+id/navigation_menu4"
+        android:enabled="true"
+        android:icon="@drawable/ic_star_border_black_24dp"
+        android:title="즐겨찾기"/>
+</menu>

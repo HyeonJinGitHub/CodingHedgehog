@@ -1,82 +1,48 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\zxd98\\Downloads\\tensorflow-master\\tensorflow-master\\tensorflow\\examples\\android\\gradleBuild\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v11\\values-v11.xml",
+            "outputFile": "C:\\Users\\zxd98\\CodingHedgehog\\android\\gradleBuild\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v11\\values-v11.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\zxd98\\Downloads\\tensorflow-master\\tensorflow-master\\tensorflow\\examples\\android\\res\\values-v11\\template-styles.xml",
+                    "source": "C:\\Users\\zxd98\\CodingHedgehog\\android\\res\\values-v11\\arrays.xml",
                     "from": {
-                        "startLines": "19",
-                        "startColumns": "4",
-                        "startOffsets": "663",
-                        "endColumns": "65",
-                        "endOffsets": "724"
+                        "startLines": "36,13,3",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "1287,294,59",
+                        "endLines": "107,34,11",
+                        "endColumns": "19,19,19",
+                        "endOffsets": "5767,1279,286"
                     },
                     "to": {
-                        "startLines": "29",
-                        "startColumns": "4",
-                        "startOffsets": "1287",
-                        "endColumns": "64",
-                        "endOffsets": "1347"
+                        "startLines": "2,74,96",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,4469,5438",
+                        "endLines": "73,95,104",
+                        "endColumns": "19,19,19",
+                        "endOffsets": "4464,5433,5657"
                     }
                 },
                 {
-                    "source": "C:\\Users\\zxd98\\Downloads\\tensorflow-master\\tensorflow-master\\tensorflow\\examples\\android\\res\\values-v11\\ic_launcher_logo_background.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "57",
-                        "endColumns": "61",
-                        "endOffsets": "114"
-                    },
-                    "to": {
-                        "startLines": "11",
-                        "startColumns": "4",
-                        "startOffsets": "279",
-                        "endColumns": "61",
-                        "endOffsets": "336"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\zxd98\\Downloads\\tensorflow-master\\tensorflow-master\\tensorflow\\examples\\android\\res\\values-v11\\arrays.xml",
-                    "from": {
-                        "startLines": "3",
-                        "startColumns": "4",
-                        "startOffsets": "59",
-                        "endLines": "11",
-                        "endColumns": "19",
-                        "endOffsets": "286"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endLines": "10",
-                        "endColumns": "19",
-                        "endOffsets": "274"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\zxd98\\Downloads\\tensorflow-master\\tensorflow-master\\tensorflow\\examples\\android\\res\\values-v11\\styles.xml",
+                    "source": "C:\\Users\\zxd98\\CodingHedgehog\\android\\res\\values-v11\\styles.xml",
                     "from": {
                         "startLines": "7,19,11",
                         "startColumns": "2,2,2",
-                        "startOffsets": "210,763,340",
+                        "startOffsets": "217,782,351",
                         "endLines": "9,21,17",
                         "endColumns": "10,10,10",
-                        "endOffsets": "336,927,759"
+                        "endOffsets": "345,948,776"
                     },
                     "to": {
-                        "startLines": "16,19,22",
+                        "startLines": "110,113,116",
                         "startColumns": "4,4,4",
-                        "startOffsets": "563,694,863",
-                        "endLines": "18,21,28",
+                        "startOffsets": "5946,6077,6246",
+                        "endLines": "112,115,122",
                         "endColumns": "10,10,10",
-                        "endOffsets": "689,858,1282"
+                        "endOffsets": "6072,6241,6665"
                     }
                 },
                 {
-                    "source": "C:\\Users\\zxd98\\Downloads\\tensorflow-master\\tensorflow-master\\tensorflow\\examples\\android\\res\\values-v11\\dimens.xml",
+                    "source": "C:\\Users\\zxd98\\CodingHedgehog\\android\\res\\values-v11\\dimens.xml",
                     "from": {
                         "startLines": "2,3,7,5",
                         "startColumns": "4,4,4,4",
@@ -85,11 +51,45 @@
                         "endOffsets": "143,200,314,261"
                     },
                     "to": {
-                        "startLines": "12,13,14,15",
+                        "startLines": "106,107,108,109",
                         "startColumns": "4,4,4,4",
-                        "startOffsets": "341,399,455,505",
+                        "startOffsets": "5724,5782,5838,5888",
                         "endColumns": "57,55,49,57",
-                        "endOffsets": "394,450,500,558"
+                        "endOffsets": "5777,5833,5883,5941"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\zxd98\\CodingHedgehog\\android\\res\\values-v11\\template-styles.xml",
+                    "from": {
+                        "startLines": "19",
+                        "startColumns": "4",
+                        "startOffsets": "682",
+                        "endColumns": "65",
+                        "endOffsets": "743"
+                    },
+                    "to": {
+                        "startLines": "123",
+                        "startColumns": "4",
+                        "startOffsets": "6670",
+                        "endColumns": "64",
+                        "endOffsets": "6730"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\zxd98\\CodingHedgehog\\android\\res\\values-v11\\ic_launcher_logo_background.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "57",
+                        "endColumns": "61",
+                        "endOffsets": "114"
+                    },
+                    "to": {
+                        "startLines": "105",
+                        "startColumns": "4",
+                        "startOffsets": "5662",
+                        "endColumns": "61",
+                        "endOffsets": "5719"
                     }
                 }
             ]
