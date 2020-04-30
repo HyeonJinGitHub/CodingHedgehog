@@ -1,5 +1,7 @@
 package org.tensorflow.demo.Search;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -12,6 +14,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.tensorflow.demo.Alarm.ui.MainFragment;
+import org.tensorflow.demo.FirstStartActivity;
 import org.tensorflow.demo.R;
 
 import java.net.MalformedURLException;
@@ -43,6 +46,14 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // 도움말 화면 설정
+        SharedPreferences sp = getSharedPreferences("sp", MODE_PRIVATE);
+        int count = sp.getInt("count", 0);
+        if(count != 1){
+            Intent intent = new Intent(MainActivity.this, FirstStartActivity.class);
+            startActivity(intent);
+        }
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         // 첫 화면 지정

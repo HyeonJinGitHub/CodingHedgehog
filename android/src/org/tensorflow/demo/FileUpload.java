@@ -117,9 +117,10 @@ public class FileUpload extends AsyncTask <byte[], Void, String> {
                 }
                 in.close();
                 Log.i(TAG, "받은 데이터 : " + response);
+                // 서버로 부터 받아온 알약 데이터값
+                if(response.toString().substring(0, 5) != "Error")
+                    drug_color = response.toString();
             }
-            // 서버로 부터 받아온 알약 데이터값
-            drug_color = response.toString();
 
             // 뒷면 이미지
             URL url2 = new URL("http://59.14.252.86:3000/imgback");
@@ -168,9 +169,10 @@ public class FileUpload extends AsyncTask <byte[], Void, String> {
                 }
                 in.close();
                 Log.i(TAG, "받은 데이터 : " + response2);
+                // 서버로 부터 받아온 알약 데이터값
+                drug_color2 = response2.toString();
             }
-            // 서버로 부터 받아온 알약 데이터값
-            drug_color2 = response2.toString();
+
         } catch (Exception e) {
             Log.i(TAG, "Upload_Exception" + e.getMessage());
         } finally {

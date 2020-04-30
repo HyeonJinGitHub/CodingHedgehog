@@ -777,18 +777,22 @@ public class CameraConnectionFragment extends Fragment {
             if(cap_count == 2){ // 두번 캡쳐 했을때 (앞, 뒤)
               get_data = new FileUpload(getActivity(), locations).execute(img_bytes).get(); // 서버에 이미지와 좌표 전
               cap_count = 0;
-              Log.i("TAG", "받아온 데이터 : " + get_data);
+              Log.i("TAG", "받아온 데이터1 : " + get_data);
               closeCamera(); // 카메라 중지
               DetectorActivity.tts.shutdown(); // tts 중지
             }
 
             if(!get_data.equals("")){ // 받아온 데이터가 있음
               DataProcess dp = new DataProcess(); // 받아온 데이터 처리
-              String Dcolor = dp.getColor(get_data); // 색상
+              String data[] = get_data.split(", "); // 쉼표로 구분
 
-              Log.i("TAG", "받아온 데이터 : " + Dcolor);
-              String url1 = "http://dikweb.health.kr/ajax/idfy_info/idfy_info_ajax.asp?drug_name=&drug_print=&match=include&mark_code=&drug_color="+Dcolor+"&drug_linef=&drug_lineb=&drug_shape=&drug_form=&drug_shape_etc=&inner_search=print&inner_keyword=&nsearch=npages";
-              String url2 = "http://dikweb.health.kr/ajax/idfy_info/idfy_info_ajax.asp?drug_name=&drug_print=&match=include&mark_code=&drug_color="+Dcolor+"&drug_linef=&drug_lineb=&drug_shape=&drug_form=&drug_shape_etc=&inner_search=print&inner_keyword=&";
+              String Dcolor = dp.getColor(data[0]); // 색상 처리
+              String Dshape = dp.getShape(data[1]); // 모양 처리
+              Log.i("TAG", "받아온 데이터2 : " + data[0] + ", " + data[1]);
+              Log.i("TAG", "받아온 데이터2 : " + Dcolor + ", " + Dshape);
+
+              String url1 = "http://dikweb.health.kr/ajax/idfy_info/idfy_info_ajax.asp?drug_name=&drug_print=&match=include&mark_code=&drug_color="+Dcolor+"&drug_linef=&drug_lineb=&drug_shape="+Dshape+"&drug_form=&drug_shape_etc=&inner_search=print&inner_keyword=&nsearch=npages";
+              String url2 = "http://dikweb.health.kr/ajax/idfy_info/idfy_info_ajax.asp?drug_name=&drug_print=&match=include&mark_code=&drug_color="+Dcolor+"&drug_linef=&drug_lineb=&drug_shape="+Dshape+"&drug_form=&drug_shape_etc=&inner_search=print&inner_keyword=&";
 
               Intent intent = new Intent(getActivity(), PillListActivity.class);
 
@@ -802,7 +806,6 @@ public class CameraConnectionFragment extends Fragment {
           } catch (IOException e) {
             e.printStackTrace();
           }
-
           catch (InterruptedException e) {
             e.printStackTrace();
           } catch (ExecutionException e) {

@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 public class Cardnew1Activity extends AppCompatActivity {
-   SliderAdapter adapter;
+    SliderAdapter adapter;
     ViewPager viewPager;
 
     @Override

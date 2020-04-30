@@ -51,4 +51,38 @@ public class DataProcess {
 
         return Dcolor;
     }
+
+    public String getShape(String drug_shape) throws UnsupportedEncodingException {
+        String Dshape;
+
+        if(drug_shape.equals("circle"))
+            drug_shape = "원형";
+        else if(drug_shape.equals("oval"))
+            drug_shape = "타원형";
+        else if(drug_shape.equals("semicircular"))
+            drug_shape = "반원형";
+        else if(drug_shape.equals("triangle"))
+            drug_shape = "삼각형";
+        else if(drug_shape.equals("square"))
+            drug_shape = "사각형";
+        else if(drug_shape.equals("rhombus"))
+            drug_shape = "마름모형";
+        else if(drug_shape.equals("oblong"))
+            drug_shape = "장방형";
+        else if(drug_shape.equals("pentagon"))
+            drug_shape = "오각형";
+        else if(drug_shape.equals("hexagon"))
+            drug_shape = "육각형";
+        else if(drug_shape.equals("octagon"))
+            drug_shape = "팔각형";
+        else if(drug_shape.equals("other"))
+            drug_shape = "기타";
+        else
+            drug_shape = "";
+
+        drug_shape += ","; // 쉼표 꼭 추가해야 함
+        Dshape = URLEncoder.encode(String.valueOf(drug_shape), "UTF-8");
+
+        return Dshape;
+    }
 }
