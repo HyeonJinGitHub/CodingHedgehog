@@ -36,29 +36,42 @@ def shape():
            # elif size == 4:
             #    setLabel(img_color, "rectangle", cnt)
              #   ShapeName = "rectangle"
-            elif size == 5:
-                setLabel(img_color, "pentagon", cnt)
-                ShapeName = "pentagon"
-            elif size == 6:
-                setLabel(img_color, "hexagon", cnt)
-                ShapeName = "hexagon"
-            elif size == 8:
-                setLabel(img_color, "octagon", cnt)
-                ShapeName = "octagon"
-            elif size == 10:
-                setLabel(img_color, "decagon", cnt)
-                ShapeName = "decagon"
+          #  elif size == 5:
+           #     setLabel(img_color, "pentagon", cnt)
+            #    ShapeName = "pentagon"
+           # elif size == 6:
+            #    setLabel(img_color, "hexagon", cnt)
+             #   ShapeName = "hexagon"
+           # elif size == 8:
+            #setLabel(img_color, "octagon", cnt)
+              #  ShapeName = "octagon"
+           # elif size == 10:
+            #    setLabel(img_color, "decagon", cnt)
+             #   ShapeName = "decagon"
                # print(ShapeName)
            # elif size >= 13 and size <= 20:
             #    setLabel(img_color, "oval", cnt)
-            elif size >= 12 and size <=16:
+            elif size >= 12 and size <=15:
                 setLabel(img_color, "oblong", cnt)
                 ShapeName = "oblong"
                 break
                # print(ShapeName)
+            elif size >= 16 and size <=17:
+                setLabel(img_color, "circle", cnt)
+                ShapeName = "circle"
+                break
+            elif size >=18 and size <=20:
+                setLabel(img_color, "oval", cnt)
+                ShapeName = "oval"
+                break
+           # elif size >= 17 and size <= 20:
+            #   setLabel(img_color, "oval", cnt)
+             #  ShapeName = "oval"
+              # break
             else:
                 setLabel(img_color, str(size), cnt)
                 ShapeName = "other"
+                break
         else:
            # if size >= 13 and size <= 20:
             #    setLabel(img_color, "oval", cnt)
@@ -67,9 +80,18 @@ def shape():
                setLabel(img_color, "oblong", cnt)
                ShapeName = "oblong"
                break
+           elif size >= 16 and size <= 17:
+               setLabel(img_color, "circle", cnt)
+               ShapeName = "circle"
+               break
+           elif size >= 18 and size <=20:
+               setLabel(img_color, "oval", cnt)
+               ShapeName = "oval"
+               break
            else:
                setLabel(img_color, str(size), cnt)
                ShapeName = "other"
+               break
 
     cv.imwrite('images/shape_result.jpg', img_color)
     return ShapeName

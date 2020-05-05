@@ -158,11 +158,11 @@ if __name__ == "__main__" :
     co_width, co_height = color_img.shape[:2]
     center_x = int(co_height / 2.0)
     center_y = int(co_width / 2.0)
-    location = (center_x, center_y)
     font = cv2.FONT_ITALIC
     (text_width, text_height), baseline = cv2.getTextSize(find_color, cv2.FONT_HERSHEY_SIMPLEX, 0.7, 1)
-    cv2.rectangle(color_img, (center_x, center_y+baseline), (center_x+text_width, center_y-text_height), (200,200,200), cv2.FILLED)
-    cv2.putText(color_img, find_color, location, cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0,0,0), 1, 8)
+    location = (center_x-30, center_y + int(text_height/2))
+   # cv2.rectangle(color_img, (center_x-50, center_y+baseline), (center_x+text_width-50, center_y-text_height), (200,200,200), cv2.FILLED)
+    cv2.putText(color_img, find_color, location, cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,0,0), 1, 8)
     cv2.imwrite('images/color_result2.png', color_img)
    # print('avgrage color: rgb(%s, %s, %s)' % (COLOR_AVG))
     #print(round(minWidth/8), round(minHeight/4), minWidth, minHeight)
