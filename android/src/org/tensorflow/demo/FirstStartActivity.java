@@ -36,7 +36,6 @@ public class FirstStartActivity extends Activity {
             SharedPreferences.Editor editor = sp.edit();
             editor.putInt("count", count);
             editor.commit();
-            Toast.makeText(getApplicationContext(), "저장", Toast.LENGTH_LONG).show();
             finish();
         }
     };

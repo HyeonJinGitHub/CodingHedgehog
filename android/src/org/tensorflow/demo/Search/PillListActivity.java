@@ -137,7 +137,7 @@ public class PillListActivity extends AppCompatActivity {
 
         try {
             new DownloadList().execute();
-            sleep(900);        //900이였음
+            sleep(1200);        //900이였음
         } catch (Exception e) {
             e.printStackTrace();
         }

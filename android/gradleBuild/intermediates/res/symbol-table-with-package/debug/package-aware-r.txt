@@ -1526,6 +1526,11 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable dialog
 drawable divider
+drawable help1
+drawable help2
+drawable help3
+drawable help4
+drawable help5
 drawable ic_access_alarm_black_24dp
 drawable ic_action_info
 drawable ic_add_a_photo_black_24dp
@@ -1921,6 +1926,7 @@ id radio
 id radioButton
 id radioButton2
 id recycler
+id relative
 id results
 id right
 id right_icon
