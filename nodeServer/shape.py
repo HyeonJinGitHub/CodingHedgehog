@@ -51,19 +51,19 @@ def shape():
                # print(ShapeName)
            # elif size >= 13 and size <= 20:
             #    setLabel(img_color, "oval", cnt)
-            elif size >= 12 and size <=15:
+            elif size >= 12 and size <=16:
                 setLabel(img_color, "oblong", cnt)
                 ShapeName = "oblong"
                 break
                # print(ShapeName)
-            elif size >= 16 and size <=17:
+            elif size >= 17 and size <=20:
                 setLabel(img_color, "circle", cnt)
                 ShapeName = "circle"
                 break
-            elif size >=18 and size <=20:
-                setLabel(img_color, "oval", cnt)
-                ShapeName = "oval"
-                break
+           # elif size >=18 and size <=20:
+            #    setLabel(img_color, "oval", cnt)
+             #   ShapeName = "oval"
+            #    break
            # elif size >= 17 and size <= 20:
             #   setLabel(img_color, "oval", cnt)
              #  ShapeName = "oval"
@@ -73,22 +73,24 @@ def shape():
                 ShapeName = "other"
                 break
         else:
-           # if size >= 13 and size <= 20:
-            #    setLabel(img_color, "oval", cnt)
+            if size >= 12 and size <= 16:
+                setLabel(img_color, "oblong", cnt)
+                ShapeName = "oblong"
+                break
            # else:
-           if size >= 12 and size <=15:
-               setLabel(img_color, "oblong", cnt)
-               ShapeName = "oblong"
-               break
-           elif size >= 16 and size <= 17:
+           #if size >= 12 and size <=15:
+            #   setLabel(img_color, "oblong", cnt)
+             #  ShapeName = "oblong"
+              # break
+            elif size >= 17 and size <= 20:
                setLabel(img_color, "circle", cnt)
                ShapeName = "circle"
                break
-           elif size >= 18 and size <=20:
-               setLabel(img_color, "oval", cnt)
-               ShapeName = "oval"
-               break
-           else:
+           #elif size >= 18 and size <=20:
+            #   setLabel(img_color, "oval", cnt)
+             #  ShapeName = "oval"
+              # break
+            else:
                setLabel(img_color, str(size), cnt)
                ShapeName = "other"
                break
