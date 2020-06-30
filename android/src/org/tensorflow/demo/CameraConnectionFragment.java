@@ -734,8 +734,6 @@ public class CameraConnectionFragment extends Fragment {
             ByteBuffer buffer = image.getPlanes()[0].getBuffer();
             byte[] bytes = new byte[buffer.capacity()];
 
-            Log.i("TAG", "바이트1 : " + bytes);
-
             buffer.get(bytes);
             save(bytes); // 이미지 저장
 
@@ -788,11 +786,12 @@ public class CameraConnectionFragment extends Fragment {
 
               String Dcolor = dp.getColor(data[0]); // 색상 처리
               String Dshape = dp.getShape(data[1]); // 모양 처리
-              Log.i("TAG", "받아온 데이터2 : " + data[0] + ", " + data[1]);
-              Log.i("TAG", "받아온 데이터2 : " + Dcolor + ", " + Dshape);
+              String Dprint = dp.getPrint(data[2]); // 글자 처리
+              Log.i("TAG", "받아온 데이터2 : " + data[0] + ", " + data[1] + ", " + data[2]);
+              Log.i("TAG", "받아온 데이터2 : " + Dcolor + ", " + Dshape + ", " + Dprint);
 
-              String url1 = "http://dikweb.health.kr/ajax/idfy_info/idfy_info_ajax.asp?drug_name=&drug_print=&match=include&mark_code=&drug_color="+Dcolor+"&drug_linef=&drug_lineb=&drug_shape="+Dshape+"&drug_form=&drug_shape_etc=&inner_search=print&inner_keyword=&nsearch=npages";
-              String url2 = "http://dikweb.health.kr/ajax/idfy_info/idfy_info_ajax.asp?drug_name=&drug_print=&match=include&mark_code=&drug_color="+Dcolor+"&drug_linef=&drug_lineb=&drug_shape="+Dshape+"&drug_form=&drug_shape_etc=&inner_search=print&inner_keyword=&";
+              String url1 = "http://dikweb.health.kr/ajax/idfy_info/idfy_info_ajax.asp?drug_name=&drug_print="+ Dprint+"&match=include&mark_code=&drug_color="+Dcolor+"&drug_linef=&drug_lineb=&drug_shape="+Dshape+"&drug_form=&drug_shape_etc=&inner_search=print&inner_keyword=&nsearch=npages";
+              String url2 = "http://dikweb.health.kr/ajax/idfy_info/idfy_info_ajax.asp?drug_name=&drug_print="+ Dprint+"&match=include&mark_code=&drug_color="+Dcolor+"&drug_linef=&drug_lineb=&drug_shape="+Dshape+"&drug_form=&drug_shape_etc=&inner_search=print&inner_keyword=&";
 
               Intent intent = new Intent(getActivity(), PillListActivity.class);
 

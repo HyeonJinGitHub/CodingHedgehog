@@ -58,7 +58,7 @@ public class DataProcess {
         if(drug_shape.equals("circle"))
             drug_shape = "원형";
         else if(drug_shape.equals("oval"))
-            drug_shape = "타원형";
+            drug_shape = "장방형,타원형";
         else if(drug_shape.equals("semicircular"))
             drug_shape = "반원형";
         else if(drug_shape.equals("triangle"))
@@ -68,7 +68,7 @@ public class DataProcess {
         else if(drug_shape.equals("rhombus"))
             drug_shape = "마름모형";
         else if(drug_shape.equals("oblong"))
-            drug_shape = "장방형";
+            drug_shape = "장방형,타원형";
         else if(drug_shape.equals("pentagon"))
             drug_shape = "오각형";
         else if(drug_shape.equals("hexagon"))
@@ -84,5 +84,12 @@ public class DataProcess {
         Dshape = URLEncoder.encode(String.valueOf(drug_shape), "UTF-8");
 
         return Dshape;
+    }
+    public String getPrint(String drug_print) throws UnsupportedEncodingException {
+        String Dprint;
+
+        Dprint = URLEncoder.encode(String.valueOf(drug_print), "UTF-8");
+
+        return Dprint;
     }
 }
