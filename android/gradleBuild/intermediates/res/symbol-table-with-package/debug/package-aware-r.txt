@@ -1526,6 +1526,11 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable dialog
 drawable divider
+drawable help1
+drawable help2
+drawable help3
+drawable help4
+drawable help5
 drawable ic_access_alarm_black_24dp
 drawable ic_action_info
 drawable ic_add_a_photo_black_24dp
@@ -1711,7 +1716,6 @@ id add_alarm_fragment
 id alertTitle
 id all
 id always
-id answer_text
 id ar_days
 id ar_icon
 id ar_label
@@ -1755,6 +1759,7 @@ id chronometer
 id clear_text
 id clip_horizontal
 id clip_vertical
+id close_btn
 id cls_name
 id collapseActionView
 id confirm_button
@@ -1822,6 +1827,11 @@ id gone
 id grid_layout
 id group_divider
 id groups
+id help1
+id help2
+id help3
+id help4
+id help5
 id hideable
 id home
 id homeAsUp
@@ -1911,12 +1921,12 @@ id pin
 id print
 id progress_circular
 id progress_horizontal
-id question_text
 id quit
 id radio
 id radioButton
 id radioButton2
 id recycler
+id relative
 id results
 id right
 id right_icon
@@ -2106,6 +2116,12 @@ layout activity_alarm_landing_page
 layout activity_camera
 layout activity_cardnews1
 layout activity_edit_alarm
+layout activity_first_help1
+layout activity_first_help2
+layout activity_first_help3
+layout activity_first_help4
+layout activity_first_help5
+layout activity_fisrt_start
 layout activity_main
 layout activity_pill_detail
 layout activity_pill_list
@@ -2149,7 +2165,6 @@ layout fragment_menu1_list
 layout fragment_menu2
 layout fragment_menu3
 layout fragment_menu4
-layout list_fnq_item
 layout list_text_item
 layout listiem
 layout listview_footer

@@ -73,16 +73,23 @@ def color_detect(red, green, blue):
     ,[2,102,102] \
     ,[3,0,107] \
     ,[3,3,3] \
+    ,[3,70,37] \
+    ,[3,82,43] \
     ,[5,5,5] \
+    ,[5,73,39] \
     ,[8,8,8] \
     ,[10,10,10] \
+    ,[12,27,139] \
     ,[13,13,13] \
     ,[15,15,15] \
     ,[16,78,139] \
     ,[17,96,0] \
     ,[18,18,18] \
     ,[20,20,20] \
+    ,[22,36,66] \
     ,[23,23,23] \
+    ,[23,77,132] \
+    ,[24,63,114] \
     ,[24,116,205] \
     ,[25,25,112] \
     ,[26,26,26] \
@@ -120,9 +127,11 @@ def color_detect(red, green, blue):
     ,[66,66,66] \
     ,[67,110,238] \
     ,[67,205,128] \
+    ,[68,124,51] \
     ,[69,69,69] \
     ,[69,139,0] \
     ,[69,139,116] \
+    ,[70,104,53] \
     ,[70,130,180] \
     ,[71,60,139] \
     ,[71,71,71] \
@@ -155,6 +164,7 @@ def color_detect(red, green, blue):
     ,[95,158,160] \
     ,[96,123,139] \
     ,[97,97,97] \
+    ,[98,139,73] \
     ,[99,99,99] \
     ,[99,184,255] \
     ,[100,149,237] \
@@ -178,6 +188,7 @@ def color_detect(red, green, blue):
     ,[110,110,110] \
     ,[110,123,139] \
     ,[110,139,61] \
+    ,[111,157,85] \
     ,[112,112,112] \
     ,[112,128,144] \
     ,[115,115,115] \
@@ -290,21 +301,26 @@ def color_detect(red, green, blue):
     ,[147,112,219] \
     ,[148,0,211] \
     ,[148,148,148] \
+    ,[149,113,117] \
     ,[150,150,150] \
     ,[150,205,205] \
     ,[151,255,255] \
+    ,[152,112,120] \
     ,[152,245,255] \
     ,[152,251,152] \
     ,[153,50,204] \
     ,[153,153,153] \
     ,[154,50,205] \
+    ,[154,84,72] \
     ,[154,192,205] \
     ,[154,205,50] \
     ,[154,205,50] \
     ,[154,255,154] \
     ,[155,48,255] \
+    ,[155,86,71] \
     ,[155,205,155] \
     ,[156,156,156] \
+    ,[157,121,34] \
     ,[158,158,158] \
     ,[159,121,238] \
     ,[159,182,205] \
@@ -315,13 +331,16 @@ def color_detect(red, green, blue):
     ,[162,181,205] \
     ,[162,205,90] \
     ,[163,163,163] \
+    ,[164,125,130] \
     ,[164,211,238] \
     ,[165,42,42] \
+    ,[165,127,134] \
     ,[166,147,158] \
     ,[166,166,166] \
     ,[168,168,168] \
     ,[169,169,169] \
     ,[171,130,255] \
+    ,[171,131,139] \
     ,[171,171,171] \
     ,[173,173,173] \
     ,[173,216,230] \
@@ -330,6 +349,7 @@ def color_detect(red, green, blue):
     ,[175,238,238] \
     ,[176,48,96] \
     ,[176,48,96] \
+    ,[176,141,148] \
     ,[176,176,176] \
     ,[176,196,222] \
     ,[176,224,230] \
@@ -346,10 +366,12 @@ def color_detect(red, green, blue):
     ,[181,181,181] \
     ,[184,134,11] \
     ,[184,184,184] \
+    ,[185,178,172] \
     ,[185,211,238] \
     ,[185,230,232] \
     ,[186,85,211] \
     ,[186,186,186] \
+    ,[187,149,50] \
     ,[187,234,217] \
     ,[187,255,255] \
     ,[188,143,143] \
@@ -366,6 +388,7 @@ def color_detect(red, green, blue):
     ,[191,239,255] \
     ,[192,192,192] \
     ,[192,255,62] \
+    ,[193,160,66] \
     ,[193,205,193] \
     ,[193,205,205] \
     ,[193,255,193] \
@@ -374,6 +397,8 @@ def color_detect(red, green, blue):
     ,[198,226,255] \
     ,[199,21,133] \
     ,[199,199,199] \
+    ,[199,208,217] \
+    ,[200,211,217] \
     ,[201,201,201] \
     ,[202,225,255] \
     ,[202,255,112] \
@@ -408,6 +433,7 @@ def color_detect(red, green, blue):
     ,[205,150,205] \
     ,[205,155,29] \
     ,[205,155,155] \
+    ,[205,156,0] \
     ,[205,170,125] \
     ,[205,173,0] \
     ,[205,175,149] \
@@ -437,6 +463,7 @@ def color_detect(red, green, blue):
     ,[209,238,238] \
     ,[210,105,30] \
     ,[210,180,140] \
+    ,[210,203,197] \
     ,[211,182,141] \
     ,[211,211,211] \
     ,[212,212,212] \
@@ -452,6 +479,7 @@ def color_detect(red, green, blue):
     ,[219,219,219] \
     ,[220,20,60] \
     ,[220,220,220] \
+    ,[220,229,236] \
     ,[221,160,221] \
     ,[222,184,135] \
     ,[222,222,222] \
@@ -474,6 +502,7 @@ def color_detect(red, green, blue):
     ,[232,232,232] \
     ,[233,150,122] \
     ,[234,138,138] \
+    ,[235,197,12] \
     ,[235,235,235] \
     ,[237,189,219] \
     ,[237,237,237] \
@@ -549,6 +578,7 @@ def color_detect(red, green, blue):
     ,[250,240,230] \
     ,[250,250,210] \
     ,[250,250,250] \
+    ,[251,229,3] \
     ,[252,252,252] \
     ,[253,245,230] \
     ,[255,0,0] \
@@ -686,16 +716,23 @@ def color_detect(red, green, blue):
     ,"#026666":"Blue" \
     ,"#03006B":"Indigo" \
     ,"#030303":"Black" \
+    ,"#034625":"Green" \
+    ,"#03522B":"Green" \
     ,"#050505":"Black" \
+    ,"#054927":"Green" \
     ,"#080808":"Black" \
     ,"#0A0A0A":"Black" \
+    ,"#C1B8B3":"White" \
     ,"#0D0D0D":"Black" \
     ,"#0F0F0F":"Black" \
     ,"#104E8B":"Blue" \
     ,"#116000":"Green" \
     ,"#121212":"Black" \
     ,"#141414":"Black" \
+    ,"#162442":"Blue" \
     ,"#171717":"Black" \
+    ,"#174D84":"Blue" \
+    ,"#183F72":"Blue" \
     ,"#1874CD":"Blue" \
     ,"#191970":"Blue" \
     ,"#1A1A1A":"Black" \
@@ -733,9 +770,11 @@ def color_detect(red, green, blue):
     ,"#424242":"Gray" \
     ,"#436EEE":"Blue" \
     ,"#43CD80":"Light green" \
+    ,"#447C33":"Green" \
     ,"#454545":"Gray" \
     ,"#458B00":"Green" \
     ,"#458B74":"Green" \
+    ,"#466835":"Green" \
     ,"#4682B4":"Blue" \
     ,"#473C8B":"Purple" \
     ,"#474747":"Gray" \
@@ -768,6 +807,7 @@ def color_detect(red, green, blue):
     ,"#5F9EA0":"Blue" \
     ,"#607B8B":"Blue" \
     ,"#616161":"Gray" \
+    ,"#628B49":"Light green" \
     ,"#636363":"Gray" \
     ,"#63B8FF":"Blue" \
     ,"#6495ED":"Blue" \
@@ -791,6 +831,7 @@ def color_detect(red, green, blue):
     ,"#6E6E6E":"Gray" \
     ,"#6E7B8B":"White" \
     ,"#6E8B3D":"Green" \
+    ,"#6F9D55":"Light green" \
     ,"#707070":"Gray" \
     ,"#708090":"White" \
     ,"#737373":"Gray" \
@@ -903,21 +944,26 @@ def color_detect(red, green, blue):
     ,"#9370DB":"Purple" \
     ,"#9400D3":"Purple" \
     ,"#949494":"White" \
+    ,"#957175":"Pink" \
     ,"#969696":"White" \
     ,"#96CDCD":"Turquoise" \
     ,"#97FFFF":"Blue" \
+    ,"#987078":"Pink" \
     ,"#98F5FF":"Blue" \
     ,"#98FB98":"Light green" \
     ,"#9932CC":"Purple" \
     ,"#999999":"White" \
     ,"#9A32CD":"Purple" \
+    ,"#9A5448":"Pink" \
     ,"#9AC0CD":"Blue" \
     ,"#9ACD32":"Green" \
     ,"#9ACD32":"Green" \
     ,"#9AFF9A":"Light green" \
     ,"#9B30FF":"Purple" \
+    ,"#9B5647":"Pink" \
     ,"#9BCD9B":"Green" \
     ,"#9C9C9C":"White" \
+    ,"#9D7922":"Yellow" \
     ,"#9E9E9E":"White" \
     ,"#9F79EE":"Purple" \
     ,"#9FB6CD":"Blue" \
@@ -928,13 +974,16 @@ def color_detect(red, green, blue):
     ,"#A2B5CD":"Blue" \
     ,"#A2CD5A":"Light green" \
     ,"#A3A3A3":"White" \
+    ,"#A57F86":"Pink" \
     ,"#A6939E":"Pink" \
+    ,"#A47D82":"Pink" \
     ,"#A4D3EE":"Blue" \
     ,"#A52A2A":"Brown" \
     ,"#A6A6A6":"White" \
     ,"#A8A8A8":"White" \
     ,"#A9A9A9":"White" \
     ,"#AB82FF":"Purple" \
+    ,"#AB838B":"Pink" \
     ,"#ABABAB":"White" \
     ,"#ADADAD":"White" \
     ,"#ADD8E6":"Turquoise" \
@@ -943,6 +992,7 @@ def color_detect(red, green, blue):
     ,"#AFEEEE":"Turquoise" \
     ,"#B03060":"Light purple" \
     ,"#B03060":"Light purple" \
+    ,"#B08D94":"Pink " \
     ,"#B0B0B0":"White" \
     ,"#B0C4DE":"Turquoise" \
     ,"#B0E0E6":"Turquoise" \
@@ -959,10 +1009,12 @@ def color_detect(red, green, blue):
     ,"#B5B5B5":"White" \
     ,"#B8860B":"Brown" \
     ,"#B8B8B8":"White" \
+    ,"#B9B2AC":"White" \
     ,"#B9D3EE":"Turquoise" \
     ,"#B9E6E8":"Blue" \
     ,"#BA55D3":"Purple" \
     ,"#BABABA":"White" \
+    ,"#BB9532":"Yellow" \
     ,"#BBEAD9":"Turquoise" \
     ,"#BBFFFF":"Turquoise" \
     ,"#BC8F8F":"Pink" \
@@ -979,6 +1031,7 @@ def color_detect(red, green, blue):
     ,"#BFEFFF":"Turquoise" \
     ,"#C0C0C0":"White" \
     ,"#C0FF3E":"Light green" \
+    ,"#C1A042":"Yellow" \
     ,"#C1CDC1":"White" \
     ,"#C1CDCD":"White" \
     ,"#C1FFC1":"Light green" \
@@ -987,6 +1040,8 @@ def color_detect(red, green, blue):
     ,"#C6E2FF":"Turquoise" \
     ,"#C71585":"Light purple" \
     ,"#C7C7C7":"White" \
+    ,"#C7D0D9":"White" \
+    ,"#C8D3D9":"White" \
     ,"#C9C9C9":"White" \
     ,"#CAE1FF":"Turquoise" \
     ,"#CAFF70":"Light green" \
@@ -1021,6 +1076,7 @@ def color_detect(red, green, blue):
     ,"#CD96CD":"Pink" \
     ,"#CD9B1D":"Yellow" \
     ,"#CD9B9B":"Pink" \
+    ,"#CD9C00":"Yellow" \
     ,"#CDAA7D":"Brown" \
     ,"#CDAD00":"Yellow" \
     ,"#CDAF95":"Brown" \
@@ -1050,6 +1106,7 @@ def color_detect(red, green, blue):
     ,"#D1EEEE":"Turquoise" \
     ,"#D2691E":"Brown" \
     ,"#D2B48C":"Brown" \
+    ,"#D2CBC5":"White" \
     ,"#D3B68D":"Orange" \
     ,"#D3D3D3":"White" \
     ,"#D4D4D4":"White" \
@@ -1065,6 +1122,7 @@ def color_detect(red, green, blue):
     ,"#DBDBDB":"White" \
     ,"#DC143C":"Red" \
     ,"#DCDCDC":"White" \
+    ,"#DCE5EC":"White" \
     ,"#DDA0DD":"Pink" \
     ,"#DEB887":"Brown" \
     ,"#DEDEDE":"White" \
@@ -1087,6 +1145,7 @@ def color_detect(red, green, blue):
     ,"#E8E8E8":"White" \
     ,"#E9967A":"Brown" \
     ,"#EA8A8A":"Pink" \
+    ,"#EBC50C":"Yellow" \
     ,"#EBEBEB":"White" \
     ,"#EDBDDB":"Pink" \
     ,"#EDEDED":"White" \
@@ -1162,6 +1221,7 @@ def color_detect(red, green, blue):
     ,"#FAF0E6":"Yellow" \
     ,"#FAFAD2":"Yellow" \
     ,"#FAFAFA":"White" \
+    ,"#FBE503":"Yellow" \
     ,"#FCFCFC":"White" \
     ,"#FDF5E6":"White" \
     ,"#FF0000":"Red" \
@@ -1278,7 +1338,8 @@ def color_detect(red, green, blue):
       #  +' '+ str(NearestRGB) \
       #  +', '+ ColorDiff \
       #  +'.')
-    print(ColorName)
+   # print(ColorName)
+    return ColorName
     #return ColorName
     # print 'Is the above correct?'
 

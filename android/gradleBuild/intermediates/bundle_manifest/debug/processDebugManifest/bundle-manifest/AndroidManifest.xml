@@ -65,6 +65,7 @@
             android:name="org.tensorflow.demo.Alarm.ui.AlarmLandingPageActivity"
             android:theme="@style/AlertLandingPageTheme" />
         <activity android:name="org.tensorflow.demo.Cardnew1Activity" />
+        <activity android:name="org.tensorflow.demo.FirstStartActivity" />
 
         <service android:name="org.tensorflow.demo.Alarm.service.LoadAlarmsService" />
 

@@ -71,7 +71,7 @@ public class FileUpload extends AsyncTask <byte[], Void, String> {
             Log.i("TAG", "byte1 : " + bytes + "  /  bytes2 : " + bytes2);
             Log.i("TAG", "location1 : " + location + "  /  location2 : " + location2);
 
-            URL url = new URL("http://59.14.252.86:3000/listpage");
+            URL url = new URL("http://ec2-3-128-160-84.us-east-2.compute.amazonaws.com:3000/listpage");
             con = (HttpURLConnection) url.openConnection();
             con.setDoInput(true);
             con.setDoOutput(true);
@@ -98,7 +98,7 @@ public class FileUpload extends AsyncTask <byte[], Void, String> {
             dos.write(bytes, 0, bytes.length); // 이미지 byte 전송
             dos.writeBytes(lineEnd);
             dos.writeBytes(twoHyphens + boundary + twoHyphens + lineEnd);
-            Log.i(TAG, "write All");
+            Log.i(TAG, "write All1");
 
             dos.flush(); // 업로드 끝
             dos.close(); // 닫기
@@ -117,12 +117,13 @@ public class FileUpload extends AsyncTask <byte[], Void, String> {
                 }
                 in.close();
                 Log.i(TAG, "받은 데이터 : " + response);
+                // 서버로 부터 받아온 알약 데이터값
+                if(response.toString().substring(0, 5) != "Error") // 에러 발생하면 "" return
+                    drug_color = response.toString();
             }
-            // 서버로 부터 받아온 알약 데이터값
-            drug_color = response.toString();
 
             // 뒷면 이미지
-            URL url2 = new URL("http://59.14.252.86:3000/imgback");
+            URL url2 = new URL("http://ec2-3-128-160-84.us-east-2.compute.amazonaws.com:3000/imgback");
             con2 = (HttpURLConnection) url2.openConnection();
             con2.setDoInput(true);
             con2.setDoOutput(true);
@@ -149,7 +150,7 @@ public class FileUpload extends AsyncTask <byte[], Void, String> {
             dos2.write(bytes2, 0, bytes2.length); // 이미지 byte 전송
             dos2.writeBytes(lineEnd);
             dos2.writeBytes(twoHyphens + boundary + twoHyphens + lineEnd);
-            Log.i(TAG, "write All");
+            Log.i(TAG, "write All2");
 
             dos2.flush(); // 업로드 끝
             dos2.close(); // 닫기
@@ -168,9 +169,10 @@ public class FileUpload extends AsyncTask <byte[], Void, String> {
                 }
                 in.close();
                 Log.i(TAG, "받은 데이터 : " + response2);
+                // 서버로 부터 받아온 알약 데이터값
+                drug_color2 = response2.toString();
             }
-            // 서버로 부터 받아온 알약 데이터값
-            drug_color2 = response2.toString();
+
         } catch (Exception e) {
             Log.i(TAG, "Upload_Exception" + e.getMessage());
         } finally {
