@@ -1,87 +1,81 @@
-#!/usr/bin/etc python
-
 import cv2
 import numpy as np
-#import pytesseract
-from  PIL import Image
+from matplotlib import pyplot as plt
+import pytesseract
+import scipy.fftpack # For FFT2
+pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract'
 
-class Recognition:
-     def ExtractNumber(self):
-          Number='./data/test3.jpg' 
-          img=cv2.imread(Number,cv2.IMREAD_COLOR)
-          copy_img=img.copy()
-          img2=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
-          cv2.imwrite('gray.jpg',img2)
-          blur = cv2.GaussianBlur(img2,(3,3),0)
-          cv2.imwrite('blur.jpg',blur)
-          canny=cv2.Canny(blur,100,200)
-          cv2.imwrite('canny.jpg',canny)
-          cnts,contours,hierarchy  = cv2.findContours(canny, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
-          box1=[]
-          f_count=0
-          select=0
-          plate_width=0
-          
-          for i in range(len(contours)):
-               cnt=contours[i]          
-               area = cv2.contourArea(cnt)
-               x,y,w,h = cv2.boundingRect(cnt)
-               rect_area=w*h  #area size
-               aspect_ratio = float(w)/h # ratio = width/height
-                  
-               if  (aspect_ratio>=0.2)and(aspect_ratio<=1.0)and(rect_area>=100)and(rect_area<=700): 
-                    cv2.rectangle(img,(x,y),(x+w,y+h),(0,255,0),1)
-                    box1.append(cv2.boundingRect(cnt))
-         
-          for i in range(len(box1)): ##Buble Sort on python
-               for j in range(len(box1)-(i+1)):
-                    if box1[j][0]>box1[j+1][0]:
-                         temp=box1[j]
-                         box1[j]=box1[j+1]
-                         box1[j+1]=temp
-                         
-         #to find number plate measureing length between rectangles
-          for m in range(len(box1)):
-               count=0
-               for n in range(m+1,(len(box1)-1)):
-                    delta_x=abs(box1[n+1][0]-box1[m][0])
-                    if delta_x > 150:
-                         break
-                    delta_y =abs(box1[n+1][1]-box1[m][1])
-                    if delta_x ==0:
-                         delta_x=1
-                    if delta_y ==0:
-                         delta_y=1           
-                    gradient =float(delta_y) /float(delta_x)
-                    if gradient<0.25:
-                        count=count+1
-               #measure number plate size         
-               if count > f_count:
-                    select = m
-                    f_count = count
-                    plate_width=delta_x
-          cv2.imwrite('snake.jpg',img)
-          
-          
-          number_plate=copy_img[box1[select][1]-10:box1[select][3]+box1[select][1]+20,box1[select][0]-10:140+box1[select][0]] 
-          resize_plate=cv2.resize(number_plate,None,fx=1.8,fy=1.8,interpolation=cv2.INTER_CUBIC+cv2.INTER_LINEAR) 
-          plate_gray=cv2.cvtColor(resize_plate,cv2.COLOR_BGR2GRAY)
-          ret,th_plate = cv2.threshold(plate_gray,150,255,cv2.THRESH_BINARY)
-          
-          cv2.imwrite('plate_th.jpg',th_plate)
-          kernel = np.ones((3,3),np.uint8)
-          er_plate = cv2.erode(th_plate,kernel,iterations=1)
-          er_invplate = er_plate
-          cv2.imwrite('er_plate.jpg',er_invplate)
-          result = pytesseract.image_to_string(Image.open('er_plate.jpg'), lang='kor')
-          return(result.replace(" ",""))
+#기본조정
+def adjustment(img):
+    #GRAY로 변경
+    img_gray = cv2.cvtColor(img,cv2.COLOR_BGRA2GRAY)
 
-    
-recogtest=Recognition()
-result=recogtest.ExtractNumber()
-print(result)
+    ##밝기 조절-어둡게
+    M = np.ones(img_gray.shape, dtype = "uint8") * 60
+    subtracted = cv2.subtract(img_gray, M)
+    added = cv2.add(img_gray,M)
 
-    
-          
+    #가우시안 필터
+    img_blur = cv2.GaussianBlur(subtracted, (5, 5), 0)
 
+    return img_blur
+
+#이진화
+def binarization(img):
+    img_sobel_x = cv2.Sobel(img, cv2.CV_64F, 1, 0, ksize=3)
+    img_sobel_x = cv2.convertScaleAbs(img_sobel_x)
+    img_sobel_y = cv2.Sobel(img, cv2.CV_64F, 0, 1, ksize=3)
+    img_sobel_y = cv2.convertScaleAbs(img_sobel_y)
+    img_sobel = cv2.addWeighted(img_sobel_x, 1, img_sobel_y, 1, 0)
+    #cv2.imshow("sobel", img_sobel)
+    kernel = np.ones((5, 5), np.uint8)
+    img_sobel = cv2.morphologyEx(img_sobel,cv2.MORPH_CLOSE,kernel)
+    #plt.hist(img_sobel.ravel(), 256, [0, 256])
+    #임계값 찾기
+    x= np.percentile(img_sobel,82)
+    #너무 낮으면 노이즈가 생겨서 이부분 수정 필요
+    if x <=18 :
+        x = 25
+    #print(x)
+    ret, thresh = cv2.threshold(img_sobel,x-7, 255, cv2.THRESH_BINARY)
+    ret, thresh = cv2.threshold(thresh,0, 255, cv2.THRESH_BINARY+cv2.THRESH_OTSU)
+    #cv2.imshow("thresh1", thresh)
+    kernel = np.ones((3,3),np.uint8)
+    opening = cv2.morphologyEx(thresh,cv2.MORPH_OPEN,kernel)
+    #cv2.imshow("opening", opening)
+    kernel = np.ones((3,3),np.uint8)
+    #closing = cv2.morphologyEx(opening,cv2.MORPH_CLOSE,kernel)
+    #closing = cv2.dilate(opening,kernel)
+    kernel = np.ones((13,13),np.uint8)
+    closing = cv2.morphologyEx(opening,cv2.MORPH_CLOSE,kernel)
+    #closing = cv2.morphologyEx(closing,cv2.MORPH_CLOSE,kernel)
+
+    return closing
+
+
+def run(img):
+    img = cv2.resize(img, (900, 300))
+    #cv2.imshow("img",img)
+    #img_delight = delight(img)
+    img_adj = adjustment(img)
+    img_thresh = binarization(img_adj)
+    #ret,markers = cv2.connectedComponents(img)
+    #cv2.imshow("thresh",img_thresh)
+    bit = cv2.bitwise_not(img_thresh)
+    #cv2.imshow("bit",bit)
+    #cv2.imwrite('C:/Users/mayso/result_image.png',bit)
+
+    return bit
+
+img = cv2.imread('C:/Users/mayso/test_image.png')
+
+cv2.imshow("img",img)
+cv2.imshow("output",run(img))
+print(pytesseract.image_to_string(run(img), lang='eng', config='--psm 1 -c preserve_interword_spaces=1'))
+
+
+
+plt.show()
+cv2.waitKey(0)
+cv2.destroyAllWindows()
