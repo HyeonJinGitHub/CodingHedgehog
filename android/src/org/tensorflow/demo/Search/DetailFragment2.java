@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -74,6 +75,7 @@ public class DetailFragment2 extends Fragment{
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        Log.i("TAG", "Create Fragment 1");
     }
 
     @Override
@@ -140,8 +142,6 @@ public class DetailFragment2 extends Fragment{
         if(tts!=null){
             tts.stop();
             tts.shutdown();
-            tts = null;
-            Toast.makeText(getContext(),"tts 종료",Toast.LENGTH_LONG);
         }
         mListener = null;
     }

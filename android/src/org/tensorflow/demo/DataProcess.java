@@ -16,29 +16,29 @@ public class DataProcess {
         if(drug_color.equals("White"))
             drug_color = "하양";
         else if(drug_color.equals("Yellow"))
-            drug_color = "노랑";
+            drug_color = "노랑,주황,갈색";
         else if(drug_color.equals("Orange"))
-            drug_color = "주황";
+            drug_color = "주황,노랑,갈색,빨강";
         else if(drug_color.equals("Pink"))
-            drug_color = "분홍";
+            drug_color = "분홍,자주,보라";
         else if(drug_color.equals("Red"))
-            drug_color = "빨강";
+            drug_color = "빨강,갈색,주황";
         else if(drug_color.equals("Brown"))
-            drug_color = "갈색";
+            drug_color = "갈색,빨강,노랑,주황";
         else if(drug_color.equals("Light green"))
-            drug_color = "연두";
+            drug_color = "연두,초록";
         else if(drug_color.equals("Green"))
-            drug_color = "초록";
+            drug_color = "초록,연두";
         else if(drug_color.equals("Turquoise"))
-            drug_color = "청록";
+            drug_color = "청록,파랑,남색";
         else if(drug_color.equals("Blue"))
-            drug_color = "파랑";
+            drug_color = "파랑,남색,청록";
         else if(drug_color.equals("Indigo"))
-            drug_color = "남색";
+            drug_color = "남색,파랑,청록";
         else if(drug_color.equals("Light purple"))
-            drug_color = "자주";
+            drug_color = "자주,보라,분홍";
         else if(drug_color.equals("Purple"))
-            drug_color = "보라";
+            drug_color = "보라,자주,분홍";
         else if(drug_color.equals("Gray"))
             drug_color = "회색";
         else if(drug_color.equals("Black"))
@@ -86,9 +86,10 @@ public class DataProcess {
         return Dshape;
     }
     public String getPrint(String drug_print) throws UnsupportedEncodingException {
-        String Dprint;
+        String Dprint="";
 
-        Dprint = URLEncoder.encode(String.valueOf(drug_print), "UTF-8");
+        if(!drug_print.equals(" "))
+            Dprint = URLEncoder.encode(String.valueOf(drug_print), "UTF-8");
 
         return Dprint;
     }

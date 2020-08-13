@@ -2,9 +2,14 @@ package org.tensorflow.demo.Search;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -16,6 +21,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -25,22 +31,31 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import org.tensorflow.demo.PillListVO;
+import org.tensorflow.demo.PillParsing;
 import org.tensorflow.demo.R;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.FilterInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
+import static android.speech.tts.TextToSpeech.ERROR;
+import static android.speech.tts.TextToSpeech.QUEUE_ADD;
+import static android.speech.tts.TextToSpeech.QUEUE_FLUSH;
 import static java.lang.Integer.parseInt;
 import static java.lang.Integer.valueOf;
 import static java.lang.Thread.sleep;
-import static org.tensorflow.demo.Search.DownloadList.list;
-import static org.tensorflow.demo.Search.DownloadList.totCnt;
 import static org.tensorflow.demo.Search.PillListActivity.listCnt;
 import static org.tensorflow.demo.Search.PillListActivity.once;
 
@@ -95,17 +110,19 @@ class Pill{
 
 public class PillListActivity extends AppCompatActivity {
     private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-    public static int listCnt;
+    //private static final String ARG_PARAM2 = "param2";
+    public static int listCnt; // 리스트에 보여주는 알약 개수
     private TextView selected_item_textview;
-    //static List<String> list = new ArrayList<>();
+    private TextToSpeech tts;
+
+    public static ArrayList<PillListVO> list;
 
     // TODO: Rename and change types of parameters
     public static String mParam1;
-    public static String mParam2;
+    //public static String mParam2;
 
     public static int once = 0;
-
+    public static int cnt = 0;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -116,8 +133,17 @@ public class PillListActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         mParam1 = intent.getExtras().getString("mparam1");
-        mParam2 = intent.getExtras().getString("mparam2");
+        //mParam2 = intent.getExtras().getString("mparam2");
         once = 0;
+
+        // TTS 초기화
+        tts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if(status != ERROR)
+                    tts.setLanguage(Locale.KOREAN);
+            }
+        });
 
         final ListView listview = (ListView)findViewById(R.id.listView);
         View footer = getLayoutInflater().inflate(R.layout.listview_footer,null,false);
@@ -130,44 +156,49 @@ public class PillListActivity extends AppCompatActivity {
         });
 
         if(once==0){
-            list.clear();
+            // list.clear(); // 이 부분 주석 처리함
             adapter.notifyDataSetChanged();
         }
         listCnt = 10;
 
         try {
-            new DownloadList().execute();
-            sleep(1200);        //900이였음
+            //cnt = new DownloadList().execute().get();
+            // sleep(1000);        //900이였음
+
+            PillParsing pillParsing = new PillParsing();
+            list = pillParsing.getPillList(mParam1);
+            cnt = list.size();
+
+            Log.i("TAG", "count 개수 : " + cnt);
         } catch (Exception e) {
             e.printStackTrace();
         }
         //초기화
-        if(valueOf(totCnt)>10){
+        if(valueOf(cnt)>10){
             listCnt = 10;
         }else{
-            listCnt = valueOf(totCnt);
+            listCnt = valueOf(cnt);
         }
 
         Button moreBtn = (Button)footer.findViewById(R.id.add);
         moreBtn.setOnClickListener(new Button.OnClickListener(){
             public void onClick(View v) {
-                Log.i("pill","더보기 클릭"+Integer.parseInt(totCnt));
+                Log.i("pill","더보기 클릭"+ cnt);
                 try {
-                    if(Integer.parseInt(totCnt)>10){
-                        totCnt= Integer.toString(Integer.parseInt(totCnt)-10);
+                    if(cnt >10){
+                        // cnt = Integer.toString(cnt -10);
+                        cnt = cnt - 10;
                         listCnt = listCnt+10;
-                        Log.i("pill","totCnt : "+ totCnt);
+                        Log.i("pill","Cnt : "+ cnt);
                         //count = count-10;
                     }else{
-                        listCnt = listCnt+valueOf(totCnt);
+                        listCnt = listCnt+cnt;
                         //count=1;
                     }
-                    new DownloadList().execute();
-                    sleep(900);        //900이였음
-                    Log.i("pill", String.valueOf(listCnt));
-
+                    // new DownloadList().execute();
+                    // sleep(900);        //900이였음
+                    // Log.i("pill", String.valueOf(listCnt));
                     adapter.notifyDataSetChanged();
-
                 } catch (Exception e) {
                     e.printStackTrace();
                     Log.i("pill","exception 발생");
@@ -175,9 +206,15 @@ public class PillListActivity extends AppCompatActivity {
             }
         });
 
-        if(valueOf(totCnt)>10) {
+        if(valueOf(cnt)>10) {
             listview.addFooterView(footer);
         }
+
+        String text = "[알림] 검색결과가 10개이상입니다.\n 정확한 알약을 선택해주세요";
+        if(cnt>10) {
+            Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG).show();
+        }
+
         //리스트뷰의 어댑터를 지정해준다.
         listview.setAdapter(adapter);
 
@@ -187,8 +224,6 @@ public class PillListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView,
                                     View view, int position, long id) {
-
-
                 Intent intent = new Intent(getApplicationContext(),PillDetailActivity.class);
                 intent.putExtra("drug_code",list.get(position).getDrug_code());
                 intent.putExtra("drug_name",list.get(position).getDrug_name());
@@ -211,6 +246,7 @@ public class PillListActivity extends AppCompatActivity {
 
 class PillList extends ArrayAdapter<String>{
     private final Activity context;
+    HashMap<String, Bitmap> mMap = new HashMap<String,Bitmap>();
     public PillList(Activity context ) {
         super(context, R.layout.listiem);
         Log.i("pill","ok");
@@ -221,60 +257,134 @@ class PillList extends ArrayAdapter<String>{
         Log.i("pill", "listcount"+String.valueOf(listCnt));
 
         return listCnt;
-        //list.size();
     }
     @Override
     public View getView(int position, View view, ViewGroup parent) {
         Log.i("pill","getView넘어감");
         LayoutInflater inflater = context.getLayoutInflater();
         View rowView= inflater.inflate(R.layout.listiem, null);
-        ImageView imageView = rowView.findViewById(R.id.image);
+        ImageView imageView = rowView.findViewById(R.id.imageView);
         TextView drug_name = rowView.findViewById(R.id.drug_name);
-        TextView upso_name = rowView.findViewById(R.id.upso_name);
         TextView print = rowView.findViewById(R.id.print);
-        DownloadList download=new DownloadList();
-        List<Pill> list = download.getList();
+        ArrayList<PillListVO> list = PillListActivity.list;
+
         if(list.size() !=0) {
+            loadImage("http://www.pharm.or.kr/images/sb_photo/small/" + list.get(position).getImgidfy_code() + "_s.jpg", imageView);
             drug_name.setText(list.get(position).getDrug_name());
-            upso_name.setText(list.get(position).getUpso_name_kfda());
-            print.setText(list.get(position).getPrint_front()+"/"+list.get(position).getPrint_back());
-            //Glide.with(view).load(list.get(position).getImgidfy_code()).into(imageView);
+            print.setText(list.get(position).getPrint_front());
+
         }else{
             Log.i("No pill","none");
         }
 
         return rowView;
     }
+
+    Handler handler = new Handler(){
+        @Override
+        public void handleMessage(final Message msg) {
+        }
+    };
+
+    private void loadImage(final String url, final ImageView imageview){
+        Bitmap bitmap = mMap.get(url);
+        if(bitmap == null){
+            Thread t = new Thread(){
+                public void run(){
+                    getBitmap(url);
+                    handler.post(new Runnable(){
+                        @Override
+                        public void run() {
+                            imageview.setImageBitmap(mMap.get(url));
+                        }
+                    });
+                }
+            };
+            t.start();
+        }else{
+            imageview.setImageBitmap(bitmap);
+        }
+    }
+
+    public Bitmap getBitmap(String url) {
+        Bitmap bm = null;
+        try {
+            URL aURL = new URL(url);
+            URLConnection conn = aURL.openConnection();
+            conn.connect();
+            InputStream is = conn.getInputStream();
+            BufferedInputStream bis = new BufferedInputStream(is);
+            bm = BitmapFactory.decodeStream(new FlushedInputStream(is));
+            mMap.put(url, bm);
+            bis.close();
+            is.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+        }
+        return bm;
+    }
+
+    static class FlushedInputStream extends FilterInputStream {
+        public FlushedInputStream(InputStream inputStream) {
+            super(inputStream);
+        }
+
+        @Override
+        public long skip(long n) throws IOException {
+            long totalBytesSkipped = 0L;
+            while (totalBytesSkipped < n) {
+                long bytesSkipped = in.skip(n - totalBytesSkipped);
+                if (bytesSkipped == 0L) {
+                    int b = read();
+                    if (b < 0) {
+                        break; // we reached EOF
+                    } else {
+                        bytesSkipped = 1; // we read one byte
+                    }
+                }
+                totalBytesSkipped += bytesSkipped;
+            }
+            return totalBytesSkipped;
+        }
+    }
 }
 
-class DownloadList extends AsyncTask<String,String,String> {
+class DownloadList extends AsyncTask<String,String,Integer> {
     //데이터를 저장하게 되는 리스트
-    static public ArrayList<Pill> list = new ArrayList<>();
-    static public String totCnt;
-    static public int count;
-    public static ArrayList<Pill> getList() {
-        //Log.i("pill","데이터"+list.get(0).getRnum());
-        return list;
-    }
+    //static public ArrayList<PillListVO> list = new ArrayList<>();
+    //static public String totCnt;
+    //static public int count;
+
+    //public static ArrayList<PillListVO> getList() {
+    //    return list;
+    //}
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        /*try {
-            getData();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }*/
-    }
-    @Override
-    protected String doInBackground(String... strings) {
+        /*
         try {
             getData();
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
-        return null;
+        */
     }
 
+    @Override
+    protected Integer doInBackground(String... strings) {
+        int total_cnt = 0;
+        /*
+        try {
+            total_cnt = getData();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+         */
+        return total_cnt;
+    }
+
+    /*
     protected void onPostExecute(String result) {
         //mTextView.setText(result);
     }
@@ -294,7 +404,8 @@ class DownloadList extends AsyncTask<String,String,String> {
         }
         return sb.toString();
     }
-    private void getData() throws MalformedURLException {
+
+    private int getData() throws MalformedURLException{
         Log.i("pill","url입력됨");
         String str="";
         String line="";
@@ -303,6 +414,7 @@ class DownloadList extends AsyncTask<String,String,String> {
 
         if(once==0) {
             //Intent로 변경
+            Log.i("pill","Once == 0");
             URL url = new URL(PillListActivity.mParam1);
             try {
                 HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -312,7 +424,6 @@ class DownloadList extends AsyncTask<String,String,String> {
                 while ((line = rd.readLine()) != null) {
                     str += line;
                 }
-
             } catch (IOException e) {
                 Log.i("pill", "http연결실패");
                 // TODO Auto-generated catch block
@@ -327,11 +438,15 @@ class DownloadList extends AsyncTask<String,String,String> {
                 totCnt = str.substring(start + 8, str.length());
                 Log.i("pill", str);
             }
+            else{
+                totCnt="";
+            }
             once = 1;
         }
         count = Integer.parseInt(totCnt)-10;
-
+        */
         //http://dikweb.health.kr/ajax/idfy_info/idfy_info_ajax.asp?drug_name=&drug_print=H&match=include&mark_code=&drug_color=&drug_linef=&drug_lineb=&drug_shape=&drug_form=&drug_shape_etc=&inner_search=print&inner_keyword=&strP=3586&endP=1&nsearch=nsearch
+        /*
         URL url2 = new URL(PillListActivity.mParam2+"strP="+totCnt+"&endP="+count+"&nsearch=nsearch");
         Log.i("pill", PillListActivity.mParam2+"strP="+totCnt+"&endP="+count +"&nsearch=nsearch");
         try {
@@ -364,12 +479,15 @@ class DownloadList extends AsyncTask<String,String,String> {
         for(int i=0;i<array.length/8;i++) {
             Pill pill = new Pill();
             for(int k=0;k<8;k++) {
+
+         */
                 /*if ((start = array[j].indexOf("rnum")) > -1) {
                     pill.setRnum(array[j].substring(start + 6, array[j].length()));
                     Log.i("pill", j + "" + pill.getRnum());
                 } if ((start = array[j].indexOf("idx")) > -1) {
                     pill.idx = array[j].substring(start + 5, array[j].length());
                 }*/
+                /* 여기서부터 새 주석
                 if ((start = array[j].indexOf("drug_code")) > -1) {
                     pill.setDrug_code(array[j].substring(start + 12, array[j].length() - 1));
                 }if ((start = array[j].indexOf("imgidfy_code")) > -1) {
@@ -401,5 +519,7 @@ class DownloadList extends AsyncTask<String,String,String> {
         }
         Log.i("pill size", String.valueOf(list.size()));
 
+        return Integer.parseInt(totCnt);
     }
+    */
 }

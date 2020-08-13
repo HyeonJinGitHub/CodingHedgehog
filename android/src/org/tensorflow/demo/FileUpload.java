@@ -71,7 +71,9 @@ public class FileUpload extends AsyncTask <byte[], Void, String> {
             Log.i("TAG", "byte1 : " + bytes + "  /  bytes2 : " + bytes2);
             Log.i("TAG", "location1 : " + location + "  /  location2 : " + location2);
 
-            URL url = new URL("http://ec2-3-128-160-84.us-east-2.compute.amazonaws.com:3000/listpage");
+            URL url = new URL("http://ec2-18-221-12-38.us-east-2.compute.amazonaws.com:3000/listpage");
+            // origin : ec2-3-128-160-84.us-east-2.compute.amazonaws.com
+            // new : ec2-18-221-12-38.us-east-2.compute.amazonaws.com
             con = (HttpURLConnection) url.openConnection();
             con.setDoInput(true);
             con.setDoOutput(true);
@@ -123,7 +125,7 @@ public class FileUpload extends AsyncTask <byte[], Void, String> {
             }
 
             // 뒷면 이미지
-            URL url2 = new URL("http://ec2-3-128-160-84.us-east-2.compute.amazonaws.com:3000/imgback");
+            URL url2 = new URL("http://ec2-18-221-12-38.us-east-2.compute.amazonaws.com:3000/imgback");
             con2 = (HttpURLConnection) url2.openConnection();
             con2.setDoInput(true);
             con2.setDoOutput(true);
