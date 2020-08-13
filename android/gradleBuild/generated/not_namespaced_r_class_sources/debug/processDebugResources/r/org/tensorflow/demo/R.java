@@ -7629,16 +7629,15 @@ public final class R {
     public static final int uniform=0x7f0901a4;
     public static final int unlabeled=0x7f0901a5;
     public static final int up=0x7f0901a6;
-    public static final int upso_name=0x7f0901a7;
-    public static final int upso_name_kfda=0x7f0901a8;
-    public static final int useLogo=0x7f0901a9;
-    public static final int view_offset_helper=0x7f0901aa;
-    public static final int viewpager=0x7f0901ab;
-    public static final int visible=0x7f0901ac;
-    public static final int withText=0x7f0901ad;
-    public static final int withinBounds=0x7f0901ae;
-    public static final int wrap=0x7f0901af;
-    public static final int wrap_content=0x7f0901b0;
+    public static final int upso_name_kfda=0x7f0901a7;
+    public static final int useLogo=0x7f0901a8;
+    public static final int view_offset_helper=0x7f0901a9;
+    public static final int viewpager=0x7f0901aa;
+    public static final int visible=0x7f0901ab;
+    public static final int withText=0x7f0901ac;
+    public static final int withinBounds=0x7f0901ad;
+    public static final int wrap=0x7f0901ae;
+    public static final int wrap_content=0x7f0901af;
   }
   public static final class integer {
     public static final int abc_config_activityDefaultDur=0x7f0a0000;

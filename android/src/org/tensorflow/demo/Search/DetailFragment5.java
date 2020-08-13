@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,8 +20,11 @@ import org.tensorflow.demo.R;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.logging.Logger;
 
 import static android.speech.tts.TextToSpeech.ERROR;
+import static android.speech.tts.TextToSpeech.QUEUE_ADD;
+import static android.speech.tts.TextToSpeech.QUEUE_FLUSH;
 
 
 /**
@@ -95,6 +99,12 @@ public class DetailFragment5 extends Fragment {
             public void onInit(int status) {
                 if(status!=ERROR){
                     tts.setLanguage(Locale.KOREAN);
+                }
+                Log.i("TAG", "TTS INIT3");
+                if(tts.isSpeaking()){
+                    Log.i("TAG", "TTS IsSpeaking");
+                    tts.stop();
+                    tts.shutdown();
                 }
             }
         });

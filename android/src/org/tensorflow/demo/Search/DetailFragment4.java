@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -95,6 +96,12 @@ public class DetailFragment4 extends Fragment {
             public void onInit(int status) {
                 if(status!=ERROR){
                     tts.setLanguage(Locale.KOREAN);
+                }
+                Log.i("TAG", "TTS INIT2");
+                if(tts.isSpeaking()){
+                    Log.i("TAG", "TTS IsSpeaking");
+                    tts.stop();
+                    tts.shutdown();
                 }
             }
         });

@@ -773,16 +773,16 @@ public class CameraConnectionFragment extends Fragment {
             }
 
             if(cap_count == 2){ // 두번 캡쳐 했을때 (앞, 뒤)
+              DetectorActivity.tts.shutdown(); // tts 중지
+              closeCamera(); // 카메라 중지
               get_data = new FileUpload(getActivity(), locations).execute(img_bytes).get(); // 서버에 이미지와 좌표 전
               cap_count = 0;
-              Log.i("TAG", "받아온 데이터1 : " + get_data);
-              closeCamera(); // 카메라 중지
-              DetectorActivity.tts.shutdown(); // tts 중지
             }
 
             if(!get_data.equals("")){ // 받아온 데이터가 있음
+              /*
               DataProcess dp = new DataProcess(); // 받아온 데이터 처리
-              String data[] = get_data.split(", "); // 쉼표로 구분
+              String data[] = get_data.split(","); // 쉼표로 구분
 
               String Dcolor = dp.getColor(data[0]); // 색상 처리
               String Dshape = dp.getShape(data[1]); // 모양 처리
@@ -799,6 +799,12 @@ public class CameraConnectionFragment extends Fragment {
               intent.putExtra("mparam2", url2);
 
               startActivity(intent); // 해당하는 알약 리스트 검색 (액티비티 이동)
+              */
+              Intent intent = new Intent(getActivity(), PillListActivity.class);
+
+              intent.putExtra("mparam1", get_data);
+              startActivity(intent);
+
             }
           } catch (FileNotFoundException e) {
             e.printStackTrace();

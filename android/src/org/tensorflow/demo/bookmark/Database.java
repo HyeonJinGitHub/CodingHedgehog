@@ -117,7 +117,4 @@ public final class Database extends SQLiteOpenHelper {
         }
         return state;
     }
-
-
-
 }

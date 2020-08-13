@@ -1,4 +1,4 @@
-#Mon Jun 29 23:25:41 KST 2020
+#Thu Aug 13 21:10:25 KST 2020
 base.0=C\:\\Users\\zxd98\\CodingHedgehog\\android\\gradleBuild\\intermediates\\transforms\\dexMerger\\debug\\1
 path.1=classes.dex
 renamed.1=classes2.dex

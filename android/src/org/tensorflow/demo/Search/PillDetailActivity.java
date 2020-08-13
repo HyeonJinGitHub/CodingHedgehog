@@ -208,10 +208,10 @@ public class PillDetailActivity extends AppCompatActivity implements DetailFragm
             TextView stmt = (TextView)findViewById(R.id.stmt);
 */
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.CUPCAKE) {
-                new DownloadDetail().execute();
+                new DownloadDetail().execute(); // .get()
             }
             try {
-                sleep(600);    //600이였음
+                sleep(2000);    //600이였음
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
