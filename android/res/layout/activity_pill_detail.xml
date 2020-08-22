@@ -13,7 +13,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:text="TextView"
-        android:textSize="20dp"
+        android:textSize="24dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,7 +34,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1">
-
 
         <Button
             android:id="@+id/button1"
@@ -97,21 +96,7 @@
             app:layout_constraintTop_toBottomOf="@+id/drug_name"
             style="?android:attr/borderlessButtonStyle"/>
 
-        <Button
-            android:id="@+id/button5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/custom_button"
-            android:text="복약"
-            app:layout_constraintStart_toEndOf="@+id/button4"
-            app:layout_constraintTop_toBottomOf="@+id/drug_name"
-            style="?android:attr/borderlessButtonStyle"/>
+
         </TableRow>
     </TableLayout>
     <androidx.viewpager.widget.ViewPager

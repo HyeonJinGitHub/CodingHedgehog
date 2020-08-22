@@ -172,7 +172,7 @@ public class PillDetailActivity extends AppCompatActivity implements DetailFragm
         // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
         private static final String ARG_PARAM1 = "param1";
         private static final String ARG_PARAM2 = "param2";
-        Button btn1,btn2,btn3,btn4,btn5;
+        Button btn1,btn2,btn3,btn4;
     // TODO: Rename and change types of parameters
         public static String mParam1;
         private String mParam2;
@@ -202,7 +202,6 @@ public class PillDetailActivity extends AppCompatActivity implements DetailFragm
             btn2 = (Button)findViewById(R.id.button2);
             btn3 = (Button)findViewById(R.id.button3);
             btn4 = (Button)findViewById(R.id.button4);
-            btn5 = (Button)findViewById(R.id.button5);
 
             TextView drug_name = (TextView)findViewById(R.id.drug_name);
 
@@ -228,8 +227,6 @@ public class PillDetailActivity extends AppCompatActivity implements DetailFragm
             btn3.setTag(2);
             btn4.setOnClickListener(movePageListener);
             btn4.setTag(3);
-            btn5.setOnClickListener(movePageListener);
-            btn5.setTag(4);
             DetailFragment1 fragment1 = new DetailFragment1();
             adapter.addItem(fragment1);
             DetailFragment2 fragment2 = new DetailFragment2();
@@ -238,8 +235,6 @@ public class PillDetailActivity extends AppCompatActivity implements DetailFragm
             adapter.addItem(fragment3);
             DetailFragment4 fragment4 = new DetailFragment4();
             adapter.addItem(fragment4);
-            DetailFragment5 fragment5 = new DetailFragment5();
-            adapter.addItem(fragment5);
 
             pager.setAdapter(adapter);
 
@@ -266,9 +261,6 @@ public class PillDetailActivity extends AppCompatActivity implements DetailFragm
             bundle4.putString("caution",pillDetail.getCaution());
             fragment4.setArguments(bundle4);
 
-            Bundle bundle5 =new Bundle(1);
-            bundle5.putString("mediguide",pillDetail.getMediguide());
-            fragment5.setArguments(bundle5);
             /*
             drug_name.setText("약 이름 : " +pillDetail.getDrug_name());
             upso_name_kfda.setText("제조사 : " + pillDetail.getUpso_name_kfda());
@@ -340,36 +332,26 @@ public class PillDetailActivity extends AppCompatActivity implements DetailFragm
                     btn2.setTextColor(Color.BLACK);
                     btn3.setTextColor(Color.BLACK);
                     btn4.setTextColor(Color.BLACK);
-                    btn5.setTextColor(Color.BLACK);
                     break;
                 case R.id.button2:
                     btn2.setTextColor(Color.parseColor("#0191D8"));
                     btn1.setTextColor(Color.BLACK);
                     btn3.setTextColor(Color.BLACK);
                     btn4.setTextColor(Color.BLACK);
-                    btn5.setTextColor(Color.BLACK);
                     break;
                 case R.id.button3:
                     btn3.setTextColor(Color.parseColor("#0191D8"));
                     btn2.setTextColor(Color.BLACK);
                     btn1.setTextColor(Color.BLACK);
                     btn4.setTextColor(Color.BLACK);
-                    btn5.setTextColor(Color.BLACK);
                     break;
                 case R.id.button4:
                     btn4.setTextColor(Color.parseColor("#0191D8"));
                     btn2.setTextColor(Color.BLACK);
                     btn3.setTextColor(Color.BLACK);
                     btn1.setTextColor(Color.BLACK);
-                    btn5.setTextColor(Color.BLACK);
                     break;
-                case R.id.button5:
-                    btn5.setTextColor(Color.parseColor("#0191D8"));
-                    btn2.setTextColor(Color.BLACK);
-                    btn3.setTextColor(Color.BLACK);
-                    btn4.setTextColor(Color.BLACK);
-                    btn1.setTextColor(Color.BLACK);
-                    break;
+
 
             }
         }

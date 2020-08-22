@@ -17,11 +17,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:text="@string/empty_view_text2"/>
+        android:text="복용 중인 알약을 추가해보세요!"/>
     <Button
         android:id="@+id/inter_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:text="검색"/>
+        android:layout_gravity="bottom|center"
+        android:background="@drawable/custom_button"
+        android:padding="10dp"
+        android:textSize="18dp"
+        android:layout_marginBottom="10dp"
+        android:text="상호작용 검색"
+        />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

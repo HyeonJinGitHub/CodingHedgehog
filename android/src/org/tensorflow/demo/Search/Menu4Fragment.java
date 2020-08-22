@@ -1,6 +1,7 @@
 package org.tensorflow.demo.Search;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -58,11 +59,14 @@ public final class Menu4Fragment extends Fragment{
 
     private BookmarksAdapter mAdapter;
     public String drug_list = "";
+    private ProgressDialog dialog;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
+        dialog = new ProgressDialog(getActivity());
         super.onCreate(savedInstanceState);
     }
+
 
     @Nullable
     @Override
@@ -77,28 +81,41 @@ public final class Menu4Fragment extends Fragment{
         drug_list = drug_list.substring(0, drug_list.length() - 1); // 마지막은 쉼표 제거
 
         Button button = (Button)v.findViewById(R.id.inter_button);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ArrayList<PillInteractionVO> inter_list = new ArrayList<PillInteractionVO>();
-                try {
-                    inter_list = new DownloadInteraction(getActivity()).execute(drug_list).get();
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                for(int i = 0; i < inter_list.size(); i++){
-                    System.out.println("drug_name1 : " + inter_list.get(i).getDrug_name1());
-                    System.out.println("drug_name2 : " + inter_list.get(i).getDrug_name2());
-                    System.out.println("effect : " + inter_list.get(i).getEffect());
-                }
+                dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                dialog.setMessage("상호작용을 검색중입니다.");
+                dialog.setCancelable(false);
+                dialog.setCanceledOnTouchOutside(false);
+                dialog.show();
+                final Thread t = new Thread(){
+                    public void run(){
+                        ArrayList<PillInteractionVO> inter_list = new ArrayList<PillInteractionVO>();
+                        try {
+                            inter_list = new DownloadInteraction(getActivity()).execute(drug_list).get();
+                        } catch (ExecutionException e) {
+                            e.printStackTrace();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        for(int i = 0; i < inter_list.size(); i++){
+                            System.out.println("drug_name1 : " + inter_list.get(i).getDrug_name1());
+                            System.out.println("drug_name2 : " + inter_list.get(i).getDrug_name2());
+                            System.out.println("effect : " + inter_list.get(i).getEffect());
+                        }
 
-                Intent intent = new Intent(getActivity(), PillInterationActivity.class);
-                intent.putExtra("inter_list", inter_list);
-                startActivity(intent);
+                        Intent intent = new Intent(getActivity(), PillInterationActivity.class);
+                        intent.putExtra("inter_list", inter_list);
+                        startActivity(intent);
+                    }
+                };
+                t.start();
             }
         });
+
+
 
         final EmptyRecyclerView rv = v.findViewById(R.id.recycler);
         mAdapter = new BookmarksAdapter(getContext());
@@ -132,6 +149,7 @@ public final class Menu4Fragment extends Fragment{
         mAdapter.setBookmarks(bookmarks);
         mAdapter.notifyDataSetChanged();
     }
+
 }
 
 
@@ -152,12 +170,6 @@ class DownloadInteraction extends AsyncTask<String,String,ArrayList<PillInteract
 
     @Override
     protected void onPreExecute() {
-        dialog = new ProgressDialog(activity);
-        dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        dialog.setMessage("상호작용을 검색중입니다.");
-        dialog.setCancelable(false);
-        dialog.setCanceledOnTouchOutside(false);
-        dialog.show();
         super.onPreExecute();
     }
 
