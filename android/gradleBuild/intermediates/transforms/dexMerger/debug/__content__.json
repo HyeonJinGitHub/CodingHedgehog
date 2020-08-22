@@ -1,1 +1,5 @@
+<<<<<<< HEAD
+[{"name":"C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\gradleBuild\\intermediates\\transforms\\dexBuilder\\debug\\88","index":0,"scopes":["PROJECT"],"types":["DEX"],"format":"DIRECTORY","present":true},{"name":"C:\\Users\\mayso\\Github\\CodingHedgehog\\android\\gradleBuild\\intermediates\\transforms\\externalLibsDexMerger\\debug\\0","index":1,"scopes":["EXTERNAL_LIBRARIES"],"types":["DEX"],"format":"DIRECTORY","present":true},{"name":"externalLibs","index":2,"scopes":["EXTERNAL_LIBRARIES"],"types":["DEX"],"format":"DIRECTORY","present":true}]
+=======
 [{"name":"C:\\Users\\zxd98\\CodingHedgehog\\android\\gradleBuild\\intermediates\\transforms\\dexBuilder\\debug\\176","index":0,"scopes":["PROJECT"],"types":["DEX"],"format":"DIRECTORY","present":true},{"name":"C:\\Users\\zxd98\\CodingHedgehog\\android\\gradleBuild\\intermediates\\transforms\\externalLibsDexMerger\\debug\\0","index":1,"scopes":["EXTERNAL_LIBRARIES"],"types":["DEX"],"format":"DIRECTORY","present":true},{"name":"externalLibs","index":2,"scopes":["EXTERNAL_LIBRARIES"],"types":["DEX"],"format":"DIRECTORY","present":true}]
+>>>>>>> sanghyun

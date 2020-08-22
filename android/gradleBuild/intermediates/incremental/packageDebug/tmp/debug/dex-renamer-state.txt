@@ -1,7 +1,16 @@
+<<<<<<< HEAD
 #Thu Aug 20 22:47:09 KST 2020
+=======
+<<<<<<< HEAD
+#Tue Jun 30 15:45:26 KST 2020
+base.0=C\:\\Users\\mayso\\Github\\CodingHedgehog\\android\\gradleBuild\\intermediates\\transforms\\dexMerger\\debug\\1
+=======
+#Thu Aug 13 21:10:25 KST 2020
+>>>>>>> f7027cdbadc484548d6c3ae6da4322692f46bd7c
 base.0=C\:\\Users\\zxd98\\CodingHedgehog\\android\\gradleBuild\\intermediates\\transforms\\dexMerger\\debug\\1
+>>>>>>> sanghyun
 path.1=classes.dex
 renamed.1=classes2.dex
 path.0=classes.dex
 renamed.0=classes.dex
-base.1=C\:\\Users\\zxd98\\CodingHedgehog\\android\\gradleBuild\\intermediates\\transforms\\dexMerger\\debug\\0
+base.1=C\:\\Users\\mayso\\Github\\CodingHedgehog\\android\\gradleBuild\\intermediates\\transforms\\dexMerger\\debug\\0
