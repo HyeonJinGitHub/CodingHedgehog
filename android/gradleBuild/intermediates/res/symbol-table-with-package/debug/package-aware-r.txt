@@ -858,6 +858,7 @@ color dim_foreground_disabled_material_light
 color dim_foreground_material_dark
 color dim_foreground_material_light
 color divider
+color effect
 color error_color_material_dark
 color error_color_material_light
 color foreground_material_dark
@@ -1787,7 +1788,11 @@ id disableHome
 id dismiss_btn
 id dosage
 id dropdown_menu
+id drug_effect
+id drug_image1
+id drug_image2
 id drug_name
+id drug_name1
 id drug_name_text
 id drug_print
 id drug_print_text
@@ -1827,6 +1832,7 @@ id gone
 id grid_layout
 id group_divider
 id groups
+id guide
 id help1
 id help2
 id help3
@@ -1839,9 +1845,12 @@ id icon
 id icon_group
 id ifRoom
 id image
+id imageButton
 id imageView
 id imageview
 id info
+id inter_button
+id introduce
 id invisible
 id italic
 id item_ingr_type
@@ -1862,6 +1871,7 @@ id load_main_activity_btn
 id masked
 id media_actions
 id mediguide
+id medititle
 id message
 id middle
 id mini
@@ -1917,6 +1927,10 @@ id parent_matrix
 id password_toggle
 id peekHeight
 id percent
+id picto1
+id picto2
+id picto3
+id pill_img
 id pin
 id print
 id progress_circular
@@ -1988,6 +2002,7 @@ id sunb
 id tabMode
 id tableLayout
 id tableLayout2
+id tableLayout3
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
 id tag_accessibility_heading
@@ -2123,6 +2138,7 @@ layout activity_first_help5
 layout activity_fisrt_start
 layout activity_main
 layout activity_pill_detail
+layout activity_pill_interaction
 layout activity_pill_list
 layout activity_speech
 layout activity_text_search
@@ -2164,6 +2180,7 @@ layout fragment_menu1_list
 layout fragment_menu2
 layout fragment_menu3
 layout fragment_menu4
+layout list_inter_item
 layout list_text_item
 layout listiem
 layout listview_footer

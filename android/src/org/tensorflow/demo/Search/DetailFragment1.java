@@ -1,20 +1,31 @@
 package org.tensorflow.demo.Search;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
 import org.tensorflow.demo.R;
 
+import java.io.BufferedInputStream;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -31,6 +42,8 @@ public class DetailFragment1 extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    HashMap<String, Bitmap> mMap = new HashMap<String,Bitmap>();
+    Handler handler;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -75,29 +88,41 @@ public class DetailFragment1 extends Fragment {
         // Inflate the layout for this fragment
         View v= inflater.inflate(R.layout.fragment_detail1, container, false);
 
-        ListView listView = (ListView)v.findViewById(R.id.listview);
-        List<String> list =new ArrayList<>();
+        ImageView pill_img = (ImageView)v.findViewById(R.id.pill_img);
+        ImageView picto1= (ImageView)v.findViewById(R.id.picto1);
+        ImageView picto2= (ImageView)v.findViewById(R.id.picto2);
+        ImageView picto3= (ImageView)v.findViewById(R.id.picto3);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(),android.R.layout.simple_list_item_1,list);
-        listView.setAdapter(adapter);
+        TextView medititle = (TextView)v.findViewById(R.id.medititle);
+        TextView mediguide = (TextView)v.findViewById(R.id.mediguide);
 
-        /*
-            bundle1.putString("upso_name_kfda",pillDetail.getUpso_name_kfda());
-            bundle1.putString("cls_name",pillDetail.getCls_name());
-            bundle1.putString("item_ingr_type",pillDetail.getItem_ingr_type());
-            bundle1.putString("charact",pillDetail.getCharact());
-            bundle1.putString("sunb",pillDetail.getSunb());
-         */
         Bundle bundle1 = getArguments();
         if(bundle1!=null){
-            //text1.setText(bundle1.getString("drug_name"));
-            //Log.i("pill",bundle1.getString("drug_name"));
-            list.add(bundle1.getString("upso_name_kfda"));
-            list.add(bundle1.getString("cls_name"));
-            list.add(bundle1.getString("item_ingr_type"));
-            list.add(bundle1.getString("charact"));
-            list.add(bundle1.getString("sunb"));
+            loadImage("http://www.pharm.or.kr/images/sb_photo/small/" + bundle1.getString("img_code") + "_s.jpg", pill_img);
+            String temp = bundle1.getString("picto_img");
+            System.out.println("temp :" + temp);
+
+            if(temp != null) {
+                String[] pictos = temp.split("\\|");
+
+                for (int i = 0; i < pictos.length; i++) {
+                    System.out.println("pictos[" + i + "] : " + pictos[i]);
+                    if (i == 0) loadImage(pictos[i], picto1);
+                    else if (i == 1) loadImage(pictos[i], picto2);
+                    else if (i == 2) loadImage(pictos[i], picto3);
+
+                }
+            }
+            medititle.setText(bundle1.getString("medititle"));
+            mediguide.setText(bundle1.getString("mediguide"));
         }
+
+        handler = new Handler(){
+            @Override
+            public void handleMessage(final Message msg) {
+            }
+        };
+
 
         return v;
     }
@@ -139,5 +164,44 @@ public class DetailFragment1 extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    private void loadImage(final String url, final ImageView imageview){
+        Bitmap bitmap = mMap.get(url);
+        if(bitmap == null){
+            Thread t = new Thread(){
+                public void run(){
+                    getBitmap(url);
+                    handler.post(new Runnable(){
+                        @Override
+                        public void run() {
+                            imageview.setImageBitmap(mMap.get(url));
+                        }
+                    });
+                }
+            };
+            t.start();
+        }else{
+            imageview.setImageBitmap(bitmap);
+        }
+    }
+
+    public Bitmap getBitmap(String url) {
+        Bitmap bm = null;
+        try {
+            URL aURL = new URL(url);
+            URLConnection conn = aURL.openConnection();
+            conn.connect();
+            InputStream is = conn.getInputStream();
+            BufferedInputStream bis = new BufferedInputStream(is);
+            bm = BitmapFactory.decodeStream(new PillList.FlushedInputStream(is));
+            mMap.put(url, bm);
+            bis.close();
+            is.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+        }
+        return bm;
     }
 }

@@ -26,14 +26,20 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.google.gson.JsonObject;
+
 import java.io.BufferedReader;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 
+import static android.content.ContentValues.TAG;
 import static java.lang.Thread.sleep;
 import static org.tensorflow.demo.Search.PillDetailActivity.drug_code;
 
@@ -43,6 +49,9 @@ import org.tensorflow.demo.Alarm.model.AlarmGroup;
 import org.tensorflow.demo.Alarm.service.LoadAlarmsService;
 import org.tensorflow.demo.Alarm.ui.AddEditAlarmActivity;
 import org.tensorflow.demo.Alarm.ui.AddEditAlarmFragment;
+import org.tensorflow.demo.PillDetailVO;
+import org.tensorflow.demo.PillInteractionVO;
+import org.tensorflow.demo.PillParsing;
 import org.tensorflow.demo.R;
 import org.tensorflow.demo.bookmark.Bookmark;
 import org.tensorflow.demo.bookmark.Database;
@@ -170,6 +179,9 @@ public class PillDetailActivity extends AppCompatActivity implements DetailFragm
 
         public static String drug_code;
         public static String drug_name;
+        public static String img_code;
+
+        public static String inter_name;
         ViewPager pager;
 
     //private org.tensorflow.demo.Search.DetailFragment.OnFragmentInteractionListener mListener;
@@ -184,6 +196,7 @@ public class PillDetailActivity extends AppCompatActivity implements DetailFragm
             Intent intent = getIntent();
             drug_code = intent.getStringExtra("drug_code");
             drug_name = intent.getStringExtra("drug_name");
+            img_code = intent.getStringExtra("img_code");
 
             btn1 = (Button)findViewById(R.id.button1);
             btn2 = (Button)findViewById(R.id.button2);
@@ -193,20 +206,6 @@ public class PillDetailActivity extends AppCompatActivity implements DetailFragm
 
             TextView drug_name = (TextView)findViewById(R.id.drug_name);
 
-            /*
-            //TextView text = (TextView)v.findViewById(R.id.textView);
-            TextView drug_name = (TextView)findViewById(R.id.drug_name);
-            TextView upso_name_kfda = (TextView)findViewById(R.id.upso_name_kfda);
-            TextView cls_name = (TextView)findViewById(R.id.cls_name);
-            TextView item_ingr_type = (TextView)findViewById(R.id.item_ingr_type);
-            TextView charact = (TextView)findViewById(R.id.charact);
-            TextView sunb = (TextView)findViewById(R.id.sunb);
-            TextView effect = (TextView)findViewById(R.id.effecttㅑ);
-            TextView dosage = (TextView)findViewById(R.id.dosage);
-            TextView caution = (TextView)findViewById(R.id.caution);
-            TextView mediguide = (TextView)findViewById(R.id.mediguide);
-            TextView stmt = (TextView)findViewById(R.id.stmt);
-*/
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.CUPCAKE) {
                 new DownloadDetail().execute(); // .get()
             }
@@ -244,16 +243,15 @@ public class PillDetailActivity extends AppCompatActivity implements DetailFragm
 
             pager.setAdapter(adapter);
 
-            PillDetail pillDetail =  DownloadDetail.getPillDetail();
-
+            PillDetailVO pillDetail =  DownloadDetail.getPillDetailVO();
+            System.out.println("drug_name: "+pillDetail.getDrug_name());
             drug_name.setText(pillDetail.getDrug_name());
 
-            Bundle bundle1 = new Bundle(5);
-            bundle1.putString("upso_name_kfda",pillDetail.getUpso_name_kfda());
-            bundle1.putString("cls_name",pillDetail.getCls_name());
-            bundle1.putString("item_ingr_type",pillDetail.getItem_ingr_type());
-            bundle1.putString("charact",pillDetail.getCharact());
-            bundle1.putString("sunb",pillDetail.getSunb());
+            Bundle bundle1 = new Bundle(4);
+            bundle1.putString("img_code",img_code);
+            bundle1.putString("mediguide",pillDetail.getMediguide());
+            bundle1.putString("picto_img",pillDetail.getPicto_img());
+            bundle1.putString("medititle",pillDetail.getMedititle());
             fragment1.setArguments(bundle1);
 
             Bundle bundle2 =new Bundle(1);
@@ -309,6 +307,7 @@ public class PillDetailActivity extends AppCompatActivity implements DetailFragm
                     bookmark.setId(id);
                     bookmark.setName(drug_name);
                     bookmark.setCode(drug_code);
+                    bookmark.setImgidfy_code(img_code);
                     bookmark.setState(1);
                     Database.getInstance(this).updateBookmark(bookmark);
                     item.setIcon(R.drawable.ic_yellow_star_24dp);
@@ -333,7 +332,6 @@ public class PillDetailActivity extends AppCompatActivity implements DetailFragm
         @Override
         public void onClick(View v)
         {
-
             int tag = (int) v.getTag();
             pager.setCurrentItem(tag);
             switch (v.getId()){
@@ -405,17 +403,6 @@ public class PillDetailActivity extends AppCompatActivity implements DetailFragm
         }
     }
 
-
-        /**
-         * This interface must be implemented by activities that contain this
-         * fragment to allow an interaction in this fragment to be communicated
-         * to the activity and potentially other fragments contained in that
-         * activity.
-         * <p>
-         * See the Android Training lesson <a href=
-         * "http://developer.android.com/training/basics/fragments/communicating.html"
-         * >Communicating with Other Fragments</a> for more information.
-         */
         public interface OnFragmentInteractionListener {
             // TODO: Update argument type and name
             void onFragmentInteraction(Uri uri);
@@ -424,15 +411,15 @@ public class PillDetailActivity extends AppCompatActivity implements DetailFragm
 
     class DownloadDetail extends AsyncTask<String,String,String> {
         //데이터를 저장하게 되는 리스트
-        static public ArrayList<Pill> list = new ArrayList<>();
-        static public PillDetail pillDetail = new PillDetail();
+        static public PillDetailVO pillDetailVO = new PillDetailVO();
+        static public ArrayList<PillDetailVO> list = new ArrayList<PillDetailVO>();
 
-        public static PillDetail getPillDetail() {
-            return pillDetail;
+        public static PillDetailVO getPillDetailVO() {
+            // list.get(0)
+            return pillDetailVO;
         }
 
-        public static ArrayList<Pill> getList() {
-            //Log.i("pill","데이터"+list.get(0).getRnum());
+        public static ArrayList<PillDetailVO> getList() {
             return list;
         }
         @Override
@@ -447,8 +434,13 @@ public class PillDetailActivity extends AppCompatActivity implements DetailFragm
         @Override
         protected String doInBackground(String... strings) {
             try {
-                getData();
-            } catch (MalformedURLException e) {
+                PillParsing parsing = new PillParsing();
+                String json = getData(drug_code);
+                if(json != ""){
+                    pillDetailVO = parsing.getPillDetail(json); // Array형태의 json Parsing
+                    System.out.println("pillDetail(2)" + pillDetailVO.getEffect());
+                }
+            } catch (IOException e) {
                 e.printStackTrace();
             }
             return null;
@@ -473,80 +465,54 @@ public class PillDetailActivity extends AppCompatActivity implements DetailFragm
             }
             return sb.toString();
         }
-        private void getData() throws MalformedURLException {
-            Log.i("pill","url입력됨");
-            String str="";
-            String line="";
-            // Pill pill = new Pill();
 
-            URL url = new URL("http://dikweb.health.kr/ajax/drug_info/drug_info_ajax.asp?nsearch=ndetail&drug_code="+ drug_code);
+        private String getData(String drug_code) throws IOException {
+            HttpURLConnection con = null;
+            String get_data = "";
 
-            Log.i("pill","http://dikweb.health.kr/ajax/drug_info/drug_info_ajax.asp?nsearch=ndetail&drug_code="+ drug_code);
-            try {
-                HttpURLConnection con = (HttpURLConnection) url.openConnection();
-                con.setRequestMethod("GET");
-                BufferedReader rd = new BufferedReader(new InputStreamReader(con.getInputStream()));
-                Log.i("pill","http연결");
-                while((line = rd.readLine()) != null){
-                    str += line;
+            URL url = new URL("http://ec2-18-221-12-38.us-east-2.compute.amazonaws.com:3000/detailpage");
+            // origin : ec2-3-128-160-84.us-east-2.compute.amazonaws.com
+            // new : ec2-18-221-12-38.us-east-2.compute.amazonaws.com
+            con = (HttpURLConnection) url.openConnection();
+            con.setDoInput(true);
+            con.setDoOutput(true);
+            con.setUseCaches(false);
+            con.setRequestMethod("POST");
+            con.setRequestProperty("Connection", "Keep-Alive");
+            con.setRequestProperty("Content-Type", "application/json");
+            con.setRequestProperty("Accept", "application/json");
+
+            con.connect();
+
+            OutputStream os = con.getOutputStream();
+            JsonObject json = new JsonObject();
+
+            json.addProperty("drug_code", drug_code);
+            os.write(json.toString().getBytes());
+
+            Log.i(TAG, "write drugCode : " + drug_code);
+
+            os.flush(); // 업로드 끝
+            os.close(); // 닫기
+
+            int responseCode = con.getResponseCode();
+            StringBuffer response = new StringBuffer(); // 받아온 데이터
+
+            Log.i(TAG, "응답코드 : " + responseCode + " 응답메세지 : " + con.getResponseMessage());
+
+            if (responseCode == HttpURLConnection.HTTP_OK || responseCode == HttpURLConnection.HTTP_CREATED) {
+                BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+                String inputLine;
+
+                while ((inputLine = in.readLine()) != null) {
+                    response.append(inputLine);
                 }
-
-            } catch (IOException e) {
-                Log.i("pill","http연결실패");
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                in.close();
+                Log.i(TAG, "받은 데이터 : " + response);
+                // 서버로 부터 받아온 알약 데이터값
+                if(response.toString().substring(0, 5) != "Error") // 에러 발생하면 "" return
+                    get_data = response.toString();
             }
-            str = unicodeConvert(str);
-            //str = str.replace("[","");
-            //str = str.replace("]","");
-            str = str.replace("{","");
-            str = str.replace("}","");
-            str = str.replace("\\n","");
-            str = str.replace("\\","");
-            str = str.replace("<br/>","\r\n");
-            str = str.replace("</br>", "");
-            str = str.replace("<P></P>  ","\r\n");
-            str = str.replace("<P></P>","\r\n");
-
-            Log.i("pill",str);
-
-            String[] array = str.split("\",\"");
-            Log.i("string", String.valueOf(array.length));
-            int start;
-            Log.i("pill length", String.valueOf(array.length));
-
-            for(int j=0;j<array.length;j++) {
-                //pillDetail pillDetail = new pillDetail();
-                if ((start = array[j].indexOf("drug_name")) > -1) {
-                    pillDetail.setDrug_name(array[j].substring(start + 12, array[j].length()));
-                } if ((start = array[j].indexOf("drug_enm")) > -1) {
-                    pillDetail.setDrug_enm(array[j].substring(start + 11, array[j].length()));
-                }if ((start = array[j].indexOf("upso_name_kfda")) > -1) {
-                    pillDetail.setUpso_name_kfda(array[j].substring(start + 17, array[j].length()));
-                }if ((start = array[j].indexOf("cls_name")) > -1) {
-                    pillDetail.setCls_name(array[j].substring(start + 11, array[j].length()));
-                }if ((start = array[j].indexOf("item_ingr_type")) > -1) {
-                    pillDetail.setItem_ingr_type(array[j].substring(start + 17, array[j].length() ));
-                }  if ((start = array[j].indexOf("charact")) > -1) {
-                    pillDetail.setCharact(array[j].substring(start + 10, array[j].length()));
-                }if ((start = array[j].indexOf("sunb")) > -1) {
-                    pillDetail.setSunb(array[j].substring(start + 7, array[j].length()));
-                }if ((start = array[j].indexOf("effect")) > -1) {
-                    pillDetail.setEffect(array[j].substring(start + 9, array[j].length()));
-                }if ((start = array[j].indexOf("dosage")) > -1) {
-                    pillDetail.setDosage (array[j].substring(start + 9, array[j].length()));
-                }if ((start = array[j].indexOf("caution")) > -1) {
-                    pillDetail.setCaution(array[j].substring(start + 10, array[j].length()));
-                }if ((start = array[j].indexOf("mediguide")) > -1) {
-                    pillDetail.setMediguide (array[j].substring(start + 12, array[j].length()));
-                }if ((start = array[j].indexOf("stmt")) > -1) {
-                    pillDetail.setStmt(array[j].substring(start + 7, array[j].length()));
-                }
-            }
-            //Log.i("pill",pillDetail.getDrug_name());
-
-
+            return get_data;
         }
-
     }
-

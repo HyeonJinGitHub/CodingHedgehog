@@ -3,6 +3,7 @@ package org.tensorflow.demo.Search;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,11 +19,25 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.google.gson.JsonObject;
+
+import org.tensorflow.demo.PillDetailVO;
+import org.tensorflow.demo.PillParsing;
 import org.tensorflow.demo.R;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
+import java.net.URL;
 import java.net.URLEncoder;
+import java.util.ArrayList;
+
+import static android.content.ContentValues.TAG;
+import static org.tensorflow.demo.Search.PillDetailActivity.drug_code;
 import static org.tensorflow.demo.Search.PillListActivity.once;
 
 
@@ -31,6 +46,7 @@ public class TextSearchActivity extends AppCompatActivity {
     private PillListActivity menu1_list= new PillListActivity();
     String drug_color="";
     String drug_shape="";
+    String get_data = "";
 
 
     @Override
@@ -88,7 +104,6 @@ public class TextSearchActivity extends AppCompatActivity {
                     drug_color = drug_color.replace(btn.getText()+",","");
                 }
                 Log.i("pill", drug_color);
-
             }
         };
         Cbtn1.setOnClickListener(onClickColorListener);
@@ -117,7 +132,7 @@ public class TextSearchActivity extends AppCompatActivity {
                         drug_shape = drug_shape + btn.getText() + ",";
                     }
                 }else{
-                    drug_shape = drug_shape.replace(btn.getText()+",","");
+                    drug_shape = drug_shape.replace(btn.getText()+",",""); // 원형 - 타원형 수정
                 }
                 Log.i("pill",drug_shape);
             }
@@ -137,29 +152,40 @@ public class TextSearchActivity extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 // call data from web URL
-                    once = 0;
-                String Dname = null;
+                once = 0;
                 try {
-                    Dname = URLEncoder.encode(String.valueOf(drug_name.getText()), "UTF-8");
-                    String Dprint = URLEncoder.encode(String.valueOf(drug_print.getText()),"UTF-8");
-                    String Dcolor = URLEncoder.encode(String.valueOf(drug_color),"UTF-8");
-                    String Dshape = URLEncoder.encode(String.valueOf(drug_shape),"UTF-8");
-                    //Dcolor+="%2C";
-                    Log.i("pill",Dcolor);
-                    Log.i("pill",drug_color);
-                    String url = "http://dikweb.health.kr/ajax/idfy_info/idfy_info_ajax.asp?drug_name="+Dname+"&drug_print="+Dprint+"&match=include&mark_code=&drug_color="+Dcolor+"&drug_linef=&drug_lineb=&drug_shape="+Dshape+"&drug_form=&drug_shape_etc=&inner_search=print&inner_keyword=&nsearch=npages";
-                    String url2 = "http://dikweb.health.kr/ajax/idfy_info/idfy_info_ajax.asp?drug_name="+Dname+"&drug_print="+Dprint+"&match=include&mark_code=&drug_color="+Dcolor+"&drug_linef=&drug_lineb=&drug_shape="+Dshape+"&drug_form=&drug_shape_etc=&inner_search=print&inner_keyword=&";
+                    if(drug_shape.length()>0){
+                        drug_shape = drug_shape.substring(0, drug_shape.length()-1);
+                    }
+                    if(drug_color.length()>0){
+                        drug_color = drug_color.substring(0, drug_color.length()-1);
+                    }
+
+                    Log.i("drug_name : ", drug_name.getText().toString());
+                    Log.i("drug_print : ", drug_print.getText().toString());
+                    Log.i("drug_shape : ", drug_shape);
+                    Log.i("drug_color : ", drug_color);
+
+                    String[] data = new String[4];
+                    data[0] = drug_name.getText().toString();
+                    data[1] = drug_print.getText().toString();
+                    data[2] = drug_shape;
+                    data[3] = drug_color;
+
+                    get_data = new DownloadText().execute(data).get();
+                    Log.i("get_data : ", get_data);
+
+                    // 초기화
+                    drug_color = drug_color + ",";
+                    drug_shape = drug_shape + ",";
 
                     Intent intent = new Intent(getApplicationContext(),PillListActivity.class);
-
-                    intent.putExtra("mparam1",url);
-                    intent.putExtra("mparam2",url2);
-
+                    intent.putExtra("mparam1", get_data);
                     startActivity(intent);
-                } catch (UnsupportedEncodingException e) {
+
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
-
             }
         });
 
@@ -218,3 +244,77 @@ public class TextSearchActivity extends AppCompatActivity {
 
 }
 
+class DownloadText extends AsyncTask<String,String,String> {
+
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+    }
+
+    @Override
+    protected String doInBackground(String... strings) {
+        String get_data = "";
+        try {
+             get_data = getData(strings[0], strings[1], strings[2], strings[3]);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return get_data;
+    }
+
+    protected void onPostExecute(String result) {
+    }
+
+    private String getData(String drug_name, String searchText, String shape, String color) throws IOException {
+        HttpURLConnection con = null;
+        String get_data = "";
+
+        URL url = new URL("http://ec2-18-221-12-38.us-east-2.compute.amazonaws.com:3000/textpage");
+        // origin : ec2-3-128-160-84.us-east-2.compute.amazonaws.com
+        // new : ec2-18-221-12-38.us-east-2.compute.amazonaws.com
+        con = (HttpURLConnection) url.openConnection();
+        con.setDoInput(true);
+        con.setDoOutput(true);
+        con.setUseCaches(false);
+        con.setRequestMethod("POST");
+        con.setRequestProperty("Connection", "Keep-Alive");
+        con.setRequestProperty("Content-Type", "application/json");
+        con.setRequestProperty("Accept", "application/json");
+
+        con.connect();
+
+        OutputStream os = con.getOutputStream();
+        JsonObject json = new JsonObject();
+
+        json.addProperty("drug_name", drug_name);
+        json.addProperty("searchText", searchText);
+        json.addProperty("shape", shape);
+        json.addProperty("color", color);
+        os.write(json.toString().getBytes());
+
+        Log.i(TAG, "write drugName : " + drug_name);
+
+        os.flush(); // 업로드 끝
+        os.close(); // 닫기
+
+        int responseCode = con.getResponseCode();
+        StringBuffer response = new StringBuffer(); // 받아온 데이터
+
+        Log.i(TAG, "응답코드 : " + responseCode + " 응답메세지 : " + con.getResponseMessage());
+
+        if (responseCode == HttpURLConnection.HTTP_OK || responseCode == HttpURLConnection.HTTP_CREATED) {
+            BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+            String inputLine;
+
+            while ((inputLine = in.readLine()) != null) {
+                response.append(inputLine);
+            }
+            in.close();
+            Log.i(TAG, "받은 데이터 : " + response);
+            // 서버로 부터 받아온 알약 데이터값
+            if ( response.toString().length() > 0) // 에러 발생하면 "" return
+                get_data = response.toString();
+        }
+        return get_data;
+    }
+}

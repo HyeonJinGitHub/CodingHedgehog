@@ -4,6 +4,7 @@ public class Bookmark {
     long id;
     String code;
     String name;
+    String imgidfy_code;
     int state;
 
     public long getId() {
@@ -36,5 +37,13 @@ public class Bookmark {
 
     public void setState(int state) {
         this.state = state;
+    }
+
+    public String getImgidfy_code() {
+        return imgidfy_code;
+    }
+
+    public void setImgidfy_code(String imgidfy_code) {
+        this.imgidfy_code= imgidfy_code;
     }
 }

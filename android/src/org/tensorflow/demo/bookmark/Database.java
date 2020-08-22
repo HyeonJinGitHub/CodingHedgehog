@@ -21,6 +21,7 @@ public final class Database extends SQLiteOpenHelper {
     public static final String _ID = "_id";
     public static final String DRUG_CODE = "code";
     public static final String DRUG_NAME = "name";
+    public static final String IMGIDFY_CODE = "imgidfy_code";
     public static final String STATE = "state";
 
 
@@ -46,6 +47,7 @@ public final class Database extends SQLiteOpenHelper {
                 _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 DRUG_CODE + " TEXT, "+
                 DRUG_NAME + " TEXT, "+
+                IMGIDFY_CODE + " TEXT, "+
                 STATE + " INTEGER "+
                 ");";
 
@@ -99,7 +101,6 @@ public final class Database extends SQLiteOpenHelper {
 
     public List<Bookmark> getBookmarks() {
         Cursor c = null;
-
         try{
             c = getReadableDatabase().query(TABLE_NAME, null, null, null, null, null, null);
             return BookmarkUtils.buildBookmarkList(c);
@@ -107,13 +108,28 @@ public final class Database extends SQLiteOpenHelper {
             if (c != null && !c.isClosed()) c.close();
         }
     }
+
+    public  String readBookmarkImage(String name) {
+        final String where = DRUG_NAME+ "=";
+        String read = "SELECT * FROM "+TABLE_NAME+" WHERE "+where+"\""+name+"\"";
+        Cursor c = getReadableDatabase().rawQuery(read,null);
+        String image ="";
+
+        for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()){
+            System.out.println("들어감");
+            image = c.getString(c.getColumnIndex(IMGIDFY_CODE)); // Imagify_code
+            System.out.println("image2 : " + image);
+        }
+        return image;
+    }
+
     public int readBookmark(String code) {
         final String where = DRUG_CODE+ "=";
         String read = "SELECT * FROM "+TABLE_NAME+" WHERE "+where+"\""+code+"\"";
         Cursor c = getReadableDatabase().rawQuery(read,null);
         int state = 0;
         while(c.moveToNext()){
-            state =  c.getInt(3);
+            state =  c.getInt(4);
         }
         return state;
     }

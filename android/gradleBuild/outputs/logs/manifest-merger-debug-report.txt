@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:2:1-79:12
+ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:2:1-84:12
 MERGED from [org.tensorflow:tensorflow-android:1.13.1] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\tensorflow-android-1.13.1.aar\9831ccefeb2c7c2cdca62fb7dc001568\AndroidManifest.xml:2:1-8:12
 MERGED from [com.google.android.material:material:1.2.0-alpha05] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\material-1.2.0-alpha05.aar\076075145c0ba83eea835897707ccd00\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\appcompat-1.1.0.aar\c0beb54d85c2e450800f3c0993922ef8\AndroidManifest.xml:17:1-24:12
@@ -99,7 +99,7 @@ ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:20:5-80
 	android:name
 		ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:20:22-77
 application
-ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:22:5-77:19
+ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:22:5-82:19
 MERGED from [org.tensorflow:tensorflow-android:1.13.1] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\tensorflow-android-1.13.1.aar\9831ccefeb2c7c2cdca62fb7dc001568\AndroidManifest.xml:5:5-6:19
 MERGED from [org.tensorflow:tensorflow-android:1.13.1] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\tensorflow-android-1.13.1.aar\9831ccefeb2c7c2cdca62fb7dc001568\AndroidManifest.xml:5:5-6:19
 MERGED from [com.google.android.material:material:1.2.0-alpha05] C:\Users\zxd98\.gradle\caches\transforms-1\files-1.1\material-1.2.0-alpha05.aar\076075145c0ba83eea835897707ccd00\AndroidManifest.xml:22:5-20
@@ -199,34 +199,42 @@ activity#org.tensorflow.demo.FirstStartActivity
 ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:64:9-56
 	android:name
 		ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:64:19-53
+activity#org.tensorflow.demo.Search.PillInterationActivity
+ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:65:9-68:46
+	android:label
+		ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:67:13-40
+	android:theme
+		ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:68:13-44
+	android:name
+		ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:66:13-58
 service#org.tensorflow.demo.Alarm.service.LoadAlarmsService
-ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:65:9-68
+ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:69:9-68
 	android:name
-		ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:65:18-65
+		ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:69:18-65
 receiver#org.tensorflow.demo.Alarm.service.LoadAlarmsReceiver
-ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:67:9-70
+ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:72:9-70
 	android:name
-		ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:67:19-67
+		ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:72:19-67
 receiver#org.tensorflow.demo.Alarm.service.AlarmReceiver
-ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:68:9-65
+ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:73:9-65
 	android:name
-		ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:68:19-62
+		ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:73:19-62
 receiver#org.tensorflow.demo.Alarm.service.BootReceiver
-ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:69:9-76:20
+ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:74:9-81:20
 	android:enabled
-		ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:71:13-35
+		ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:76:13-35
 	android:exported
-		ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:72:13-36
+		ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:77:13-36
 	android:name
-		ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:70:13-55
+		ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:75:13-55
 intent-filter#action:name:android.intent.action.BOOT_COMPLETED
-ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:73:13-75:29
+ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:78:13-80:29
 	android:priority
-		ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:73:28-49
+		ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:78:28-49
 action#android.intent.action.BOOT_COMPLETED
-ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:74:17-79
+ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:79:17-79
 	android:name
-		ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:74:25-76
+		ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:79:25-76
 uses-sdk
 INJECTED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml
@@ -318,4 +326,4 @@ INJECTED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml
 		ADDED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml
 		INJECTED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml
 uses-permission#android.permission.READ_PHONE_STATE
-IMPLIED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:2:1-79:12 reason: tensorflow.contrib.android has a targetSdkVersion < 4
+IMPLIED from C:\Users\zxd98\CodingHedgehog\android\AndroidManifest.xml:2:1-84:12 reason: tensorflow.contrib.android has a targetSdkVersion < 4

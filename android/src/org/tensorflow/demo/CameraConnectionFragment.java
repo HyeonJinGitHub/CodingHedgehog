@@ -21,6 +21,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.Fragment;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -252,6 +253,7 @@ public class CameraConnectionFragment extends Fragment {
   private int cap_count = 0; // 캡쳐한 횟수
   private byte[][] img_bytes = new byte[2][]; // 캡쳐한 이미지를 담을 이차원배열
   public String[] locations = new String[2];
+
 
   private final ConnectionCallback cameraConnectionCallback;
 
@@ -676,6 +678,7 @@ public class CameraConnectionFragment extends Fragment {
           .create();
     }
   }
+
   /* 이미지 캡쳐 함수 */
   public void takePicture() {
     if(null == cameraDevice) {
@@ -746,14 +749,12 @@ public class CameraConnectionFragment extends Fragment {
               // 좌표값 처리
               String str = DetectorActivity.rect_location.toString(); // 확률 0.6 이상의 좌표값
               str = str.substring(6, str.length()-1);
-
               String[] xy = str.split(",");
 
               for(int i = 0; i < xy.length; i++){
                 xy[i] = xy[i].substring(0, xy[i].indexOf("."));
               }
-              String location = xy[0] + "," + xy[1] + "," + xy[2] + "," + xy[1] + ","
-                      + xy[2] + "," + xy[3] + ", " + xy[0] + "," + xy[3];
+              String location = xy[0] + "," + xy[1] + "," + xy[2] + "," + xy[1] + "," + xy[2] + "," + xy[3] + ", " + xy[0] + "," + xy[3];
 
               locations[cap_count] = location; // 최근에 찍은 좌표값을 저장
               cap_count++;
@@ -773,33 +774,15 @@ public class CameraConnectionFragment extends Fragment {
             }
 
             if(cap_count == 2){ // 두번 캡쳐 했을때 (앞, 뒤)
+              DetectorActivity.tts.stop();
               DetectorActivity.tts.shutdown(); // tts 중지
-              closeCamera(); // 카메라 중지
+              closeCamera();
+
               get_data = new FileUpload(getActivity(), locations).execute(img_bytes).get(); // 서버에 이미지와 좌표 전
               cap_count = 0;
             }
 
             if(!get_data.equals("")){ // 받아온 데이터가 있음
-              /*
-              DataProcess dp = new DataProcess(); // 받아온 데이터 처리
-              String data[] = get_data.split(","); // 쉼표로 구분
-
-              String Dcolor = dp.getColor(data[0]); // 색상 처리
-              String Dshape = dp.getShape(data[1]); // 모양 처리
-              String Dprint = dp.getPrint(data[2]); // 글자 처리
-              Log.i("TAG", "받아온 데이터2 : " + data[0] + ", " + data[1] + ", " + data[2]);
-              Log.i("TAG", "받아온 데이터2 : " + Dcolor + ", " + Dshape + ", " + Dprint);
-
-              String url1 = "http://dikweb.health.kr/ajax/idfy_info/idfy_info_ajax.asp?drug_name=&drug_print="+ Dprint+"&match=include&mark_code=&drug_color="+Dcolor+"&drug_linef=&drug_lineb=&drug_shape="+Dshape+"&drug_form=&drug_shape_etc=&inner_search=print&inner_keyword=&nsearch=npages";
-              String url2 = "http://dikweb.health.kr/ajax/idfy_info/idfy_info_ajax.asp?drug_name=&drug_print="+ Dprint+"&match=include&mark_code=&drug_color="+Dcolor+"&drug_linef=&drug_lineb=&drug_shape="+Dshape+"&drug_form=&drug_shape_etc=&inner_search=print&inner_keyword=&";
-
-              Intent intent = new Intent(getActivity(), PillListActivity.class);
-
-              intent.putExtra("mparam1", url1);
-              intent.putExtra("mparam2", url2);
-
-              startActivity(intent); // 해당하는 알약 리스트 검색 (액티비티 이동)
-              */
               Intent intent = new Intent(getActivity(), PillListActivity.class);
 
               intent.putExtra("mparam1", get_data);

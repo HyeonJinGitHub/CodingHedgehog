@@ -62,7 +62,12 @@
             android:theme="@style/AlertLandingPageTheme" />
         <activity android:name=".Cardnew1Activity" />
         <activity android:name=".FirstStartActivity" />
+        <activity
+            android:name=".Search.PillInterationActivity"
+            android:label="알약 상호작용 리스트"
+            android:theme="@style/AppTheme"/>
         <service android:name=".Alarm.service.LoadAlarmsService" />
+
 
         <receiver android:name=".Alarm.service.LoadAlarmsReceiver" />
         <receiver android:name=".Alarm.service.AlarmReceiver" />

@@ -80,7 +80,7 @@ public final class BookmarksAdapter extends RecyclerView.Adapter<BookmarksAdapte
                 Intent intent = new Intent(view.getContext(), PillDetailActivity.class);
                 intent.putExtra("drug_code",bookmark.getCode());
                 intent.putExtra("drug_name",bookmark.getName());
-
+                intent.putExtra("img_code", bookmark.getImgidfy_code());
                 c.startActivity(intent);
             }
         });
@@ -126,5 +126,4 @@ public final class BookmarksAdapter extends RecyclerView.Adapter<BookmarksAdapte
             row = itemView.findViewById(R.id.row);
         }
     }
-
 }

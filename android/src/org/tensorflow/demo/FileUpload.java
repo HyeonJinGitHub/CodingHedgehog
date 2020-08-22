@@ -1,9 +1,11 @@
 package org.tensorflow.demo;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Camera;
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.util.Base64;
@@ -26,8 +28,7 @@ import static android.content.ContentValues.TAG;
 
 public class FileUpload extends AsyncTask <byte[], Void, String> {
     Context context;
-    ProgressDialog dialog;
-
+    Activity activity;
     HttpURLConnection con = null;
     HttpURLConnection con2 = null;
     String lineEnd = "\r\n";
@@ -39,22 +40,30 @@ public class FileUpload extends AsyncTask <byte[], Void, String> {
     String drug_color = "";
     String drug_color2 = "";
     String locations[] = new String[2];
+    ProgressDialog dialog;
 
+    /*
     public FileUpload(Context context, String[] strings) {
         this.context = context;
         this.locations = strings;
+        dialog = new ProgressDialog(context);
+    }
+    */
+
+    public FileUpload(Activity activity, String[] strings) {
+        this.activity = activity;
+        this.locations = strings;
+        dialog = new ProgressDialog(activity);
     }
 
     @Override
     protected void onPreExecute() {
-        super.onPreExecute();
-        dialog = new ProgressDialog(context, ProgressDialog.THEME_HOLO_LIGHT);
         dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         dialog.setMessage("알약을 검색하는중입니다.");
         dialog.setCancelable(false);
         dialog.setCanceledOnTouchOutside(false);
-
         dialog.show();
+        super.onPreExecute();
     }
 
     @Override
@@ -120,10 +129,10 @@ public class FileUpload extends AsyncTask <byte[], Void, String> {
                 in.close();
                 Log.i(TAG, "받은 데이터 : " + response);
                 // 서버로 부터 받아온 알약 데이터값
-                if(response.toString().substring(0, 5) != "Error") // 에러 발생하면 "" return
+                if(response.toString().length() > 0) // 에러 발생하면 "" return
                     drug_color = response.toString();
             }
-
+            /*
             // 뒷면 이미지
             URL url2 = new URL("http://ec2-18-221-12-38.us-east-2.compute.amazonaws.com:3000/imgback");
             con2 = (HttpURLConnection) url2.openConnection();
@@ -174,7 +183,7 @@ public class FileUpload extends AsyncTask <byte[], Void, String> {
                 // 서버로 부터 받아온 알약 데이터값
                 drug_color2 = response2.toString();
             }
-
+              */
         } catch (Exception e) {
             Log.i(TAG, "Upload_Exception" + e.getMessage());
         } finally {
@@ -185,6 +194,7 @@ public class FileUpload extends AsyncTask <byte[], Void, String> {
                 con2.disconnect();
         }
 
+
         Log.i(TAG, "마지막 리턴값" + drug_color);
 
         return drug_color;
@@ -193,9 +203,9 @@ public class FileUpload extends AsyncTask <byte[], Void, String> {
     @Override
     protected void onPostExecute(String result){
         super.onPostExecute(result);
-        if(dialog != null && dialog.isShowing())
-            dialog.dismiss();
 
+        if(dialog != null)
+            dialog.dismiss();
         if(drug_color.equals("")){ // 받아온 데이터가 없음 --> 서버연결에 문제 발생
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
             builder.setCancelable(false);

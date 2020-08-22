@@ -34,5 +34,6 @@
     <color name="icons">#FFFFFF</color>
     <color name="divider">#6B7A85</color>
     <color name="button">#77C6FF</color>
+    <color name="effect">#C00000</color>
 
 </resources>

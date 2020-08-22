@@ -35,6 +35,7 @@ import static org.tensorflow.demo.Alarm.data.DatabaseHelper._ID;
 import static org.tensorflow.demo.Alarm.ui.AddEditAlarmFragment.alarm;
 import static org.tensorflow.demo.bookmark.Database.DRUG_CODE;
 import static org.tensorflow.demo.bookmark.Database.DRUG_NAME;
+import static org.tensorflow.demo.bookmark.Database.IMGIDFY_CODE;
 import static org.tensorflow.demo.bookmark.Database.STATE;
 
 
@@ -45,10 +46,11 @@ public final class BookmarkUtils {
     //DB에 넣기 전에 내용을 바꿔주는 부분
     public static ContentValues toContentValues(Bookmark bookmark) {
 
-        final ContentValues cv = new ContentValues(3);
+        final ContentValues cv = new ContentValues(4);
 
         cv.put(DRUG_CODE, bookmark.getCode());
         cv.put(DRUG_NAME, bookmark.getName());
+        cv.put(IMGIDFY_CODE, bookmark.getImgidfy_code());
         cv.put(STATE, bookmark.getState());
 
         return cv;
@@ -70,20 +72,19 @@ public final class BookmarkUtils {
                 final long id = c.getLong(c.getColumnIndex(_ID));
                 final String code = c.getString(c.getColumnIndex(DRUG_CODE));
                 final String name = c.getString(c.getColumnIndex(DRUG_NAME));
+                final String imgidfy_code = c.getString(c.getColumnIndex(IMGIDFY_CODE));
+
 
                 final Bookmark bookmark = new Bookmark();
                 bookmark.setId(id);
                 bookmark.setCode(code);
                 bookmark.setName(name);
+                bookmark.setImgidfy_code(imgidfy_code);
 
                 bookmarks.add(bookmark);
             } while (c.moveToNext());
         }
 
         return bookmarks;
-
     }
-
-
-
 }

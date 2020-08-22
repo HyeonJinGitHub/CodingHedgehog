@@ -133,7 +133,7 @@ public class PillListActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         mParam1 = intent.getExtras().getString("mparam1");
-        //mParam2 = intent.getExtras().getString("mparam2");
+        // mParam2 = intent.getExtras().getString("mparam2");
         once = 0;
 
         // TTS 초기화
@@ -162,13 +162,15 @@ public class PillListActivity extends AppCompatActivity {
         listCnt = 10;
 
         try {
-            //cnt = new DownloadList().execute().get();
-            // sleep(1000);        //900이였음
-
             PillParsing pillParsing = new PillParsing();
-            list = pillParsing.getPillList(mParam1);
-            cnt = list.size();
-
+            if(mParam1.length() > 5) { // 데이터 1개 이상
+                list = pillParsing.getPillList(mParam1);
+                cnt = list.size();
+            }
+            else {
+                String text = "[알림] 검색 결과가 없습니다.";
+                Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG).show();
+            }
             Log.i("TAG", "count 개수 : " + cnt);
         } catch (Exception e) {
             e.printStackTrace();
@@ -186,18 +188,13 @@ public class PillListActivity extends AppCompatActivity {
                 Log.i("pill","더보기 클릭"+ cnt);
                 try {
                     if(cnt >10){
-                        // cnt = Integer.toString(cnt -10);
                         cnt = cnt - 10;
                         listCnt = listCnt+10;
                         Log.i("pill","Cnt : "+ cnt);
                         //count = count-10;
                     }else{
                         listCnt = listCnt+cnt;
-                        //count=1;
                     }
-                    // new DownloadList().execute();
-                    // sleep(900);        //900이였음
-                    // Log.i("pill", String.valueOf(listCnt));
                     adapter.notifyDataSetChanged();
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -227,6 +224,8 @@ public class PillListActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(),PillDetailActivity.class);
                 intent.putExtra("drug_code",list.get(position).getDrug_code());
                 intent.putExtra("drug_name",list.get(position).getDrug_name());
+                intent.putExtra("img_code",list.get(position).getImgidfy_code());
+
                 startActivity(intent);
             }
         });
@@ -247,10 +246,9 @@ public class PillListActivity extends AppCompatActivity {
 class PillList extends ArrayAdapter<String>{
     private final Activity context;
     HashMap<String, Bitmap> mMap = new HashMap<String,Bitmap>();
-    public PillList(Activity context ) {
+
+    public PillList(Activity context) {
         super(context, R.layout.listiem);
-        Log.i("pill","ok");
-        //super(context, R.layout.listiem, download.getList());
         this.context = context;
     }
     public int getCount(){
@@ -489,7 +487,7 @@ class DownloadList extends AsyncTask<String,String,Integer> {
                 }*/
                 /* 여기서부터 새 주석
                 if ((start = array[j].indexOf("drug_code")) > -1) {
-                    pill.setDrug_code(array[j].substring(start + 12, array[j].length() - 1));
+                    pill.set(array[j].substring(start + 12, array[j].length() - 1));
                 }if ((start = array[j].indexOf("imgidfy_code")) > -1) {
                     pill.setImgidfy_code(array[j].substring(start + 15, array[j].length() - 1));
                 }if ((start = array[j].indexOf("print_front")) > -1) {
