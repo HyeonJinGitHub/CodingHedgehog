@@ -1,6 +1,8 @@
 package org.tensorflow.demo.Search;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -17,6 +19,7 @@ import android.widget.ToggleButton;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import com.google.gson.JsonObject;
@@ -245,11 +248,6 @@ public class TextSearchActivity extends AppCompatActivity {
 }
 
 class DownloadText extends AsyncTask<String,String,String> {
-
-    @Override
-    protected void onPreExecute() {
-        super.onPreExecute();
-    }
 
     @Override
     protected String doInBackground(String... strings) {

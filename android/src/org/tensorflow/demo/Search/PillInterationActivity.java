@@ -110,9 +110,6 @@ class PillAdapter extends ArrayAdapter<String> {
         TextView drug_effect = rowView.findViewById(R.id.drug_effect);
         ImageView drug_image1 = rowView.findViewById(R.id.drug_image1);
         ImageView drug_image2 = rowView.findViewById(R.id.drug_image2);
-        // TextView drug_name2 = rowView.findViewById(R.id.drug_name2);
-
-
 
         if(list.size() !=0) {
             String name1 = list.get(position).getDrug_name1();

@@ -1,5 +1,8 @@
 package org.tensorflow.demo.Search;
 
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.AsyncTask;
@@ -66,12 +69,12 @@ public final class Menu4Fragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         final View v = inflater.inflate(R.layout.fragment_menu4, container, false);
-        final List<Bookmark> bookmark = Database.getInstance(getContext()).getBookmarks();
+        final List<Bookmark> bookmark = Database.getInstance(getActivity()).getBookmarks();
 
         for(int i = 0; i <bookmark.size(); i++){
             drug_list += bookmark.get(i).getName() + ",";
         }
-        drug_list = drug_list.substring(0, drug_list.length() - 1); // 쉼표 제거
+        drug_list = drug_list.substring(0, drug_list.length() - 1); // 마지막은 쉼표 제거
 
         Button button = (Button)v.findViewById(R.id.inter_button);
         button.setOnClickListener(new View.OnClickListener() {
@@ -79,7 +82,7 @@ public final class Menu4Fragment extends Fragment{
             public void onClick(View v) {
                 ArrayList<PillInteractionVO> inter_list = new ArrayList<PillInteractionVO>();
                 try {
-                    inter_list = new DownloadInteraction().execute(drug_list).get();
+                    inter_list = new DownloadInteraction(getActivity()).execute(drug_list).get();
                 } catch (ExecutionException e) {
                     e.printStackTrace();
                 } catch (InterruptedException e) {
@@ -137,13 +140,24 @@ class DownloadInteraction extends AsyncTask<String,String,ArrayList<PillInteract
     //데이터를 저장하게 되는 리스트
     static public PillInteractionVO pillInteractionVO = new PillInteractionVO();
     static public ArrayList<PillInteractionVO> inter_list = new ArrayList<PillInteractionVO>();
-
     public static ArrayList<PillInteractionVO> getInterList(){
         return inter_list;
+    }
+    ProgressDialog dialog;
+    // Context context;
+    Activity activity;
+    public DownloadInteraction(Activity activity){
+        this.activity = activity;
     }
 
     @Override
     protected void onPreExecute() {
+        dialog = new ProgressDialog(activity);
+        dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        dialog.setMessage("상호작용을 검색중입니다.");
+        dialog.setCancelable(false);
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.show();
         super.onPreExecute();
     }
 
@@ -163,8 +177,11 @@ class DownloadInteraction extends AsyncTask<String,String,ArrayList<PillInteract
         return inter_list;
     }
 
-    protected void onPostExecute(String result) {
-        //mTextView.setText(result);
+    @Override
+    protected void onPostExecute(ArrayList<PillInteractionVO> result) {
+        super.onPostExecute(result);
+        if(dialog != null)
+            dialog.dismiss();
     }
 
 
