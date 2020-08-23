@@ -45,6 +45,7 @@ public class DetailFragment1 extends Fragment {
     HashMap<String, Bitmap> mMap = new HashMap<String,Bitmap>();
     Handler handler;
 
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;

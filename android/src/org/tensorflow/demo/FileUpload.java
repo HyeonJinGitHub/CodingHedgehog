@@ -53,16 +53,11 @@ public class FileUpload extends AsyncTask <byte[], Void, String> {
     public FileUpload(Activity activity, String[] strings) {
         this.activity = activity;
         this.locations = strings;
-        dialog = new ProgressDialog(activity);
+        //dialog = new ProgressDialog(activity);
     }
 
     @Override
     protected void onPreExecute() {
-        dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        dialog.setMessage("알약을 검색하는중입니다.");
-        dialog.setCancelable(false);
-        dialog.setCanceledOnTouchOutside(false);
-        dialog.show();
         super.onPreExecute();
     }
 

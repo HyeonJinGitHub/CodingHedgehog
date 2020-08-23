@@ -88,6 +88,7 @@ import org.tensorflow.demo.R; // Explicit import needed for internal Google buil
 import static android.content.ContentValues.TAG;
 
 public class CameraConnectionFragment extends Fragment {
+  private ProgressDialog dialog;
   private static final Logger LOGGER = new Logger();
 
   /**
@@ -454,6 +455,8 @@ public class CameraConnectionFragment extends Fragment {
   private void openCamera(final int width, final int height) {
     setUpCameraOutputs();
     configureTransform(width, height);
+    dialog = new ProgressDialog(getActivity());
+
     final Activity activity = getActivity();
     final CameraManager manager = (CameraManager) activity.getSystemService(Context.CAMERA_SERVICE);
     try {
@@ -731,7 +734,7 @@ public class CameraConnectionFragment extends Fragment {
         public void onImageAvailable(ImageReader reader) {
           Image image = null;
           try {
-            String get_data = "";
+            final String[] get_data = {""};
 
             image = reader.acquireLatestImage();
             ByteBuffer buffer = image.getPlanes()[0].getBuffer();
@@ -778,14 +781,31 @@ public class CameraConnectionFragment extends Fragment {
               DetectorActivity.tts.shutdown(); // tts 중지
               closeCamera();
 
-              get_data = new FileUpload(getActivity(), locations).execute(img_bytes).get(); // 서버에 이미지와 좌표 전
+              //다이어로그
+              dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+              dialog.setMessage("이미지로 알약을 검색중입니다.");
+              dialog.setCancelable(false);
+              dialog.setCanceledOnTouchOutside(false);
+              dialog.show();
+              final Thread t = new Thread(){
+                public void run() {
+                  try {
+                    get_data[0] = new FileUpload(getActivity(), locations).execute(img_bytes).get(); // 서버에 이미지와 좌표 전
+                  } catch (ExecutionException e) {
+                    e.printStackTrace();
+                  } catch (InterruptedException e) {
+                    e.printStackTrace();
+                  }
+                }
+              };
+              t.start();
               cap_count = 0;
             }
 
-            if(!get_data.equals("")){ // 받아온 데이터가 있음
+            if(!get_data[0].equals("")){ // 받아온 데이터가 있음
               Intent intent = new Intent(getActivity(), PillListActivity.class);
 
-              intent.putExtra("mparam1", get_data);
+              intent.putExtra("mparam1", get_data[0]);
               startActivity(intent);
 
             }
@@ -794,11 +814,7 @@ public class CameraConnectionFragment extends Fragment {
           } catch (IOException e) {
             e.printStackTrace();
           }
-          catch (InterruptedException e) {
-            e.printStackTrace();
-          } catch (ExecutionException e) {
-            e.printStackTrace();
-          }
+
           finally {
             if (image != null) {
               image.close();
