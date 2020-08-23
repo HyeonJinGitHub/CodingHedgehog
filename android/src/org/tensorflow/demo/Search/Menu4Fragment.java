@@ -78,7 +78,8 @@ public final class Menu4Fragment extends Fragment{
         for(int i = 0; i <bookmark.size(); i++){
             drug_list += bookmark.get(i).getName() + ",";
         }
-        drug_list = drug_list.substring(0, drug_list.length() - 1); // 마지막은 쉼표 제거
+        if(drug_list.length() > 0)
+            drug_list = drug_list.substring(0, drug_list.length() - 1); // 마지막은 쉼표 제거
 
         Button button = (Button)v.findViewById(R.id.inter_button);
 

@@ -28,7 +28,6 @@ import static android.content.ContentValues.TAG;
 
 public class FileUpload extends AsyncTask <byte[], Void, String> {
     Context context;
-    Activity activity;
     HttpURLConnection con = null;
     HttpURLConnection con2 = null;
     String lineEnd = "\r\n";
@@ -42,8 +41,8 @@ public class FileUpload extends AsyncTask <byte[], Void, String> {
     String locations[] = new String[2];
     ProgressDialog dialog;
 
-    public FileUpload(Activity activity, String[] strings) {
-        this.activity = activity;
+    public FileUpload(Context context, String[] strings) {
+        this.context = context;
         this.locations = strings;
     }
 

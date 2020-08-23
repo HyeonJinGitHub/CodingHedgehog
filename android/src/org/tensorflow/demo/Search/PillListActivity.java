@@ -231,6 +231,16 @@ public class PillListActivity extends AppCompatActivity {
         });
 
     }
+
+    @Override
+    public void onBackPressed(){
+        // list 초기화
+        list.clear();
+        listCnt = 0;
+        cnt = 0;
+        super.onBackPressed();
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
@@ -348,176 +358,3 @@ class PillList extends ArrayAdapter<String>{
     }
 }
 
-class DownloadList extends AsyncTask<String,String,Integer> {
-    //데이터를 저장하게 되는 리스트
-    //static public ArrayList<PillListVO> list = new ArrayList<>();
-    //static public String totCnt;
-    //static public int count;
-
-    //public static ArrayList<PillListVO> getList() {
-    //    return list;
-    //}
-    @Override
-    protected void onPreExecute() {
-        super.onPreExecute();
-        /*
-        try {
-            getData();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        */
-    }
-
-    @Override
-    protected Integer doInBackground(String... strings) {
-        int total_cnt = 0;
-        /*
-        try {
-            total_cnt = getData();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-         */
-        return total_cnt;
-    }
-
-    /*
-    protected void onPostExecute(String result) {
-        //mTextView.setText(result);
-    }
-
-    private static String unicodeConvert(String str) {
-        StringBuilder sb = new StringBuilder();
-        char ch;
-        int len = str.length();
-        for (int i = 0; i < len; i++) {
-            ch = str.charAt(i);
-            if (ch == '\\' && str.charAt(i+1) == 'u') {
-                sb.append((char) parseInt(str.substring(i+2, i+6), 16));
-                i+=5;
-                continue;
-            }
-            sb.append(ch);
-        }
-        return sb.toString();
-    }
-
-    private int getData() throws MalformedURLException{
-        Log.i("pill","url입력됨");
-        String str="";
-        String line="";
-        int start;
-        int j = 0;
-
-        if(once==0) {
-            //Intent로 변경
-            Log.i("pill","Once == 0");
-            URL url = new URL(PillListActivity.mParam1);
-            try {
-                HttpURLConnection con = (HttpURLConnection) url.openConnection();
-                con.setRequestMethod("GET");
-                BufferedReader rd = new BufferedReader(new InputStreamReader(con.getInputStream()));
-                Log.i("pill", "http연결");
-                while ((line = rd.readLine()) != null) {
-                    str += line;
-                }
-            } catch (IOException e) {
-                Log.i("pill", "http연결실패");
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-            str = unicodeConvert(str);
-            str = str.replace("[", "");
-            str = str.replace("]", "");
-            str = str.replace("{", "");
-            str = str.replace("}", "");
-            if ((start = str.indexOf("totCnt")) > -1) {
-                totCnt = str.substring(start + 8, str.length());
-                Log.i("pill", str);
-            }
-            else{
-                totCnt="";
-            }
-            once = 1;
-        }
-        count = Integer.parseInt(totCnt)-10;
-        */
-        //http://dikweb.health.kr/ajax/idfy_info/idfy_info_ajax.asp?drug_name=&drug_print=H&match=include&mark_code=&drug_color=&drug_linef=&drug_lineb=&drug_shape=&drug_form=&drug_shape_etc=&inner_search=print&inner_keyword=&strP=3586&endP=1&nsearch=nsearch
-        /*
-        URL url2 = new URL(PillListActivity.mParam2+"strP="+totCnt+"&endP="+count+"&nsearch=nsearch");
-        Log.i("pill", PillListActivity.mParam2+"strP="+totCnt+"&endP="+count +"&nsearch=nsearch");
-        try {
-            HttpURLConnection con = (HttpURLConnection) url2.openConnection();
-            con.setRequestMethod("GET");
-            BufferedReader rd = new BufferedReader(new InputStreamReader(con.getInputStream()));
-            Log.i("pill","http연결");
-            str="";
-            while((line = rd.readLine()) != null){
-                str += line;
-            }
-
-        } catch (IOException e) {
-            Log.i("pill","http연결실패");
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        str = unicodeConvert(str);
-        str = str.replace("[","");
-        str = str.replace("]","");
-        str = str.replace("{","");
-        str = str.replace("}","");
-        str = str.replace("/","");
-        str = str.replace("\\","");
-        Log.i("pill","데이터 받아옴");
-        Log.i("pill",str);
-        start = 0;
-        String[] array = str.split(",");
-        Log.i("string", String.valueOf(array.length));
-        for(int i=0;i<array.length/8;i++) {
-            Pill pill = new Pill();
-            for(int k=0;k<8;k++) {
-
-         */
-                /*if ((start = array[j].indexOf("rnum")) > -1) {
-                    pill.setRnum(array[j].substring(start + 6, array[j].length()));
-                    Log.i("pill", j + "" + pill.getRnum());
-                } if ((start = array[j].indexOf("idx")) > -1) {
-                    pill.idx = array[j].substring(start + 5, array[j].length());
-                }*/
-                /* 여기서부터 새 주석
-                if ((start = array[j].indexOf("drug_code")) > -1) {
-                    pill.set(array[j].substring(start + 12, array[j].length() - 1));
-                }if ((start = array[j].indexOf("imgidfy_code")) > -1) {
-                    pill.setImgidfy_code(array[j].substring(start + 15, array[j].length() - 1));
-                }if ((start = array[j].indexOf("print_front")) > -1) {
-                    pill.setPrint_front(array[j].substring(start + 14, array[j].length() - 1));
-                }if ((start = array[j].indexOf("print_back")) > -1) {
-                    pill.setPrint_back (array[j].substring(start + 13, array[j].length() - 1));
-                }if ((start = array[j].indexOf("drug_name")) > -1) {
-                    pill.setDrug_name (array[j].substring(start + 12, array[j].length() - 1));
-                }if ((start = array[j].indexOf("upso_name_kfda")) > -1) {
-                    pill.setUpso_name_kfda(array[j].substring(start + 17, array[j].length() - 1));
-                }
-                j++;
-            }
-            //Log.i("pill","데이터 num "+pill.rnum);
-            //list.set(i,pill);
-            //Log.i("pill", "add num" + String.valueOf(listCnt - 10 + i));
-            //list.add(listCnt -10 + i, pill);
-
-            if(listCnt < 10) {
-                Log.i("pill", "add num" + String.valueOf(i));
-                list.add(i, pill);
-            }else{
-                Log.i("pill", "add num" + String.valueOf(listCnt - 10 + i));
-                list.add(listCnt -10 + i, pill);
-            }
-
-        }
-        Log.i("pill size", String.valueOf(list.size()));
-
-        return Integer.parseInt(totCnt);
-    }
-    */
-}

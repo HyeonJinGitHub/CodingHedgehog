@@ -156,31 +156,29 @@ public class TextSearchActivity extends AppCompatActivity {
             public void onClick(View v){
                 // call data from web URL
                 once = 0;
+                String drug_shape2 = ""; // 보내는 용
+                String drug_color2 = "";
                 try {
                     if(drug_shape.length()>0){
-                        drug_shape = drug_shape.substring(0, drug_shape.length()-1);
+                        drug_shape2 = drug_shape.substring(0, drug_shape.length()-1);
                     }
                     if(drug_color.length()>0){
-                        drug_color = drug_color.substring(0, drug_color.length()-1);
+                        drug_color2 = drug_color.substring(0, drug_color.length()-1);
                     }
 
                     Log.i("drug_name : ", drug_name.getText().toString());
                     Log.i("drug_print : ", drug_print.getText().toString());
-                    Log.i("drug_shape : ", drug_shape);
-                    Log.i("drug_color : ", drug_color);
+                    Log.i("drug_shape : ", drug_shape2);
+                    Log.i("drug_color : ", drug_color2);
 
                     String[] data = new String[4];
                     data[0] = drug_name.getText().toString();
                     data[1] = drug_print.getText().toString();
-                    data[2] = drug_shape;
-                    data[3] = drug_color;
+                    data[2] = drug_shape2;
+                    data[3] = drug_color2;
 
                     get_data = new DownloadText().execute(data).get();
                     Log.i("get_data : ", get_data);
-
-                    // 초기화
-                    drug_color = drug_color + ",";
-                    drug_shape = drug_shape + ",";
 
                     Intent intent = new Intent(getApplicationContext(),PillListActivity.class);
                     intent.putExtra("mparam1", get_data);
@@ -228,7 +226,6 @@ public class TextSearchActivity extends AppCompatActivity {
 
                 drug_shape="";
                 drug_color="";
-
             }
         });
     }

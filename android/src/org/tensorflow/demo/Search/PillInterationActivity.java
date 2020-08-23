@@ -75,24 +75,26 @@ public class PillInterationActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView,
                                     View view, int position, long id) {
-                String text = "이지엔6프로연질캡슐과 케토라신정을 함께 복용하시면 " + inter_list.get(position).getEffect() + "의 위험이 있습니다.";
+                String text = inter_list.get(position).getDrug_name1() + "과" + inter_list.get(position).getDrug_name2() + "을 함께 복용하시면 "
+                        + inter_list.get(position).getEffect() + "의 위험이 있습니다.";
                 tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
             }
         });
     }
-
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    public void onBackPressed(){
         tts.stop();
         tts.shutdown();
-    }
+        inter_list.clear();
+        super.onBackPressed();
+}
 }
 
 class PillAdapter extends ArrayAdapter<String> {
     private final Activity context;
     ArrayList<PillInteractionVO> list = PillInterationActivity.inter_list;
     HashMap<String, Bitmap> mMap = new HashMap<String,Bitmap>();
+
 
     public PillAdapter(Activity context) {
         super(context, R.layout.list_inter_item);
@@ -114,13 +116,16 @@ class PillAdapter extends ArrayAdapter<String> {
         if(list.size() !=0) {
             String name1 = list.get(position).getDrug_name1();
             String name2 = list.get(position).getDrug_name2();
-
+            /*
             if(name1.indexOf("(") > 0)
                 name1 = name1.substring(0, name1.indexOf("("));
             if(name2.indexOf("(") > 0)
                 name2 = name2.substring(0, name2.indexOf("("));
-            System.out.println("name1 : " + name1 + "name2 : " + name2);
 
+            PillInterationActivity.inter_list.get(position).setDrug_name1(name1);
+            PillInterationActivity.inter_list.get(position).setDrug_name2(name2);
+            */
+            System.out.println("name1 : " + name1 + "name2 : " + name2);
             drug_name1.setText(name1 + " & " + name2);
             drug_effect.setText(list.get(position).getEffect());
 
