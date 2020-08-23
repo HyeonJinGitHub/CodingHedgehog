@@ -113,6 +113,7 @@ public final class Menu4Fragment extends Fragment{
 
                         if(dialog != null)
                             dialog.dismiss();
+                        drug_list = ""; // 초기화 필수!!
                     }
                 };
                 t.start();
