@@ -30,7 +30,7 @@
             <ImageView
                 android:id="@+id/pill_img"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"></ImageView>
+                android:adjustViewBounds="true"></ImageView>
         </TableRow>
 
         <TableRow
