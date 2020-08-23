@@ -94,7 +94,7 @@ public final class Menu4Fragment extends Fragment{
                     public void run(){
                         ArrayList<PillInteractionVO> inter_list = new ArrayList<PillInteractionVO>();
                         try {
-                            inter_list = new DownloadInteraction(getActivity()).execute(drug_list).get();
+                            inter_list = new DownloadInteraction().execute(drug_list).get();
                         } catch (ExecutionException e) {
                             e.printStackTrace();
                         } catch (InterruptedException e) {
@@ -109,13 +109,14 @@ public final class Menu4Fragment extends Fragment{
                         Intent intent = new Intent(getActivity(), PillInterationActivity.class);
                         intent.putExtra("inter_list", inter_list);
                         startActivity(intent);
+
+                        if(dialog != null)
+                            dialog.dismiss();
                     }
                 };
                 t.start();
             }
         });
-
-
 
         final EmptyRecyclerView rv = v.findViewById(R.id.recycler);
         mAdapter = new BookmarksAdapter(getContext());
@@ -161,12 +162,6 @@ class DownloadInteraction extends AsyncTask<String,String,ArrayList<PillInteract
     public static ArrayList<PillInteractionVO> getInterList(){
         return inter_list;
     }
-    ProgressDialog dialog;
-    // Context context;
-    Activity activity;
-    public DownloadInteraction(Activity activity){
-        this.activity = activity;
-    }
 
     @Override
     protected void onPreExecute() {
@@ -192,8 +187,6 @@ class DownloadInteraction extends AsyncTask<String,String,ArrayList<PillInteract
     @Override
     protected void onPostExecute(ArrayList<PillInteractionVO> result) {
         super.onPostExecute(result);
-        if(dialog != null)
-            dialog.dismiss();
     }
 
 

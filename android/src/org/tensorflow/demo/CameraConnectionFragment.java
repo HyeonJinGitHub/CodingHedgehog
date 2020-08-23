@@ -48,6 +48,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
+import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Size;
@@ -77,6 +78,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
@@ -787,10 +790,22 @@ public class CameraConnectionFragment extends Fragment {
               dialog.setCancelable(false);
               dialog.setCanceledOnTouchOutside(false);
               dialog.show();
-              final Thread t = new Thread(){
-                public void run() {
+
+              final Handler handler = new Handler(){
+                public void handleMessage(Message msg){
                   try {
-                    get_data[0] = new FileUpload(getActivity(), locations).execute(img_bytes).get(); // 서버에 이미지와 좌표 전
+                    get_data[0] = new FileUpload(getActivity(), locations).execute(img_bytes).get(); // 서버에 이미지와 좌표
+                    Log.i("TAG", "받아옴");
+                    cap_count = 0;
+                    if(dialog != null)
+                      dialog.dismiss();
+
+                    if(!get_data[0].equals("")){ // 받아온 데이터가 있음
+                      Intent intent = new Intent(getActivity(), PillListActivity.class);
+
+                      intent.putExtra("mparam1", get_data[0]);
+                      startActivity(intent);
+                    }
                   } catch (ExecutionException e) {
                     e.printStackTrace();
                   } catch (InterruptedException e) {
@@ -798,17 +813,17 @@ public class CameraConnectionFragment extends Fragment {
                   }
                 }
               };
+
+              final Thread t = new Thread(){
+                public void run() {
+                  Message msg = handler.obtainMessage();
+                  handler.sendMessage(msg);
+                  Log.i("TAG", "다시 나옴");
+                }
+              };
               t.start();
-              cap_count = 0;
             }
 
-            if(!get_data[0].equals("")){ // 받아온 데이터가 있음
-              Intent intent = new Intent(getActivity(), PillListActivity.class);
-
-              intent.putExtra("mparam1", get_data[0]);
-              startActivity(intent);
-
-            }
           } catch (FileNotFoundException e) {
             e.printStackTrace();
           } catch (IOException e) {

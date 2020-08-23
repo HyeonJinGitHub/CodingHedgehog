@@ -42,18 +42,9 @@ public class FileUpload extends AsyncTask <byte[], Void, String> {
     String locations[] = new String[2];
     ProgressDialog dialog;
 
-    /*
-    public FileUpload(Context context, String[] strings) {
-        this.context = context;
-        this.locations = strings;
-        dialog = new ProgressDialog(context);
-    }
-    */
-
     public FileUpload(Activity activity, String[] strings) {
         this.activity = activity;
         this.locations = strings;
-        //dialog = new ProgressDialog(activity);
     }
 
     @Override
@@ -188,8 +179,6 @@ public class FileUpload extends AsyncTask <byte[], Void, String> {
             if(con2 != null)
                 con2.disconnect();
         }
-
-
         Log.i(TAG, "마지막 리턴값" + drug_color);
 
         return drug_color;
