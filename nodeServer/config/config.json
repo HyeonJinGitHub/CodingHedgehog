@@ -5,22 +5,22 @@
     "database": "medicine_db",
     "host": "127.0.0.1",
     "dialect": "mysql",
-    "operatorsAliases": false
+    "operatorAliases": false
   },
   "test": {
     "username": "root",
-    "password": null,
+    "password": "hogwarts",
     "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "mysql",
-    "operatorsAliases": false
+    "operatorAliases": false
   },
   "production": {
     "username": "root",
-    "password": null,
+    "password": "hogwarts",
     "database": "database_production",
     "host": "127.0.0.1",
     "dialect": "mysql",
-    "operatorsAliases": false
+    "operatorAliases": false
   }
 }

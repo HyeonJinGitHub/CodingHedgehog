@@ -75,7 +75,7 @@ def shadow_api():
      'https://api.remove.bg/v1.0/removebg',
      files={'image_file': open('images/result.jpg', 'rb')},
      data={'size': 'auto'},
-     headers={'X-Api-Key': '8KFa3UKq1NvAgnrV4T8DhJ21'},
+     headers={'X-Api-Key': 'iKV4JbaHKAXcq6AibiTTF38j'},
     )
     if response.status_code == requests.codes.ok:
         with open('images/finish.png', 'wb') as out:
