@@ -1,99 +1,42 @@
-import cv2 as cv
+from google.cloud import automl
 
-def setLabel(image, str, contour):
-    (text_width, text_height), baseline = cv.getTextSize(str, cv.FONT_HERSHEY_SIMPLEX, 0.7, 1)
-    x,y,width,height = cv.boundingRect(contour)
-    pt_x = x+int((width-text_width)/2)
-    pt_y = y+int((height + text_height)/2)
-    cv.rectangle(image, (pt_x, pt_y+baseline), (pt_x+text_width, pt_y-text_height), (200,200,200), cv.FILLED)
-    cv.putText(image, str, (pt_x, pt_y), cv.FONT_HERSHEY_SIMPLEX, 0.7, (0,0,0), 1, 8)
+# TODO(developer): Uncomment and set the following variables
 
 def shape():
-    img_color = cv.imread('images/finish.png', cv.IMREAD_COLOR)
+    project_id = "quixotic-sol-281406"
+    model_id = "ICN8423774195787235328"
+    file_path = "images/result.jpg"
 
-    img_gray = cv.cvtColor(img_color, cv.COLOR_RGB2GRAY)
+    prediction_client = automl.PredictionServiceClient()
 
-    ret,img_binary = cv.threshold(img_gray, 127, 255, cv.THRESH_BINARY_INV|cv.THRESH_OTSU)
-    img_binary = cv.bitwise_not(img_binary)
-    contours, hierarchy = cv.findContours(img_binary, cv.RETR_CCOMP, cv.CHAIN_APPROX_NONE)
-    
-    for cnt in contours:
-        size = len(cnt)
+    # Get the full path of the model.
+    model_full_id = prediction_client.model_path(
+     project_id, "us-central1", model_id
+    )
 
-        epsilon = 0.005 * cv.arcLength(cnt, True)
-        approx = cv.approxPolyDP(cnt, epsilon, True)
+    # Read the file.
+    with open(file_path, "rb") as content_file:
+        content = content_file.read()
 
-        size = len(approx)
+    image = automl.types.Image(image_bytes=content)
+    payload = automl.types.ExamplePayload(image=image)
 
-        cv.line(img_color, tuple(approx[0][0]), tuple(approx[size-1][0]), (0, 255, 0), 3)
-        for k in range(size-1):
-            cv.line(img_color, tuple(approx[k][0]), tuple(approx[k+1][0]), (0, 255, 0), 3)
+# params is additional domain-specific parameters.
+# score_threshold is used to filter the result
+# https://cloud.google.com/automl/docs/reference/rpc/google.cloud.automl.v1#predictrequest
+    params = {"score_threshold": "0.8"}
 
-        if cv.isContourConvex(approx):
-            if size == 3:
-                setLabel(img_color, "triangle", cnt)
-                ShapeName = "triangle"
-           # elif size == 4:
-            #    setLabel(img_color, "rectangle", cnt)
-             #   ShapeName = "rectangle"
-          #  elif size == 5:
-           #     setLabel(img_color, "pentagon", cnt)
-            #    ShapeName = "pentagon"
-           # elif size == 6:
-            #    setLabel(img_color, "hexagon", cnt)
-             #   ShapeName = "hexagon"
-           # elif size == 8:
-            #setLabel(img_color, "octagon", cnt)
-              #  ShapeName = "octagon"
-           # elif size == 10:
-            #    setLabel(img_color, "decagon", cnt)
-             #   ShapeName = "decagon"
-               # print(ShapeName)
-           # elif size >= 13 and size <= 20:
-            #    setLabel(img_color, "oval", cnt)
-            elif size >= 12 and size <=16:
-                setLabel(img_color, "oblong", cnt)
-                ShapeName = "oblong"
-                break
-               # print(ShapeName)
-            elif size >= 17 and size <=20:
-                setLabel(img_color, "circle", cnt)
-                ShapeName = "circle"
-                break
-           # elif size >=18 and size <=20:
-            #    setLabel(img_color, "oval", cnt)
-             #   ShapeName = "oval"
-            #    break
-           # elif size >= 17 and size <= 20:
-            #   setLabel(img_color, "oval", cnt)
-             #  ShapeName = "oval"
-              # break
-            else:
-                setLabel(img_color, str(size), cnt)
-                ShapeName = "other"
-                break
-        else:
-            if size >= 12 and size <= 16:
-                setLabel(img_color, "oblong", cnt)
-                ShapeName = "oblong"
-                break
-           # else:
-           #if size >= 12 and size <=15:
-            #   setLabel(img_color, "oblong", cnt)
-             #  ShapeName = "oblong"
-              # break
-            elif size >= 17 and size <= 20:
-               setLabel(img_color, "circle", cnt)
-               ShapeName = "circle"
-               break
-           #elif size >= 18 and size <=20:
-            #   setLabel(img_color, "oval", cnt)
-             #  ShapeName = "oval"
-              # break
-            else:
-               setLabel(img_color, str(size), cnt)
-               ShapeName = "other"
-               break
-
-    cv.imwrite('images/shape_result.jpg', img_color)
-    return ShapeName
+    response = prediction_client.predict(model_full_id, payload, params)
+   # print("Prediction results:")
+    for result in response.payload:
+       # print("Predicted class name: {}".format(result.display_name))
+       # print(
+         #"Predicted class score: {}".format(
+         #      result.image_object_detection.score
+         #)
+        #)
+        bounding_box = result.image_object_detection.bounding_box
+       # print("Normalized Vertices:")
+        #for vertex in bounding_box.normalized_vertices:
+         #   print("\tX: {}, Y: {}".format(vertex.x, vertex.y))
+        return result.display_name

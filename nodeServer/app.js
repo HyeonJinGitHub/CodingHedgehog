@@ -10,6 +10,10 @@ var sequelize = require('./models').sequelize;
 
 var fileRouter = require('./routes/listpage');
 var imgRouter = require('./routes/imgback');
+var detailRouter = require('./routes/detailpage');
+var textRouter = require('./routes/textpage');
+var interactionRouter = require('./routes/interactionpage');
+
 var app = express();
 sequelize.sync();
 
@@ -27,6 +31,10 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/listpage', fileRouter);
 app.use('/imgback', imgRouter);
+app.use('/detailpage', detailRouter);
+app.use('/textpage', textRouter);
+app.use('/interactionpage', interactionRouter);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

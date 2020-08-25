@@ -17,10 +17,6 @@ module.exports = (sequelize, DataTypes) => {
 			type: DataTypes.TEXT('medium'),
 			allowNull: false,
 		},
-		upso_name_kfda: {
-			type: DataTypes.TEXT('medium'),
-			allowNull: false,
-		},
 		cls_name: {
 			type: DataTypes.TEXT('medium'),
 			allowNull: false,
